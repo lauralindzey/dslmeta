@@ -8,9 +8,10 @@ struct nav_soln_t
                    SOLN_PHINS                    = 3,	
                    SOLN_CFUSBL                   = 4,	
                    SOLN_CFLBL                    = 5,			
-                   SOLN_CFGPS                    = 6,			
-                   SOLN_PHINS0         	         = 7,
-                   SOLN_DEADRECK_UP              = 8,
-                   SOLN_BEST_HPR                 = 9,
-                   SOLN_BEST_DEPTH               = 10;
+                   SOLN_CFGPS                    = 6,
+		   SOLN_GPS                      = 7,			
+                   SOLN_PHINS0         	         = 8,
+                   SOLN_DEADRECK_UP              = 9,
+                   SOLN_BEST_HPR                 = 10,
+                   SOLN_BEST_DEPTH               = 11;
 }
