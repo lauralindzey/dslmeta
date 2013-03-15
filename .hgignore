@@ -1,0 +1,18 @@
+syntax: re
+
+# Backup and lock files left by text editors
+.*~
+^\.\#*
+.*.swp
+
+# Build tree
+^build/
+
+# Binaries
+^lib/
+^bin/
+
+# Generated source code
+^gen
+^msg_gen
+^srv_gen

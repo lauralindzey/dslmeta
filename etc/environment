@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#
+# This script sets up the users environment to use DSL software.  A user
+# must source it to configure the environment, as in 'source ./environment'
+#
+# You may wish to append the contents of this script to your .bashrc file or
+# source it from there.
+
+DSL_INSTALL_PREFIX="/opt/dsl"
+export DSL_INSTALL_PREFIX
+
+PYTHONPATH=$(python -c "from distutils.sysconfig import get_python_lib; print get_python_lib(prefix='$DSL_INSTALL_PREFIX')"):$PYTHONPATH
+export PYTHONPATH
+
+PATH=$DSL_INSTALL_PREFIX/bin:$PATH
+export PATH
+
+CMAKE_PREFIX_PATH=$DSL_INSTALL_PREFIX:$CMAKE_PREFIX_PATH
+export CMAKE_PREFIX_PATH
