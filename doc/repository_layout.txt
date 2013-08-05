@@ -1,5 +1,8 @@
 Revision History  
 2013-03-14    mvj    Initial draft.
+2013-08-05    mvj    Updated quick-start to use known-compatible 
+                     revisions of dslcommon, navest, rov-core.
+
 
 We have chosen mercurial (hg) as our version control system moving
 forward.  Conversion of our existing svn repositories into hg also
@@ -127,14 +130,16 @@ python module path, etc.).  Still within the build directory type
 'sudo make install' to create the /opt/dsl directory and populate it
 with some cmake helper scripts.
 
-To build dslcommon, clone the repository
-(ssh://hg@bitbucket.org/whoidsl/dslcommon) onto your machine, cd into
-the build subdirectory, and type cmake ../ (or ccmake ../), and follow
-the usual procedure to configure and generate.  Still within the build
-directory type 'make' to compile source into binary shared libraries
-and executables, and generate additional non-version controlled source
-code (from LCM type definitions).  Finally, type 'make install' to
-install header files, libraries and cmake scripts onto your system.
+The following describes how to test known-compatible versions of dslcommon,
+navest, and rov-core.  
+
+To build dslcommon:
+$ hg clone ssh://hg@bitbucket.org/whoidsl/dslcommon
+$ hg up "Works with rov-core 63551a8a38c7"
+$ cd dslcommon/build
+$ cmake ../ (or ccmake ../)
+$ make
+$ sudo make install
 
 Versions of both navest and rov-core compile against the libraries
 installed by dslcommon.  To trial navest, clone the repo and update to
@@ -146,21 +151,24 @@ $ cd navest/bin
 $ cmake ../src/
 
 This version of navest uses the old directory layout and build
-system. To trial rov-core, which conforms to the directory structure
-and build system proposed above:
+system. To trial a full-featured version of rov-core, which conforms
+to the directory structure and build system proposed above:
 
-$ hg clone ssh://hg@bitbucket.org/whoidsl/rov-core-stable
+$ hg clone ssh://hg@bitbucket.org/whoidsl/rov-core
 $ cd rov-core-stable/build
+$ hg up -r "Stable against dslcommon libs."
 $ cmake ../
 $ make; 
-$ sudo make install;
+
+This revision of rov-core does not install a system-wide executable (there
+is no "make install" step).
 
 Neither rov-core nor navest use a system-wide standard for
 initialization files as of 2013-03-19.  
 
 The layout and build procedure proposed here conforms in large part to
 the build system adopted for ROS groovy and later versions, but does
-not require ROS.  I anticipate that some minor additions or
-modifications will be necessary for software modules built on top of
-ROS.
+not require ROS.  As of 2013-08-05 we have abandoned any plans to
+adopt ROS, except possibly in part for a replacement mission
+controller.
 
