@@ -2,7 +2,10 @@ Revision History
 2013-03-14    mvj    Initial draft.
 2013-08-05    mvj    Updated quick-start to use known-compatible 
                      revisions of dslcommon, navest, rov-core.
-
+2013-08-07    LLW    Minor corrections and additions to example installation and build instrucitons
+2013-08-08    MVJ    Minor changes to navest-related compilation to
+                     reflect partial adoption of the model proposed
+                     here.
 
 We have chosen mercurial (hg) as our version control system moving
 forward.  Conversion of our existing svn repositories into hg also
@@ -130,6 +133,10 @@ python module path, etc.).  Still within the build directory type
 'sudo make install' to create the /opt/dsl directory and populate it
 with some cmake helper scripts.
 
+Install lcm from the lcm svn repo - instructions are here:
+http://code.google.com/p/lcm/wiki/BuildInstructions
+Once you have made lcm (with "make") then do a "sudo make install" to install lcm in your system.
+
 The following describes how to test known-compatible versions of dslcommon,
 navest, and rov-core.  
 
@@ -146,16 +153,19 @@ installed by dslcommon.  To trial navest, clone the repo and update to
 the bleeding-edge branch:
 
 $ hg clone ssh://hg@bitbucket.org/whoidsl/navest 
+$ cd navest
 $ hg up bleeding-edge
-$ cd navest/bin
+$ cd navest/build
 $ cmake ../src/
 
-This version of navest uses the old directory layout and build
-system. To trial a full-featured version of rov-core, which conforms
+As of 2013-08-08 navest has been partially converted to the repository
+layout proposed in this document.
+
+To trial a full-featured version of rov-core, which conforms
 to the directory structure and build system proposed above:
 
 $ hg clone ssh://hg@bitbucket.org/whoidsl/rov-core
-$ cd rov-core-stable/build
+$ cd rov-core/build
 $ hg up -r "Stable against dslcommon libs."
 $ cmake ../
 $ make; 
@@ -164,7 +174,7 @@ This revision of rov-core does not install a system-wide executable (there
 is no "make install" step).
 
 Neither rov-core nor navest use a system-wide standard for
-initialization files as of 2013-03-19.  
+initialization files as of 2013-08-08.  
 
 The layout and build procedure proposed here conforms in large part to
 the build system adopted for ROS groovy and later versions, but does
