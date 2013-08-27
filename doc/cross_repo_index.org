@@ -1,0 +1,22 @@
+This file is best viewed in emacs org-mode.
+
+The following table lists tags associated with known-compatible
+versions of each of the listed repositories.  It is intended to enable
+independent development that crosses repository boundaries without
+recourse to branching.
+
+As of 2013-08-15 scripts need to be developed to update , test
+compile, and tag across multiple repos. These scripts will reside in
+dslmeta.  For now this list is being maintained manually.
+
+Proposed tag naming convention (these should be easy to filter using grep).
+rYYYY.####  A release tag: This denotes major release intended for going to sea.
+bYYYY.####  A development tag, often a separate head intended for merging into mainline development. 
+dVEHICLE.####  A dive tag: Used to tag source for an individual vehicle dive, e.g dNUI.001
+
+
+| Tag        | dslmeta      | dslcommon    | rov-core     | navest       | coregui |                                                                         |
+|------------+--------------+--------------+--------------+--------------+---------+-------------------------------------------------------------------------|
+| d2013.0000 | ?            | 6b35f87f0303 | 63551a8a38c7 | 0ac71ac261ba | DNE     | First versions of rov-core, navest to compile against libdslcommon.     |
+| d2013.0001 | b162dec64bfe | e2b82a7fe474 | 3cbe097c9a81 | b5a6663fc636 | DNE     | LLW's sm_thread mods to new Elmos, derived from full-featured rov-core. |
+| d2013.0002 | b162dec64bfe | 82bcf23b4786 | efc09a6020ef | b5a6663fc636 | ?       | First version of new hotel thread for rov-core.                         |
