@@ -15,8 +15,10 @@ bYYYY.####  A development tag, often a separate head intended for merging into m
 dVEHICLE.####  A dive tag: Used to tag source for an individual vehicle dive, e.g dNUI.001
 
 
-| Tag        | dslmeta      | dslcommon    | rov-core     | navest       | coregui |                                                                         |
-|------------+--------------+--------------+--------------+--------------+---------+-------------------------------------------------------------------------|
-| d2013.0000 | ?            | 6b35f87f0303 | 63551a8a38c7 | 0ac71ac261ba | DNE     | First versions of rov-core, navest to compile against libdslcommon.     |
-| d2013.0001 | b162dec64bfe | e2b82a7fe474 | 3cbe097c9a81 | b5a6663fc636 | DNE     | LLW's sm_thread mods to new Elmos, derived from full-featured rov-core. |
-| d2013.0002 | b162dec64bfe | 82bcf23b4786 | efc09a6020ef | b5a6663fc636 | ?       | First version of new hotel thread for rov-core.                         |
+| Tag        | dslmeta      | dslcommon    | rov-core     | navest       | coregui |                                                                            |
+|------------+--------------+--------------+--------------+--------------+---------+----------------------------------------------------------------------------|
+| d2013.0000 | ?            | 6b35f87f0303 | 63551a8a38c7 | 0ac71ac261ba | DNE     | First versions of rov-core, navest to compile against libdslcommon.        |
+| d2013.0001 | b162dec64bfe | e2b82a7fe474 | 3cbe097c9a81 | b5a6663fc636 | DNE     | LLW's sm_thread mods to new Elmos, derived from full-featured rov-core.    |
+| d2013.0002 | b162dec64bfe | 82bcf23b4786 | efc09a6020ef | b5a6663fc636 | ?       | First version of new hotel thread for rov-core.                            |
+| d2013.0003 | afcca8a96cc5 | e2b82a7fe474 | 6002378483e1 | n/a          | n/a     | Modified version of d2013.0001 for up to 30 A bench test of nUI thrusters. |
+
