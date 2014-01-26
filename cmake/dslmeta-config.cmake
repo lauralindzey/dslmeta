@@ -1,6 +1,25 @@
 # Set install path for all DSL software.
 SET( DSL_INSTALL_PREFIX /opt/dsl )
 
+# http://www.cmake.org/Wiki/CMake_RPATH_handling With these settings
+# you will be able to execute your programs from the build tree and
+# they will find the shared libraries in the build tree and also the
+# shared libraries outside your project, when installing all
+# executables and shared libraries will be relinked, so they will find
+# all libraries they need.  
+#
+# Use, i.e. don't skip the full RPATH for the build tree
+SET(CMAKE_SKIP_BUILD_RPATH  FALSE)
+
+# When building, don't use the install RPATH already
+# (but do use it later on when installing)
+SET(CMAKE_BUILD_WITH_INSTALL_RPATH FALSE) 
+
+# add the automatically determined parts of the RPATH
+# which point to directories outside the build tree to the install RPATH
+SET(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
+
+
 # The following breaks with cmake convention.  We force a Debug build
 # and force an installation prefix.  These values cannot be overridden
 # by the user.
