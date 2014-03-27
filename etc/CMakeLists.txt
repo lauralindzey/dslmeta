@@ -26,3 +26,4 @@ else()
   message(FATAL_ERROR "Error: please install GCC >= 4.8")
 endif()
 
+FIND_PACKAGE(Boost 1.55.0 REQUIRED)
