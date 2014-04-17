@@ -11,16 +11,17 @@ dslmeta.  For now this list is being maintained manually.
 
 Proposed tag naming convention (these should be easy to filter using grep).
 rYYYY.####  A release tag: This denotes major release intended for going to sea.
-bYYYY.####  A development tag, often a separate head intended for merging into mainline development. 
-dVEHICLE.####  A dive tag: Used to tag source for an individual vehicle dive, e.g dNUI.001
+dYYYY.####  A development tag, often containing development branch heads intended for merging into default. 
+VEHICLE.####  A dive tag: Used to tag source for an individual vehicle dive, e.g NUI.0001
 
 
-| Tag        | dslmeta      | dslcommon    | rov-core     | navest       | coregui | dvld         | deviceDrivers |                                                                            |
-|------------+--------------+--------------+--------------+--------------+---------+--------------+---------------+----------------------------------------------------------------------------|
-| d2013.0000 | ?            | 6b35f87f0303 | 63551a8a38c7 | 0ac71ac261ba | DNE     | n/a          | n/a           | First versions of rov-core, navest to compile against libdslcommon.        |
-| d2013.0001 | b162dec64bfe | e2b82a7fe474 | 3cbe097c9a81 | b5a6663fc636 | DNE     | n/a          | n/a           | LLW's sm_thread mods to new Elmos, derived from full-featured rov-core.    |
-| d2013.0002 | b162dec64bfe | 82bcf23b4786 | efc09a6020ef | b5a6663fc636 | ?       | n/a          | n/a           | First version of new hotel thread for rov-core.                            |
-| d2013.0003 | afcca8a96cc5 | e2b82a7fe474 | 6002378483e1 | n/a          | n/a     | n/a          | n/a           | Modified version of d2013.0001 for up to 30 A bench test of nUI thrusters. |
-| d2013.0004 | 7aa11125b9e7 | 7f943f3967f4 | a0f0b0d4ec32 | a9219d7fb616 |         | 5d6357b573d5 | b7b06e1c2bdd  | version working on nui at the end of the first day at CRC                  |
-|            |              |              |              |              |         |              |               |                                                                            |
+| Tag        | dslmeta      | dslcommon    | rov-core     | navest       | coregui | dvld         | deviceDrivers |                                                                                                |
+|------------+--------------+--------------+--------------+--------------+---------+--------------+---------------+------------------------------------------------------------------------------------------------|
+| d2013.0000 | ?            | 6b35f87f0303 | 63551a8a38c7 | 0ac71ac261ba | DNE     | n/a          | n/a           | First versions of rov-core, navest to compile against libdslcommon.                            |
+| d2013.0001 | b162dec64bfe | e2b82a7fe474 | 3cbe097c9a81 | b5a6663fc636 | DNE     | n/a          | n/a           | LLW's sm_thread mods to new Elmos, derived from full-featured rov-core.                        |
+| d2013.0002 | b162dec64bfe | 82bcf23b4786 | efc09a6020ef | b5a6663fc636 | ?       | n/a          | n/a           | First version of new hotel thread for rov-core.                                                |
+| d2013.0003 | afcca8a96cc5 | e2b82a7fe474 | 6002378483e1 | n/a          | n/a     | n/a          | n/a           | Modified version of d2013.0001 for up to 30 A bench test of nUI thrusters.                     |
+| d2013.0004 | 7aa11125b9e7 | 7f943f3967f4 | a0f0b0d4ec32 | a9219d7fb616 |         | 5d6357b573d5 | b7b06e1c2bdd  | version working on nui at the end of the first day at CRC                                      |
+| d2014.0000 | 82e8e7281bdd | 6aee09dfbf5f | a7bd87316547 | 29551eb9a171 | n/a     | d61680f5b924 | ?(only paro)  | Functional on JHUROV with upward looking 300 kHz DVL, beam 3 45 deg to stbd, trials 2014-04-08 |
+|            |              |              |              |              |         |              |               |                                                                                                |
 
