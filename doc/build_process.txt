@@ -1,0 +1,117 @@
+2014-06-19  MVJ  branches and notes are current as off this date.  No
+guarantees for later dates.
+
+-3) Still using VXL, and it has issues with c++11.  Install it from package:
+$ sudo apt-get install libvxl1-dev
+Then make this fix (thanks Stefano):
+
+Edit the file "/usr/include/vxl/vcl/vcl_config_compiler.h".  I searched for the line:
+
+# define VCL_CAN_STATIC_CONST_INIT_FLOAT 1
+
+and modified so that it reads:
+
+# define VCL_CAN_STATIC_CONST_INIT_FLOAT 0
+
+-2) Save yourself some headaches later and install the packages recommended by:
+https://code.google.com/p/lcm/wiki/BuildInstructions
+But don't install lcm.1.0.0   There are bug fixes we have submitted that only
+appear in the trunk and have not been released.  
+
+-1) Once you're done apt-get installing the recommended packages, build lcm from source:
+$ svn checkout http://lcm.googlecode.com/svn/trunk/ lcm-read-only
+$ cd lcm-read-only
+$ svn up -r 753  # this revision is known to work as of 2014-06-19.  There were some more bugs introduced later that probably have been cleaned up but not sure.
+Follow the instructions in INSTALL
+Make sure that the configure process indicates Python and Java support are both enabled.
+
+0) clone dslmeta off bitbucket: hg clone ssh://hg@bitbucket.org/whoidsl/dslmeta
+
+1) Use scripts in dslmeta/scripts to build gcc and boost.  You have to
+download the tarballs the scripts are looking for yourself.  Look at
+the top of the scripts for the versions.  Do gcc first, then run the
+other script in there - install_alternatives (this configures apt-get
+to ignore updates to the gcc that ships with ubuntu 12.04)
+
+2) Build and install dslmeta. 
+$ cd dslmeta/build
+$ cmake ../  # pay attention to any errors - it will ask you to set up your environment
+$ make
+$ sudo make install
+
+3) Clone, build and install dslcommon (default branch)
+$ hg clone ssh://hg@bitbucket.org/whoidsl/dslcommon
+$ cd dslcommon/build
+$ cmake ../  # You may get errors for missing libraries, some are properly looked   You will need to apt-get install VXL if you haven't already (libvxl1-dev)
+$ make
+$ sudo make install
+
+Mostly the order of the following does not matter.  Almost everything depends
+Only on dslcommon.  Two exceptions are rov-core and coregui, both of which
+link against dsljoy, so you may as well install that now.  navest depends on
+dsldriver_proto (which has outgrown its original name and needs to be split into many repositories).
+
+4) Clone, build and install dsljoy (default branch)
+$ hg clone ssh://hg@bitbucket.org/whoidsl/dsljoy
+$ cd dsljoy/build
+$ cmake ../
+$ make
+$ sudo make install
+
+5) Clone, build and install  dsldriver_proto (default branch)
+$ hg clone ssh://hg@bitbucket.org/whoidsl/dsldriver_proto
+$ cd dsldriver_proto/build
+$ cmake ../
+$ make
+$ sudo make install
+
+6) Clone, build and install navest. (bleeding-edge-navdata-cleanup branch)
+navest does not have an install target.  It uses soft links to local ini files
+and the binaries are in the bin directory, but it is derived from DslProcess and
+so has some features of the defederated model.
+$ hg clone ssh://hg@bitbucket.org/whoidsl/dsldriver_proto
+$ hg up bleeding-edge-navdata-cleanup
+$ cd build
+$ cmake ../
+$ make
+
+7) Clone and build rov-core (default branch).  rov-core does not have
+an install target - there is no install step and rov-core is not derived 
+from DslProcess.  Only the repository layout is compliant.  rov-core does 
+ingest and expell LCM as well as retain most of the plain ASCII JT UDP 
+interface, but many threads have been eliminated to focus on the low-level
+control task.  It is still very much in transition.
+$ hg clone ssh://hg@bitbucket.org/whoidsl/rov-core
+$ cd build
+$ cmake ../
+$ make
+
+8) Clone and build acomm (this does the house-keeping to interface
+directly with a modem via moxa and runs the TDMA cycle.)  There are
+additional drivers, derived from DslProcess, needed on nUI that act as
+a go-betweens between the several instances of acomm LCM.  We'll get
+to that when we discuss the launch process.  acomm links against
+nothing (has it's own copies of nio_thread.cpp for example), and is
+built and launched in it's own way, as it was on Nereus.  But it has
+also proven extremely stable with almost no development needed since
+early days.
+$ hg clone ssh://hg@bitbucket.org/whoidsl/acomm
+$ cd src
+$ make
+$ mv ./acomm ../bin/acomm
+$ cd ../bin # create the links you want for the vehicle you're going to be running.  An instance of acomm is required for every umodem in the system.
+
+9) (optional) clone and build coregui.  This is the pilot's GUI - configures
+and displays the hotel.  It requires lots of Qt libraries that are a pain to
+install.  This document does not cover the process.
+
+10) Launching processes.  How exactly we will mix the various ways of launching things has not een decided.  This document only covers the "new" way implemented for the executables that currently all get built and installed from dsldriver_proto.  
+$ launch.sh  # starts up everything in /opt/dsl/etc/launch.list within a screen session.
+The relevant code is in dsldriver_proto/etc/scripts, with the exeception of the iniserver, 
+which is in dsldriver_proto/python/iniserv.py
+The ini-files (there are 3) are system-wide, and are installed from 
+dsldriver_proto/etc/<veh>/*.m to /opt/dsl/<veh>/
+the launch.list file associated with each vehicle is in the same directory.  For now, create
+a soft link to the vehicle you want to launch:
+$ ln -sf /opt/dsl/etc/<veh>/launch.list /opt/dsl/etc/launch.list
+
