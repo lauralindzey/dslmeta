@@ -6,6 +6,8 @@ Revision History
 2013-08-08    MVJ    Minor changes to navest-related compilation to
                      reflect partial adoption of the model proposed
                      here.
+2014-07-08    mvj    Added matlab folder for matlab scripts
+
 
 We have chosen mercurial (hg) as our version control system moving
 forward.  Conversion of our existing svn repositories into hg also
@@ -92,6 +94,7 @@ lcm         -- LCM type definitions, organized into subdirectories for each
                LCM package.
 lib*        -- Location where compiled shared and static libraries will be
                placed.
+matlab      -- MATLAB and Octave scripts.
 msg         -- ROS message definitions.
 python      -- Python scripts.  
 srv         -- ROS service definitions.
