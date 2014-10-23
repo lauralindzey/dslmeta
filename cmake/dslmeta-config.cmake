@@ -1,6 +1,8 @@
 # Set install path for all DSL software.
 SET( DSL_INSTALL_PREFIX /opt/dsl )
 
+# Set the vehicle to build for.  
+
 # Set default build options to Debug and add some compiler flags.
 # Users can overwrite the compile flags by setting CMAKE_CXX_FLAGS in
 # their project CMakeLists.txt files. Also increase make's verbosity
@@ -19,10 +21,11 @@ IF(NOT CMAKE_BUILD_TYPE)
       FORCE)
 ENDIF(NOT CMAKE_BUILD_TYPE)
 
-IF(NOT CMAKE_CXX_FLAGS_DEBUG)
-  set(CMAKE_CXX_FLAGS_DEBUG 
-    "-Wall -Wwrite-strings -ggdb" CACHE STRING "Debug compiler flags." FORCE)
-ENDIF(NOT CMAKE_CXX_FLAGS_DEBUG)
+# Calling PROJECT sets this to compiler-specific defaults and there is
+# no clean work-around.  For now leaving this as not alterable by the
+# user (FORCE).
+set(CMAKE_CXX_FLAGS_DEBUG 
+  "-Wall -Wwrite-strings -ggdb -Og" CACHE STRING "Debug compiler flags." FORCE)
 
 set(CMAKE_VERBOSE_MAKEFILE ON)
 
