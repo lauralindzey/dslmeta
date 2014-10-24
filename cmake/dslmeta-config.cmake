@@ -125,3 +125,7 @@ ENDIF(${CMAKE_PROJECT_NAME} STREQUAL "dslmeta")
 INCLUDE(${CMAKE_CURRENT_LIST_DIR}/target_vehicle_macros.cmake)
 
 
+# Force default lib and bin directory when using dslmeta
+# Set locations for binary outputs.
+SET( LIBRARY_OUTPUT_PATH     ${PROJECT_SOURCE_DIR}/lib )
+SET( EXECUTABLE_OUTPUT_PATH  ${PROJECT_SOURCE_DIR}/bin )
