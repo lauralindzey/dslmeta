@@ -74,6 +74,26 @@ SET(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib/${PROJECT_NAME}")
 # which point to directories outside the build tree to the install RPATH
 SET(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 
+# Macro for inclusion of libraries etc. from *-config.cmake scripts in
+# this directory.  FIND_PACKAGE called with the REQUIRED option produces
+# a fatal error that is unhelpful if the problem is actually with the .cmake 
+# helper script in dslmeta.  Call FIND_PACKAGE without the REQUIRED option
+# and generate a custom (but still fatal) message.  
+MACRO(DSLINCLUDE arg1)
+  IF (NOT EXISTS ${CMAKE_INSTALL_PREFIX}/cmake/${arg1}-config.cmake)
+    MESSAGE(FATAL_ERROR "No cmake config file (${arg1}-config.cmake) for the requested package is defined in dslmeta, or dslmeta needs to be reinstalled.")
+  ENDIF(NOT EXISTS ${CMAKE_INSTALL_PREFIX}/cmake/${arg1}-config.cmake)
+  MESSAGE("Using ${arg1}-config.cmake from dslmeta to include package ${arg1}")
+  FIND_PACKAGE(${arg1})
+  IF (${arg1}_FOUND)
+    INCLUDE(${${arg1}_CONFIG})
+  ELSE(${arg1}_FOUND)
+    MESSAGE("Unable to find package ${arg1} using ${CMAKE_INSTALL_PREFIX}/cmake/${arg1}-config.cmake.  dslmeta may need to be rebuilt and installed.")
+  ENDIF(${arg1}_FOUND)
+  MESSAGE("Successfully included package ${arg1}")
+ENDMACRO(DSLINCLUDE arg1)
+
+
 # Require the user set a specific vehicle to build for.  Do this via
 # cmake -DTARGET_VEHICLE:STRING=<vehicle> or ccmake.  This dynamically
 # creates target_vehicle.cmake in this directory which is then
