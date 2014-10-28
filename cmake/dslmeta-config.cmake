@@ -75,22 +75,33 @@ SET(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib/${PROJECT_NAME}")
 SET(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 
 # Macro for inclusion of libraries etc. from *-config.cmake scripts in
-# this directory.  FIND_PACKAGE called with the REQUIRED option produces
-# a fatal error that is unhelpful if the problem is actually with the .cmake 
-# helper script in dslmeta.  Call FIND_PACKAGE without the REQUIRED option
-# and generate a custom (but still fatal) message.  
+# this directory and installed by other DSL software into the top-level
+# cmake directory (${CMAKE_INSTALL_PREFIX}/cmake/).  Automatically append
+# libraries and headers from those repositories if the associated helper
+# files define <PKG>_INCLUDE_DIRS and <PKG>_LIBRARIES.
 MACRO(DSLINCLUDE arg1)
   IF (NOT EXISTS ${CMAKE_INSTALL_PREFIX}/cmake/${arg1}-config.cmake)
-    MESSAGE(FATAL_ERROR "No cmake config file (${arg1}-config.cmake) for the requested package is defined in dslmeta, or dslmeta needs to be reinstalled.")
+    MESSAGE(FATAL_ERROR "No cmake config file (${arg1}-config.cmake) for the requested package exists in ${CMAKE_INSTALL_PREFIX}/cmake/.  Did you 'make install' the package that provides it?")
   ENDIF(NOT EXISTS ${CMAKE_INSTALL_PREFIX}/cmake/${arg1}-config.cmake)
-  MESSAGE("Using ${arg1}-config.cmake from dslmeta to include package ${arg1}")
+  MESSAGE("Using ${CMAKE_INSTALL_PREFIX}/cmake/${arg1}-config.cmake to include package ${arg1}")
   FIND_PACKAGE(${arg1})
   IF (${arg1}_FOUND)
-    INCLUDE(${${arg1}_CONFIG})
+    INCLUDE("${${arg1}_CONFIG}")
+    STRING(TOUPPER ${arg1} PKG)
+    SET(INCLUDE_DIRS "${${PKG}_INCLUDE_DIRS}")
+    IF(INCLUDE_DIRS)
+      MESSAGE("Including dirs provided by this package: ${${PKG}_INCLUDE_DIRS}")
+      INCLUDE_DIRECTORIES("${${PKG}_INCLUDE_DIRS}")      
+    ENDIF(INCLUDE_DIRS)
+    SET(LINK_DIRS "${${PKG}_LIBRARIES}")
+    IF(LINK_DIRS) 
+      MESSAGE("Adding link directories from this package: ${${PKG}_LIBRARIES}")
+      LINK_DIRECTORIES ("${${PKG}_LIBRARIES}")
+    ENDIF(LINK_DIRS)
   ELSE(${arg1}_FOUND)
-    MESSAGE("Unable to find package ${arg1} using ${CMAKE_INSTALL_PREFIX}/cmake/${arg1}-config.cmake.  dslmeta may need to be rebuilt and installed.")
+    MESSAGE("Unable to find package ${arg1} using ${CMAKE_INSTALL_PREFIX}/cmake/${arg1}-config.cmake.")
   ENDIF(${arg1}_FOUND)
-  MESSAGE("Successfully included package ${arg1}")
+  MESSAGE("Successfully included package ${arg1}.")
 ENDMACRO(DSLINCLUDE arg1)
 
 
