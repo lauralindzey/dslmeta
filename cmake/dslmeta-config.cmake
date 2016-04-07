@@ -50,10 +50,10 @@ SET(CMAKE_INSTALL_PREFIX
 # use e.g. EXECUTE_PROCESS to remove these files:
 # http://public.kitware.com/Bug/view.php?id=6672
 # so just tell the user to.
-STRING(COMPARE EQUAL "${PROJECT_BINARY_DIR}" "${PROJECT_SOURCE_DIR}/build" INBUILD)
-IF(NOT INBUILD)
+STRING(COMPARE EQUAL "${PROJECT_BINARY_DIR}" "${PROJECT_SOURCE_DIR}" INBUILD)
+IF(INBUILD)
   MESSAGE(FATAL_ERROR "This project enforces and out-of-source build.  Please remove CmakeCache.txt and the CMakeFiles directory just created in the current directory, then cd to the 'build' directory to run cmake: 'cmake ../'.")
-ENDIF(NOT INBUILD)
+ENDIF(INBUILD)
 
 # http://www.cmake.org/Wiki/CMake_RPATH_handling With these settings
 # you will be able to execute your programs from the build tree and
