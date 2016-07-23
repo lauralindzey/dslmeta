@@ -1,0 +1,28 @@
+package mx;
+
+struct mx_comms_state_t
+{
+  // Timestamp of last state update.
+  int64_t utime;
+
+  // Countdowns to declaring this communication channel down.
+  // This is a signed quantity.  Dialtone functionality since
+  // it gives the time since the countdown expired, and hence
+  // the time since the last successful Rx when added to the
+  // timeout.  @@@ clearly not the best, but will work.
+  float countdown;  // (s) 
+
+  // Number of successful receptions.
+  int64_t rx_count;
+
+  // Number of attempted transmissions.
+  int64_t tx_count;
+
+  // @@@ time since last Rx and time since last 
+  // @@@ attempted Tx would be useful, but are not
+  // @@@ dialtone.  As of 2014-07-15 all comms 
+  // @@@ statuses are determined by Rx only.
+  // 
+  // @@@ some stats on effective b/w would also be useful.
+
+}

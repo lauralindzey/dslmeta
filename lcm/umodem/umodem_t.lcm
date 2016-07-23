@@ -1,0 +1,12 @@
+package umodem;
+
+struct umodem_t
+{
+  int64_t utime;  // Time of last good data.
+
+  // Maybe the umodem type should contain stats about the link quality and similar
+  double link_quality;
+
+  // Device specific status. (Generic status and raw data are nested within).
+  umodem_status_t status;
+}

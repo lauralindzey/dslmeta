@@ -1,0 +1,10 @@
+package ps8ch;
+
+/*
+  The response of an 8 channel power switch.
+*/
+struct ps_version_enum_t
+{
+   const int8_t VERSION_00=0; // NUI/NHT 8chPS.
+   const int8_t VERSION_01=1; // Older f/w used in NUI Depressor, 2016.  Cannot be on a bus (no addr).
+}

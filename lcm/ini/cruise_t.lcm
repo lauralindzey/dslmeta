@@ -1,0 +1,11 @@
+package ini;
+
+/*
+  cruise specific stuff
+*/
+
+struct cruise_t
+{
+  string chief_scientist;
+  string branch_name;
+}

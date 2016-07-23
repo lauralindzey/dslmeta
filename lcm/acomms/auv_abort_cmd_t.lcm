@@ -1,0 +1,6 @@
+package acomms;
+
+struct auv_abort_cmd_t
+{
+	int64_t    utime;
+}

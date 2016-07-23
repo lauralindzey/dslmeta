@@ -1,0 +1,49 @@
+package umodem;
+
+struct umodem_ini_t
+{
+  string channel_data;
+  string channel_config;
+  string channel_environment;
+
+  // 2014-06-30 LLW Umodem.cpp will subscribe to this to receive message queue entries
+  string channel_acomm_message_queue;
+
+  // 2014-07-16 LLW Umodem.cpp publishes queue updates on this channel for debug 
+  // string channel_acomm_message_queue_updates;
+
+  // 2014-06-30 LLW Umodem.cpp will subscribe to this to receive jasontalk messages to transmit acoustically
+  //                the message will be ransmitted asynchronously if the data field  tx_async is 1
+  string channel_jasontalk_tx;
+
+  // 2014-06-30 LLW Umodem.cpp will publish to this channel the jasontalk messages it receives acoustically
+  string channel_jasontalk_rx;
+
+  // 2014-07-14 SS - added wrapped LCM tx/rx passthrough
+  string channel_lcm_wrapped_tx; // LCM is received via UDP for sending acoustically.
+  string channel_lcm_wrapped_rx; // LCM received acoustically is sent via UDP on this channel.
+
+  // CHANNELS PROVIDING DATA FOR DATA AGGREGATION AND UPLOAD
+  string channel_navstate;
+  string channel_battery;
+  string channel_ctd;
+  string channel_mx;
+  string channel_dvl;
+  string channel_rov_goal_position;
+  string channel_rov_ref_leg;
+
+  // CHANNELS FOR EXCHANGE OF TT DATA BETWEEN UMODEM INSTANCES
+  string channel_ping_reply;
+  string channel_lbl_reply;
+
+  // Sync publish flag.  If true, the modem process will synchronously publish the statexy on the FIBER_STATEXY channel
+  // Should be true only for subsea modems
+  boolean sync_publish;
+
+  int8_t src;
+  float frequency;
+  string host; // Where the code will run
+
+  //dsldevice.nio_config_t nio_config; // all serial config parts
+  dsldevice.device_conn_t connection;
+}

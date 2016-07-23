@@ -1,0 +1,16 @@
+package mx;
+
+struct mx_behavior_piloted_parameters_t
+{
+  // Timestamp of last update to parameters.
+  int64_t utime;	
+
+  // Flag to indicate whether to immediately make this behavior
+  // active as well.
+  boolean atomically_activate;
+  
+  // Behavior-specific ephemeral parameters.
+  float timeout;  // (s) additional timeout for behavior upon 
+                  // loss of ethernet.  Usually set to 0 s.
+
+}

@@ -1,0 +1,20 @@
+package mx;
+
+struct mx_behavior_thrust_heading_parameters_t
+{
+  // Timestamp of last update to parameters.
+  int64_t utime;	
+
+  // Flag to indicate whether to immediately make this behavior
+  // active as well.
+  boolean atomically_activate;
+  
+  // Behavior-specific ephemeral parameters.
+  boolean heading_in_deg;  // to aid human use of this message for command.
+  float heading;  // (rad or deg depending on above) the heading to drive on.
+  int8_t thrust_prcnt;  // (-100 to 100 %) the thrust to apply.
+  int16_t depth_goal; // (m) 
+
+  float timeout;  // (s) how long to thrust for.
+
+}

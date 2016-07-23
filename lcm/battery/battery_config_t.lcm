@@ -1,0 +1,10 @@
+package battery;
+
+struct battery_config_t
+{
+	int32_t           num_boxes;
+	int32_t           num_strings;
+	int32_t           num_series;
+	int32_t           box_id[num_boxes];
+	//byte              bus_address[num_boxes][num_strings][num_series];
+}

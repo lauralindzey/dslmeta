@@ -1,0 +1,22 @@
+package bwls;
+
+struct bwls_t
+{
+  int64_t    utime;  // Time of last good data.
+
+  double     fiber_out;
+  int32_t    minutes_remaining;
+  double     burnwire_amps;
+  int32_t    motor_direction;
+  int32_t    seconds_to_motor_stop;
+  double     release_amps;
+  int32_t    active_aux_burnwire_cricuit;
+  int32_t    minutes_to_burnwire_stop;
+  double     aux_burnwire_amps;
+  int32_t    reed_relay_1_status;
+  int32_t    reed_relay_2_status;
+  double     humidity;
+  double     temperature;
+
+  bwls_status_t status;
+}

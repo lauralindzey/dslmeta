@@ -1,0 +1,23 @@
+package rdidvl;
+
+// SS - ADCP config parameters message
+struct rdidvl_config_t
+{
+  int64_t utime;
+
+  int8_t           pd;  // PD mode
+  int16_t          cx;  // low-latency trigger flag
+  int16_t          bp;  // bottom track pings per ensemble
+  int16_t          wp;  // water profile pings per ensemble
+  int16_t          wn;  // number of bins
+  int16_t          ws;  // bin spaging [cm]
+  int16_t          wt;  // transmit length [cm]
+  int16_t          wf;  // blank after transmit [cm]
+  int16_t          wa;  // false target threshold
+  int16_t          wc;  // low correlation threshold
+  int16_t          we;  // error correlation threshold
+  int16_t          wd;  // data out flags
+  int16_t          wi;  // clip past bottom flag
+
+  string           dvlModel; // "WORKHORSE" or "EXPLORER", maybe should be an enum
+}

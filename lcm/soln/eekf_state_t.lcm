@@ -1,0 +1,12 @@
+package soln;
+
+struct eekf_state_t
+{
+	int64_t    utime;
+	double     x[4];
+	double     P[4][4];
+	double     Q[4][4];
+	double     K[4][2];
+	double     lat;
+	double     lon;
+}

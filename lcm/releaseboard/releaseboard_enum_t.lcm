@@ -1,0 +1,28 @@
+package releaseboard;
+
+struct releaseboard_enum_t
+{
+  // Convenient constants.
+  const int16_t   UNKNOWN=-999;
+  const int16_t   BATTERY_OFF=0, BATTERY_OK=1, BATTERY_LOW=2;
+  const int16_t	  TIMER_OK=0, TIMER_TIMED_OUT=1, TIMER_LOW=2, TIMER_DISABLED=-1;
+  const int16_t   BURNING=1, NOT_BURNING=0, BURN_DISABLED=-1;
+  const int16_t   DEADMAN_TIMER=1, MISSION_TIMER=2, UNUSED_TIMER=-1;  // Timer function mnemonics.
+  const int16_t   DESCENT_WEIGHTS_BURNWIRE=1, ASCENT_WEIGHTS_BURNWIRE=2, UNUSED_BURNWIRE=-1; // Burn wire function mnemonics.
+
+
+  // Constants to define commands.
+  const int16_t   BURNSTOP=0,
+                  BURN_DESCENT_WEIGHTS=1,
+                  BURN_ASCENT_WEIGHTS=2,
+                  BURNALL=3,
+                  SET_DEADMAN_TIMER=4,
+                  SET_MISSION_TIMER=5,
+                  DISABLE_DEADMAN_TIMER=6,
+                  DISABLE_MISSION_TIMER=7;
+
+  // Timer values are twos-complement 32-bit integers.
+  // -1 disables a timer.
+  const int32_t  TIMER_MAX = 2147483647;  // 2^32/2-1
+  const int32_t  TIMER_DISABLE = -1;  // Any negative number disables the low-level hdwr timer.
+}

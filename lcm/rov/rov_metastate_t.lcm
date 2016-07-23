@@ -1,0 +1,10 @@
+package rov;
+
+struct rov_metastate_t
+{
+  int64_t utime;
+
+  double   depth;
+  double   altitude;
+  double   headroom;
+}

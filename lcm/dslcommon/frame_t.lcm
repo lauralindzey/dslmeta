@@ -1,0 +1,11 @@
+package dslcommon;
+
+// Define constants for frames that can be used across all nav sensors.
+struct frame_t
+{
+   const int16_t INSTRUMENT_FRAME=0,
+                 VEHICLE_BODY_FRAME=1,
+                 LOCAL_LEVEL_FRAME=2,
+                 WORLD_FRAME_ORTHOGRAPHIC=3;
+		 // ...
+}

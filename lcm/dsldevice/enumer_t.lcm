@@ -1,0 +1,9 @@
+package dsldevice;
+
+// SS - enumerator type
+struct enumer_t
+{
+  int16_t vehicleNumber;
+  int16_t dataSource;
+  string vehicleName;
+}

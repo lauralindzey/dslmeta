@@ -1,0 +1,10 @@
+package rov;
+
+struct rov_velocity_t
+{
+  int64_t utime;
+
+  double   u_surge;
+  double   v_sway;
+  double   w_heave;
+}

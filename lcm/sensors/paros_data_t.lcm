@@ -1,0 +1,16 @@
+package sensors;
+
+struct paros_data_t
+{
+    int64_t   utime;
+    double    pressure_psi;
+    double    tare_pressure_psi;  // Tare pressure in psi)
+    double    depth_m;  // Fofonoff depth
+    double    latitude_deg; // Latitude used for Fofonoff depth.
+    int32_t   sensorSource;
+    int32_t   vehicleNumber;
+    string    vehicleName;
+    int32_t   sensorNumber;  //number of the sensor on the vehicle
+    string    rawDataString; 
+    int16_t   rawDataStringLen; 
+}

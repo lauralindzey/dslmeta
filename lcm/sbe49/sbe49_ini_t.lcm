@@ -1,0 +1,13 @@
+package sbe49;
+
+struct sbe49_ini_t
+{
+  string channel_data;
+  string channel_config;
+
+  dsldevice.device_conn_t connection;
+
+  string host;
+
+  dsldevice.enumer_t enumer;
+}

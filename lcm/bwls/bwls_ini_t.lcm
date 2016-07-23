@@ -1,0 +1,12 @@
+package bwls;
+
+struct bwls_ini_t
+{
+  string channel_data;
+  string channel_config;
+  string channel_control;
+
+  dsldevice.device_conn_t connection;
+
+  string host;
+}

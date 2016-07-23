@@ -1,0 +1,90 @@
+package mx;
+
+struct mx_t
+{
+  // Timestamp associated with the data contained in this message.
+  int64_t utime;  
+  
+  //-----------------
+  // mx state.
+
+  // Active zone (enumeration)
+  // Zones relevant to nUI come-home strategy, essentially defined by
+  // estimated distance to ship.  2014-06-18 MVJ/CJM Believe that
+  // dialtone for at least Zone 1 operation does not require changes
+  // to the autonomously initiated transitions between behaviors or
+  // their parameters.  Zone for now will be ignored and left in the
+  // start-up state.
+  int8_t zone;
+
+  // Mission status (running, stopped, aborted).
+  int8_t mission_status;
+  float mission_runtime_hrs;  // (hr) Starts from zero upon first transition to MISSION_RUNNING.
+  int64_t abort_condition;  // 10-mask, defined in mx_abort_condtions_enum_t.  Lists all presently violated conditions, except those that are inactive.
+  int64_t abort_reason;     // 10-mask.  If aborted, this is the first condition that caused it.
+  int64_t active_aborts;    // 10-mask.  Determines which aborts can be triggered.  Copy of ini settings, can be manipulated.
+  mx_durative_parameters_t durative_parameters;  // Copy of ini settings, can be manipulated.
+
+  // Active behavior (enumeration)
+  int8_t active_behavior;
+
+  // Interpreted state of communications (bitmask)
+  int8_t active_comms;
+
+  // Summary communications status and associated
+  // parameters for comms channels to declare them good.
+  mx.mx_comms_t ethernet;
+  mx.mx_comms_t acomms3p5kHz;
+  mx.mx_comms_t acomms10kHz;
+
+  // Navigation state as used by mx to compute distance to goals, etc.
+  // @@@ there really needs to be a generic version of this that is accessible - not sure
+  // @@@ that what flies over NAVSTATE is.  It's also a bit big, but that is probably ok.
+  // @@ Using statexy for expediency.  It is, comically, published
+  // @@ by umodem on FIBER_STATEXY, but this is to allow
+  // @@ the situational awareness software to only have to listen
+  // @@ to one thing.
+  comms.statexy_t nav;
+
+  // Control data.
+  // @@ Using awkward output from rov for control.  For dialtone
+  // @@ all that is needed is thrust in body-frame.  This is in
+  // @@ a "rov_velocity_t" so at least the frame is clear - the
+  // @@ channel identifies it as thrust data.
+  rov.rov_velocity_t control_ref_thrust;
+  rov.rov_leg_t control_ref_leg;
+
+  // Parameters and states associated with each potentially 
+  // active behavior.
+  mx.mx_behavior_piloted_t behavior_piloted;
+  mx.mx_behavior_hold_station_t behavior_hold_station;
+  mx.mx_behavior_thrust_heading_t behavior_thrust_heading;
+  mx.mx_behavior_trackline_home_t behavior_trackline_home;
+  mx.mx_behavior_all_stop_t behavior_all_stop;
+  mx.mx_behavior_push_up_t behavior_push_up;
+
+  // End of mx state.
+  //-----------------
+  
+  // Process-instance-specific status (generic status and initialization data
+  // are nested within).   Not sure this is useful or that the hooks even
+  // exist to populate those structures.
+  // commented out for now.
+  // mx_status_t status;
+
+  // Initialization parameters.
+  mx_ini_t ini;
+
+  // Constants for decoding bitmasks.
+  mx.mx_comms_bitmask_t comms_bitmask;
+
+  // Constants for decoding enumerations.
+  mx.mx_mission_status_enum_t mission_status_enum;
+  mx.mx_behavior_enum_t behavior_enum;
+  mx.mx_zone_enum_t zone_enum;
+
+  // @@ Miscellaneous constants that belong in a 
+  // @@ higher-level library.
+  mx.mx_const_t consts;
+
+}

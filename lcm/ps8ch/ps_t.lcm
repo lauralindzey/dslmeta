@@ -1,0 +1,31 @@
+package ps8ch;
+
+/*
+  The response of an 8 channel power switch.
+*/
+struct ps_t
+{
+  int64_t utime;  // Time of last good data.
+
+  // f/w version 
+  int8_t version;
+
+  int16_t switches[8]; // need 16 bits to fit a byte, thanks java
+  int16_t a2ds[5];
+  float temperature;
+  int8_t leak[2]; // these are 8-bit a2d, >0 indicates leak.
+  float humidity;
+  float current;
+  float pressure;  // no sensor installed.
+
+  // Slurp indexing.
+  int16_t slurp_magnet; // indicates whether slurp reed switch is on or off.
+
+  // The address of this particular ps on the bus
+  string my_address;
+  // The index of this particular ps on the bus ini structure
+  int16_t my_index;
+
+  // Device specific status. (Generic status and raw data are nested within).
+  ps_status_t status;
+}

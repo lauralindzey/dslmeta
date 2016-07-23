@@ -1,0 +1,12 @@
+package dsldevice;
+
+/*
+  A general network device configuration. For nesting inside device-specific
+  initialization commands for nio devices.
+*/
+struct nio_config_t
+{
+  string ip;       // the ip address of the device
+  int32_t port_rx; // receive port
+  int32_t port_tx; // transmit port
+}

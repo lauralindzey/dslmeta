@@ -1,0 +1,8 @@
+package battery;
+
+// SS - this type is used to power on or off a battery box
+struct battery_control_t
+{
+  int8_t boxId;
+  boolean powerOn;
+}

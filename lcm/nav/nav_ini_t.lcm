@@ -1,0 +1,15 @@
+package nav;
+
+struct nav_ini_t
+{
+  string channel_dvl_up;
+  string channel_dvl_down;
+  string channel_phins;
+  string channel_ustrain;
+  string channel_paro;
+  string channel_model_state;
+  string channel_nav_shift;
+  string channel_umodem10_rx;
+
+  string host;
+}

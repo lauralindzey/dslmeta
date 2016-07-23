@@ -1,0 +1,51 @@
+package sensors;
+
+// vehicle state computed by navest 
+
+struct navState_t
+{
+    int64_t  utime;
+
+	// position of the vehicle in a local xy frame.  any 
+	//conversions from lat/lon to xy occur in NavEst
+	//also include the associated time, source, and frame (frame is probably redundant)
+    double     pos[6];
+    int64_t    pos_time[6];
+    int32_t    pos_source[6];
+    double     pos_age[6];
+
+    double     x_shift;
+    double     y_shift;
+
+    double     vel[6];
+    int64_t    vel_time[6];
+    int32_t    vel_source[6];
+    double     vel_age[6];
+
+    double     acc[6];
+    int64_t    acc_time[6];
+    int32_t    acc_frame[6];
+    int32_t    acc_source[6];
+    double     acc_age[6];
+
+    //2013-09-19 JCK - this is a first pass on the sigma.  we need to think about this more
+    double	sigma[18];		
+    int64_t	sigma_time[18];
+    int32_t     sigma_source[18]; 
+
+    double lat; 
+    double lon; 
+
+    double alt; 
+    int64_t alt_time; 
+    int32_t alt_source; 
+    double alt_age;
+    
+    double cog; //2011-11-21 JCK - course over ground
+    int64_t cog_time;
+    double sog; //2011-11-21 JCK - speed over ground
+    int64_t sog_time;
+    double depth_keel; // 2011-11-25 SS - depth under keel
+    int64_t depth_keel_time;
+
+}

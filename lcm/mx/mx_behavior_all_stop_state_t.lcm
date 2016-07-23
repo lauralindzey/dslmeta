@@ -1,0 +1,10 @@
+package mx;
+
+struct mx_behavior_all_stop_state_t
+{
+  // Timestamp of last update to state.
+  int64_t utime;	
+  
+  // Behavior-specific state.  None in this case.
+
+}

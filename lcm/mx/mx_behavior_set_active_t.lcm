@@ -1,0 +1,16 @@
+package mx;
+
+struct mx_behavior_set_active_t
+{
+  // Timestamp of last hard-set.  Not used.
+  int64_t utime;	
+ 
+  // Flag to indicate whether to immediately do this
+  // or not.  This makes no sense but leverages the
+  // work done in the GUI.
+  boolean atomically_activate;
+
+  // Behavior-specific ephemeral parameters.		
+  int8_t behavior_to_set_active;
+
+}

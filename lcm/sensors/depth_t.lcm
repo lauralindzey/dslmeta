@@ -1,0 +1,7 @@
+package sensors;
+
+struct depth_t
+{
+    int64_t   utime;
+    double    depth;
+}

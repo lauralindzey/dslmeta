@@ -1,0 +1,16 @@
+package gps;
+
+struct gps_ini_t
+{
+  string channel_data;
+  string channel_config;
+  string channel_environment;
+
+  double position[6];
+  
+  dsldevice.device_conn_t connection;
+
+  string host;
+
+  dsldevice.enumer_t enumer;
+}

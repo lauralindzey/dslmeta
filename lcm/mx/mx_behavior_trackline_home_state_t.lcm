@@ -1,0 +1,18 @@
+package mx;
+
+struct mx_behavior_trackline_home_state_t
+{
+  // Timestamp of last update to state.
+  int64_t utime;	
+  
+  // Behavior-specific state.
+  float distance_to_finish_line;  // (m) signed: <0 indicates trackline completed.
+  float off_track_distance; // (m) signed.
+  float depth;              // (m)
+  float depth_error;       // (m) Signed depth error, depth_goal-depth
+  boolean shallow;         // to disambiguate sign of error convention.  
+  float thrust_N;          // surge thrust in body frame (N).
+
+  float countdown;         // (s) time remaining on trackline timeout.
+
+}

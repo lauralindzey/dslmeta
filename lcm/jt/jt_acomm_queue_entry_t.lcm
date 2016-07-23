@@ -1,0 +1,25 @@
+package jt;
+
+struct jt_acomm_queue_entry_t
+{
+
+  int64_t utime;                      // time this message was issued
+
+  // for commanding transmission of a queue entries
+  // set ot 1 to TX this jasontalk message synchronously on the next uplink (not normally used)
+  // set ot 0 to load this data into the message queue, but not transmit until queried  (default)
+  // to transmit synchronously, st the jt_msg.tx_async = 1;
+  boolean tx_sync; 
+
+  jt.jt_ascii_t  jt_msg;              // nested jasontalk
+
+  // moved constants to the end for easier viewing in spy
+  // Constants to decode utime values.
+  const int64_t UTIME_UNKNOWN = 0, UTIME_INVALID = -1, UTIME_UNINITIALIZED = 2;
+
+  jt.jt_acomm_queue_enum_t queue_num; // queue number to populate 
+
+     
+}
+
+

@@ -1,0 +1,12 @@
+package hydpress;
+
+struct hydpress_t
+{
+  int64_t utime;  // Time of last good data.
+
+  double pressure;
+  int32_t pressureCounts;
+  int32_t temperatureCounts;
+
+  hydpress_status_t status;
+}

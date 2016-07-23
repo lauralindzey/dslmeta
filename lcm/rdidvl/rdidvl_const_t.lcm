@@ -1,0 +1,9 @@
+package rdidvl;
+
+struct rdidvl_const_t
+{
+  const int8_t dvl_ping_frequency = 2; // Ping frequency in Hz. Used to allocate the
+                                       // circular buffer for the dvl_status field
+  const int8_t dvl_monitor_time = 30;  // The dvl_status field counts the number of good
+                                       // beams in this time (in seconds)
+}

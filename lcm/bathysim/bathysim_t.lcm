@@ -1,0 +1,15 @@
+package bathysim;
+
+struct bathysim_t
+{
+  // Time.
+  int64_t utime;
+
+  // Initialization parameters.
+  bathysim_ini_t ini;
+
+  // Last position (center of local bathy grid).
+  double northing;
+  double easting;
+
+}

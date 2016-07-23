@@ -1,0 +1,22 @@
+package device;
+
+/*
+  Test/mock device data.
+*/
+struct device_t
+{
+  int64_t utime;  // Time sent in microseconds
+
+  double data;  // The mock device's data
+
+  dsldevice.raw_data_t raw_data;  // Each device MUST include its raw data.
+
+  // Each device MUST include its device-specific status or generic if no
+  // device specific status exists.
+  dsldevice.status_t status;
+
+  // May as well include device-specific initialization parameters
+  // as well, though these should be static, but are also typically
+  // just a few bytes.
+  device_ini_t ini;
+}

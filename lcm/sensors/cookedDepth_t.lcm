@@ -1,0 +1,9 @@
+package sensors;
+
+struct cookedDepth_t
+{
+    int64_t   utime;
+    double    depth;
+    double    vel;
+    int32_t   source;
+}

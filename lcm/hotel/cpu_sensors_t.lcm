@@ -1,0 +1,18 @@
+package hotel;
+
+struct cpu_sensors_t
+{
+	int64_t		utime;
+	int16_t		coretemp[2];
+	float           in0V;
+	float           vCore;
+        float           v3_3;
+	float           v5;
+	float 		v12;
+	float		v3sb;
+	float		vBat;
+	int16_t		fan_speed;
+	float           cpu_core_temp;
+	float           pcb_temp;
+	float           core_power_temp;
+}

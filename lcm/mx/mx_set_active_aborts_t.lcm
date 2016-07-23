@@ -1,0 +1,11 @@
+package mx;
+
+struct mx_set_active_aborts_t
+{
+  // time
+  int64_t utime;
+
+  // Aborts to set (specified as a 10-mask - see mx_abort_conditions_t.
+  int64_t abort_10mask;
+
+}

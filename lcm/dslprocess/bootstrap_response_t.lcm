@@ -1,0 +1,23 @@
+package dslprocess;
+
+/*
+  Sent by the initialization process to bootstrap new drivers.
+*/
+struct bootstrap_response_t
+{
+  // Uniquely identifies target driver (ip and pid hash).
+  // This is checked by all drivers listening on the global bootstrap channel
+  // to see if the bootstrap message is for them.
+  int64_t pid;
+
+  // Device id unique to each device.  Key into ini file.
+  string id;
+
+  // Dedicated device-specific initialization channel. Drivers should subscribe
+  // to this channel to receive further initialization instruction.
+  string channel_init;
+
+  // Dedicated device-specific status channel. Drivers should publish
+  // their generic status_t on this channel.
+  string channel_status;
+}

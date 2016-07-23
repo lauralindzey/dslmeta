@@ -1,0 +1,21 @@
+package phins;
+
+struct phins_std_t
+{
+    int64_t   utime;
+
+    double    hpr[3];                      // Heading, Pitch, Roll
+    double    hprSigma[3];                 // Sigmas for Heading, Pitch, Roll
+    double    surgeSwayHeave[3];           // surge, sway, heave
+    double    latLonAlt[3];                // Latitude, longitude, altitude (or depth)
+    double    latLonAltSigma[3];           // Sigmas for Latitude, longitude, altitude (or depth)
+    double    eastNorthVertSpd[3];         // East, North Vertical speed
+    double    eastNorthVertSpdSigma[3];    // Sigmas for East, North, Vertical speed
+    byte      systemStatus;
+    byte      algoStatus;
+    byte      userStatus;
+    double    time;                        // Time reported by the Phins
+
+    phins_std_status_t status;
+}
+

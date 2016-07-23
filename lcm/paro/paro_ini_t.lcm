@@ -1,0 +1,22 @@
+package paro;
+
+/*
+  The Paroscientific pressure sensor initialization.
+*/
+struct paro_ini_t
+{
+  string channel_data;
+  string channel_config;
+  string channel_simstate;
+
+  int8_t paro_sensor_number;
+
+  double position[6];
+  
+  //dsldevice.sio_config_t sio_config; // all serial config parts
+  dsldevice.device_conn_t connection;
+
+  string host;
+
+  dsldevice.enumer_t enumer;
+}

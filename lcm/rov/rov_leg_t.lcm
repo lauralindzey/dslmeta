@@ -1,0 +1,26 @@
+package rov;
+
+// 2016/04/13 18:12:58  MVJ  Reworked version of control_thread.h:leg_t in rov-core.
+
+struct rov_leg_t
+{
+  int64_t utime;
+
+  // Parameters.
+  double northing_start;
+  double easting_start;
+  double northing_goal;
+  double easting_goal;
+  double kappa; // off-trackline to heading reference gain
+
+  // Computed parameters.
+  double bearing_of_trackline;  // bearing of trackline (radians)
+
+  // State.
+  boolean following_trackline; // Trackline following engaged?
+  double distance_off_trackline;  // signed distance to trackline (oline)
+  double distance_to_finish_line;  // signed distance to finishline (eline)
+  double heading_goal; 
+
+}
+

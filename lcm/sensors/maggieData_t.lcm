@@ -1,0 +1,13 @@
+package sensors;
+
+struct maggieData_t
+{
+    int64_t   utime;
+    double    maggieField[3]; //xyz maggie field 
+    int32_t   sensorSource;
+    int32_t   vehicleNumber;
+    string    vehicleName;
+    int32_t   sensorNumber;  //number of the sensor on the vehicle
+    string    rawDataString; 
+    int16_t   rawDataStringLen; 
+}

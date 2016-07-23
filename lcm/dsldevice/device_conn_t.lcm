@@ -1,0 +1,13 @@
+package dsldevice;
+
+struct device_conn_t
+{
+  // available connections
+  const int8_t UDP  = 0;
+  const int8_t SERIAL = 1;
+
+  int8_t conn_type;
+
+  dsldevice.nio_config_t nio_config;
+  dsldevice.sio_config_t sio_config;
+}

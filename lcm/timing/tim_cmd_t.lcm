@@ -1,0 +1,10 @@
+package timing;
+
+struct tim_cmd_t
+{
+    int64_t           utime;
+    boolean           check_pps;                        // True if device driver should check for input PPS to the tim
+    int16_t           rearm_time;                       // Rearm time of the TIM
+    int16_t           n_used_channels;                  // Number of used output channels
+    timing_channel_t  t_chan[n_used_channels];          // Timing channels array
+}

@@ -1,0 +1,25 @@
+package mx;
+
+struct mx_behavior_push_up_parameters_t
+{
+
+  // Timestamp of last update to parameters.
+  int64_t utime;	
+
+  // Flag to indicate whether to immediately make this behavior
+  // active as well.
+  boolean atomically_activate;
+  
+  // Behavior-specific ephemeral parameters.
+  boolean allow_push_down;   // If true, mx will allow positive heave 
+                             // thrust, for example to try to extract 
+			     // vehicle from a difficult pressure ridge 
+			     // or similar.  Otherwise heave_thrust_prcnt
+			     // is always interpreted as negative (to
+			     // thrust up) regardless of the sign.
+  int8_t heave_thrust_prcnt;  // (-100 to 100) heave thrust (signed) to 
+                             // demand (body frame).
+
+
+  
+}

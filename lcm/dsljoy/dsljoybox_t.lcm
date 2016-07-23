@@ -1,0 +1,38 @@
+package dsljoy;
+
+// Intended to communicate how joystick/joybox data 
+// has been interpreted by some other process.  Do not 
+// use this to store the state of a joybox.
+// Joyboxes/joysticks must be stateless.
+
+struct dsljoybox_t 
+{
+  int64_t utime;
+
+  double surge;
+  double sway;
+  double heave;
+  double roll;
+  double pitch;
+  double yaw;
+
+  double pan;
+  double tilt;
+  double zoom;
+  double iris;
+
+  double gain;
+  double zbias;
+
+  boolean stale;
+  boolean autoHdg;
+  boolean autoDepth;
+  boolean autoAlt;
+  boolean autoXY;
+  boolean stickLock;
+  boolean zoomLock;
+
+  int16_t active_joybox_id;
+  const int16_t PILOT=0, MX=1, REMOTE=2, BACKDOOR=3, UNKNOWN=-1;
+
+}

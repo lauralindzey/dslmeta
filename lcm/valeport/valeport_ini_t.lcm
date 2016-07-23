@@ -1,0 +1,11 @@
+package valeport;
+
+struct valeport_ini_t
+{
+  string channel_data;
+
+  dsldevice.device_conn_t connection;
+
+  string host;
+
+}

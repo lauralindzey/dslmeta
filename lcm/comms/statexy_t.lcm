@@ -1,0 +1,57 @@
+package comms;
+
+// 2014-07-13 SS - reviewed by adding more travel times and tt staleness
+
+struct statexy_t
+{
+  int64_t      utime;                     /* utime when the message was originated at the sending modem */
+
+  int16_t      tos;                       /* integer second 0-59, encoded as 8 bits */
+  int16_t      sync_nav_mode;             /* 0, 1, 2, 3  only, encoded as two bits */
+  double       x;                         /* X (meters) */
+  double       y;                         /* 3 bytes; Y (meters) */
+  double       depth;                     /* depth (meters) */
+  double       alt;                       /* altitude (meters) */
+  double       heading_deg;               /* heading in degrees */
+  double       x_goal;                    /* X goal (meters) */
+  double       y_goal;                    /* Y goal (meters) */
+  double       z_goal;                    /* Z goal (meters) */
+  double       u_vel;                     /* u vel  (meters/sec) */
+  double       v_vel;                     /* v vel  (meters/sec) */
+  double       w_vel;                     /* w vel  (meters/sec) */
+  int64_t      abort_status;   	          /* abort status */
+  int32_t      cfg;          	          /* HROV flight mode */
+  double       batt_percent;     	  /* battery percent */
+  double       batt_time_remaining;       /* seconds until batteries are drained to zero */
+  int64_t      tx_count;                  /* number of data packets TX'd by sender (including this one) */
+  int64_t      rx_count;                  /* number of data packets RX'd by sender  */
+  int64_t      dvl_status;                /* encoded as 6 bits */
+
+  // nUI specific
+  int32_t      mx_active_behavior;
+  int32_t      mx_active_comms;
+  double       lbl_tt[2];                   /* lbl travel times to the two transponders */
+  int32_t      lbl_tt_time[2];              /* seconds since the lbl travel times were received by the originating modem */
+  double       owtt[3];                     /* owtt pings array; */
+  int32_t      owtt_time[3];                /* owtt pings array seconds since; */
+ 
+  int64_t      rx_utime;                    /* utime the acomm packet was rxd/decoded */
+  double       data_owtt;                   /* owtt in seconds computed from difference in utime between sender and receiver timestamps */ 
+
+  double       conductivity;
+  double       temperature;
+  double       headroom;
+
+  // Originating and receiving modem IDs for this message
+  int16_t      src;
+  int16_t      dest;
+
+  // Helper variables to store utime rx of pings
+  int64_t      lbl_tt_rx_utime[3];
+  int64_t      owtt_rx_utime[3];
+
+  comms.umodem_address_t add;
+  mx.mx_comms_bitmask_t mx_comms;
+  mx.mx_behavior_enum_t mx_behaviors;
+  rdidvl.rdidvl_const_t dvl_const;
+}

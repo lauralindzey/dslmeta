@@ -1,0 +1,84 @@
+package ps8ch;
+
+struct ps_ini_t
+{
+
+  // Number of power switches on this bus
+  int8_t nPs;
+
+  // Variables typical of each power switch
+  string channel_data[nPs];
+  string channel_config[nPs];
+
+  string ps_type[nPs];       // Prefix used for querying, e.g. "NPS"
+  string ps_address[nPs];    // A, B, C, ...
+
+  // f/w version.  Mixed buses are not allowed.
+  int8_t version;
+
+  // These options are required
+  string gui_widget[nPs]; // id
+  string gui_page[nPs]; // hotel
+  
+  // These options are specific to the 8 channel power switch
+  string gui_location[nPs];
+
+  string gui_switch1_label[nPs];
+  string gui_switch1_group[nPs];
+  string gui_switch1_depends_on[nPs];
+
+  string gui_switch2_label[nPs];
+  string gui_switch2_group[nPs];
+  string gui_switch2_depends_on[nPs];
+
+  string gui_switch3_label[nPs];
+  string gui_switch3_group[nPs];
+  string gui_switch3_depends_on[nPs];
+
+  string gui_switch4_label[nPs];
+  string gui_switch4_group[nPs];
+  string gui_switch4_depends_on[nPs];
+
+  string gui_switch5_label[nPs];
+  string gui_switch5_group[nPs];
+  string gui_switch5_depends_on[nPs];
+
+  string gui_switch6_label[nPs];
+  string gui_switch6_group[nPs];
+  string gui_switch6_depends_on[nPs];
+
+  string gui_switch7_label[nPs];
+  string gui_switch7_group[nPs];
+  string gui_switch7_depends_on[nPs];
+
+  string gui_switch8_label[nPs];
+  string gui_switch8_group[nPs];
+  string gui_switch8_depends_on[nPs];
+
+  int16_t a2d1_function[nPs];  
+  double gui_a2d1_bias[nPs];
+  double gui_a2d1_gain[nPs];
+
+  int16_t a2d2_function[nPs];  
+  double gui_a2d2_bias[nPs];
+  double gui_a2d2_gain[nPs];
+
+  int16_t a2d3_function[nPs];  
+  double gui_a2d3_bias[nPs];
+  double gui_a2d3_gain[nPs];
+
+  int16_t a2d4_function[nPs];  
+  double gui_a2d4_bias[nPs];
+  double gui_a2d4_gain[nPs];
+
+  int16_t a2d5_function[nPs];  
+  double gui_a2d5_bias[nPs];
+  double gui_a2d5_gain[nPs];
+
+  const int16_t a2d_unused_flag=-1;
+  ps8ch.ps_a2d_enum_t enums;
+
+  // Common items for the driver
+  dsldevice.device_conn_t connection;
+  string host;
+}

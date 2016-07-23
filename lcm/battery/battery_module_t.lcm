@@ -1,0 +1,18 @@
+package battery;
+
+struct battery_module_t
+{
+	byte                bus_address;
+	battery_digest_t    data;
+	int32_t             num_cells;
+	float               cell_voltage[num_cells];
+	int32_t             num_temp_sensors;
+	float               temperature[num_temp_sensors];
+	int64_t             shunt_state; // bit field for up to 64 cells
+	int32_t             scdc; // Short circuit discharge counter
+	byte                switch_enable; // 0,1,2,3 = prechg, chg, dischg, bypass
+	int64_t             status_bits; // first 32 defined, rest reserved.
+	int16_t             n_queries;
+	string              query[n_queries];
+	string              reply[n_queries];
+}

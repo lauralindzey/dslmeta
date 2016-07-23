@@ -1,0 +1,15 @@
+package bwls;
+
+struct bwls_control_t
+{
+  int64_t utime;
+
+  // available actions
+  const int8_t RELEASE  = 0;  // Release
+  const int8_t LATCH = 1;     // Latch positions
+  const int8_t RESET_COUNTS = 2; // Reset fiber out counts to 0
+
+  // value depends on action
+  int8_t action;
+
+}

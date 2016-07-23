@@ -1,0 +1,10 @@
+package acomms;
+
+struct navest_to_auv_state_t
+{
+    int64_t   utime;
+    double    lat;
+    double    lon;
+    double    depth;
+    double    speed;
+} 

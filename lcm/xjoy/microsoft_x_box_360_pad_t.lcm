@@ -1,0 +1,47 @@
+package xjoy;
+
+struct microsoft_x_box_360_pad_t
+{
+    int64_t utime;
+
+    // left stick
+    int16_t l_stick_lr;          //Left stick left/right axis -32767 to +32767
+    int16_t l_stick_ud;          //Left stick up/down axis -32767 to +32767
+    boolean l_stick_btn;           //Left stick push button on/off
+
+    // right stick
+    int16_t r_stick_lr;          //Right stick left/right axis -32767 to +32767
+    int16_t r_stick_ud;          //Right stick up/down axis -32767 to +32767
+    boolean r_stick_btn;           //Right stick push button on/off
+    
+    // triggers
+    // NOTE TRIGGERS ARE NOT 0 WHEN UNUSED THEY ARE -32767
+    int16_t l_trig;             //Left trigger -32767 to +32767 
+    int16_t r_trig;             //Right trigger -32767 to +32767
+    
+    // bumpers
+    boolean l_bump;         //Left bumper on/off
+    boolean r_bump;         //Right bumper on/off
+    
+    // buttons
+    boolean xbox_btn;       //Xbox center button on/off
+    boolean back_btn;       //Back button on/off
+    boolean start_btn;      //Start button on/off
+    boolean a_btn;          //a (green) button on/off
+    boolean b_btn;          //b (red) button on/off
+    boolean x_btn;          //x (blue) button on/off
+    boolean y_btn;          //y (yellow) button on/off
+    
+    // D-pad
+    int16_t dpad_lr;         //D-pad left/right buttons {-32767,32767}
+    int16_t dpad_ud;         //D-pad up/down buttons {-32767,32767}
+
+    // Constants specific to this controller.
+    const int16_t STICK_MAX = 32767;
+    const int16_t STICK_MIN = -32767;
+    const int16_t STICK_DEADBAND = 7000;
+
+    // Initialization parameters.
+    xjoy.microsoft_x_box_360_pad_ini_t ini;
+
+}

@@ -1,0 +1,12 @@
+package acomms;
+
+struct asv_to_auv_gps_owtt_t
+{
+    int64_t   utime;
+    double    lat;
+    double    lon;
+    double    hdop;
+    double    owtt;
+    int16_t   mission_stop;
+    int16_t   jump_to_waypoint;
+}

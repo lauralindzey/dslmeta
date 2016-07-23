@@ -1,0 +1,10 @@
+package umodem;
+
+struct umodem_shf_t
+{
+  int32_t   agn;         // analog gain setting
+  int32_t   ainpshift;   // shift of previous input buffer
+  int32_t   ainshift;    // shift of current input buffer
+  int32_t   mfdshift;    // shift of the baseband buffer containing a detection
+  int32_t   p2bshift;    // shift performed during basebanding incoming data
+}

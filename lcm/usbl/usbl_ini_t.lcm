@@ -1,0 +1,19 @@
+package usbl;
+
+struct usbl_ini_t
+{
+  string channel_data;
+  string channel_config;
+  string channel_simstate;
+  string channel_gps;
+  string channel_gyro;
+
+  // GPS to TCVR in fwd, stbd, down frame
+  double position[6];
+  
+  dsldevice.device_conn_t connection;
+
+  string host;
+
+  dsldevice.enumer_t enumer;
+}

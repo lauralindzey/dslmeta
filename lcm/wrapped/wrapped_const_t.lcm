@@ -1,0 +1,9 @@
+package wrapped;
+
+struct wrapped_const_t
+{
+
+  // Use to populate utime_tx/rx as appropriate.
+  const int8_t TIME_UNKNOWN = -1;
+
+}

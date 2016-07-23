@@ -1,0 +1,8 @@
+package acomms;
+
+struct cmd_ping_t
+{
+    int64_t   utime;
+    int16_t   ping_source;
+    int16_t   ping_destination;
+}

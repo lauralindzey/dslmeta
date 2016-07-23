@@ -1,0 +1,11 @@
+package sparkfunimu;
+
+struct sparkfunimu_ini_t
+{
+  string channel_data;
+  string channel_config;
+  
+  dsldevice.device_conn_t connection;
+
+  string host;
+}

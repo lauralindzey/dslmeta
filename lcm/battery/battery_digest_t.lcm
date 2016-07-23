@@ -1,0 +1,18 @@
+package battery;
+
+struct battery_digest_t
+{
+	int64_t      utime;
+	float        capacity; // Ah ? Coulombs ?
+	float        charge;
+	float        out_voltage; // volts on bus bars
+	float        int_voltage; // internal voltage may be different
+	float        i_inst; // amps
+	float        i_avg; //amps
+	float        temp_avg; // celsius
+	float        temp_max; // spatial maximum now, not historical
+	float        temp_min;
+	boolean      discharge_enabled; // battery useless if it’s off
+	boolean      warning;
+	string       warning_message; // look here if warning is true
+}

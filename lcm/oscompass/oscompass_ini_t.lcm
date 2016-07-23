@@ -1,0 +1,16 @@
+package oscompass;
+
+struct oscompass_ini_t
+{
+  string channel_data;
+  string channel_config;
+  string channel_simstate;
+
+  double position[6];
+  
+  dsldevice.device_conn_t connection;
+
+  string host;
+
+  dsldevice.enumer_t enumer;
+}

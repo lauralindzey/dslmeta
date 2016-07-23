@@ -1,0 +1,15 @@
+package oscompass;
+
+struct oscompass_t
+{
+  int64_t utime;  // Time of last good data.
+
+  double heading;
+  double pitch;
+  double roll;
+  double depth;
+  double temperature;
+
+  // Device specific status. (Generic status and raw data are nested within).
+  oscompass_status_t status;
+}

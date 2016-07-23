@@ -1,0 +1,22 @@
+package phins;
+
+/*
+  The Paroscientific pressure sensor initialization.
+*/
+struct phins_std_ini_t
+{
+  string channel_data;
+  string channel_config;
+  string channel_simstate;
+
+  int8_t phins_sensor_number;
+
+  double position[6];
+  
+  //dsldevice.nio_config_t nio_config; // all serial config parts
+  dsldevice.device_conn_t connection;
+
+  string host;
+
+  dsldevice.enumer_t enumer;
+}

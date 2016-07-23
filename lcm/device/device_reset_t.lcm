@@ -1,0 +1,14 @@
+package device;
+
+/*
+  A reset message for the prototype driver. This will have to travel on its
+  own channel.
+*/
+struct device_reset_t
+{
+  int64_t utime;  // Time command was sent in microseconds.
+
+  // Prototype driver will acknowledge receipt but not actually reset if this
+  // flag is not set.
+  boolean actually_do_it;
+}

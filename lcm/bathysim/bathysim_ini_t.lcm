@@ -1,0 +1,23 @@
+package bathysim;
+
+struct bathysim_ini_t
+{
+  // Channel on which to publish local bathymetry.
+  string channel_local_bathy;
+
+  // Channel on which to recieve vehicle position.
+  // (If multiple vehicles are being simulated, launch multiple simbathy
+  // processes)
+  string channel_vehicle_position;
+
+  // Generated bottom simulation parameters.
+  double bottom_sim_nominal_depth;
+  double bottom_sim_min_depth; // Simulated bottom will never be shallower.
+  double bottom_sim_max_depth; // Simulated bottom will never be deeper.
+  double bottom_sim_roughness;
+  double bottom_sim_cliff_probability;
+  double bottom_sim_cliff_height; 
+
+  // Where the code will run.
+  string host;
+}

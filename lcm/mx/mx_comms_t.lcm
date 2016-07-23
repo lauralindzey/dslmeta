@@ -1,0 +1,13 @@
+package mx;
+
+struct mx_comms_t
+{
+
+  // @@@ Comms parameters are all durative 
+  // @@@ by convention only
+  mx.mx_comms_parameters_t parameters;
+
+  // Comms channel state.
+  mx.mx_comms_state_t state;
+
+}

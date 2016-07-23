@@ -1,0 +1,12 @@
+package mx;
+
+struct mx_zone_enum_t
+{
+
+  // For decoding navigation/active flow-chart zone.
+  const int8_t ZONE_UNKNOWN=0;
+  const int8_t ZONE_100M=1;
+  const int8_t ZONE_1000M=2;
+  const int8_t ZONE_20KM=3;
+
+}

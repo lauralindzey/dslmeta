@@ -1,0 +1,45 @@
+package rdidvl;
+
+struct rdidvl_summary_t
+{
+  int64_t      utime;
+
+  double       range[4];
+
+  double       altitude;           /* altitude, set to 0.0 when bad */
+
+  double       btv[4];                /* velocity, bottom referenced */
+  byte         bt_status ;    /* status of bottom track */
+
+  double       wtv[4];                /* velocity, referenced to water mass */
+  byte         wt_status;      /* status of water mass track */
+
+  double       bt_last_good_vel_time;
+  int16_t      bt_count_012_beam;
+  int16_t      bt_count_3_beam;        
+  int16_t      bt_count_4_beam;
+  int16_t      bt_beams_this_solution;            /* is solution 3-beam or 4-beam? */
+  double       btv_err_mean;
+  double       btv_err_std;
+  double       btv_err_sum;
+  double       btv_err_sum_sq;
+  double       bt_cog;                            /* course over ground in radians */
+  double       bt_sog;                            /* speed over ground in m/s */
+  int16_t      new_good_bt;                       /* this is set to 1 when a new valid DVL BT ping is received */
+
+  double       wt_last_good_vel_time;
+  int16_t      wt_count_012_beam;
+  int16_t      wt_count_3_beam;
+  int16_t      wt_count_4_beam;
+  int16_t      wt_beams_this_solution;            /* is solution 3-beam or 4-beam? */
+  double       wtv_err_mean;
+  double       wtv_err_std;
+  double       wtv_err_sum;
+  double       wtv_err_sum_sq;
+  double       wt_cow;                            /* course over water layer in radians */ 
+  double       wt_sow;                            /* speed over water layer in m/s */ 
+  int16_t      new_good_wt;                       /* this is set to 1 when a new valid DVL WT ping is received */
+
+  double       wh_sec_since_midnight;          /* dvl clock time last ensemble - From Doppler DSP Clock*/
+  double       wh_delta_t;                     /* dvl delta clock time last ensemble - Computed From Doppler DSP Clock*/
+}

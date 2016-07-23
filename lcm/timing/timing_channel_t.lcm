@@ -1,0 +1,9 @@
+package timing;
+
+struct timing_channel_t
+{
+    int16_t   n_pulses;                  // Number of pulses within a rearm period;
+    int16_t   delays[n_pulses];          // Delays of the pulses from the start of the rearm period
+    int16_t   channel_number;            // ID of the timing channel (0,1,2,3)
+    boolean   is_positive;               // True if positive pulse, false if negative pulse
+}

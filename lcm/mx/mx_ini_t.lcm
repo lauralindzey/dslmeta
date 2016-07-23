@@ -1,0 +1,74 @@
+package mx;
+
+struct mx_ini_t
+{
+
+  // Channel over which mx internal state/status is published.
+  string channel_state;
+
+  // Channel over which user commands arrive (no distinction,
+  // at least for now, whether the command arrived over acomms,
+  // fiber, or RF).  
+  string channel_set_active_behavior;  // Sets active behavior
+  string channel_set_mission_status;  // Mission start/stop/abort.
+  string channel_set_zone;
+  string channel_set_active_aborts;
+  string channel_set_durative_parameters;
+
+  // Channel over which navigation is received.
+  string channel_nav;
+
+  // Channels over which control data is received.
+  string channel_control_ref_thrust;
+  string channel_control_ref_leg;
+
+  // Channel(s) for altering durative parameters?
+  // @@@ Not implemented.
+
+  // Channels for determining comms states.
+  string channel_ethernet; // dialtone proxy for any of fiber, deck-cable, RF (any pilotable Ethernet channel).
+  string channel_umodem10_status; 
+  string channel_umodem35_status; 
+
+  // Channels for acomms interface.
+  string channel_umodem10_acomm_message_queue;
+  string channel_umodem10_lcm_wrapped_tx; // for Tx'ing messages acoustically.
+  string channel_umodem10_lcm_wrapped_rx; // for Rx'ing msgs acoustically.
+  string channel_umodem35_acomm_message_queue;
+  string channel_umodem35_lcm_wrapped_tx; // for Tx'ing messages acoustically.
+  string channel_umodem35_lcm_wrapped_rx; // for Rx'ing msgs acoustically.
+
+
+  // Channels for manipulating behavior parameters.
+  // Internal flag indicates whether to atomically activate 
+  // the associated behavior as well.
+  string channel_set_behavior_piloted_parameters;  
+  string channel_set_behavior_hold_station_parameters;  
+  string channel_set_behavior_thrust_heading_parameters;  
+  string channel_set_behavior_trackline_home_parameters;  
+  string channel_set_behavior_all_stop_parameters;  
+  string channel_set_behavior_push_up_parameters;    
+
+  // Initial values for durative parameters.
+  int64_t active_aborts;    // 10-mask.  Determines which aborts can be triggered.
+  mx_durative_parameters_t durative_parameters;  
+
+  // Initial values for ephemeral (behavior-specific) parameters.
+  mx_behavior_piloted_parameters_t behavior_piloted_parameters;
+  mx_behavior_hold_station_parameters_t behavior_hold_station_parameters;
+  mx_behavior_thrust_heading_parameters_t behavior_thrust_heading_parameters;  
+  mx_behavior_trackline_home_parameters_t behavior_trackline_home_parameters;
+  mx_behavior_all_stop_parameters_t behavior_all_stop_parameters;
+  mx_behavior_push_up_parameters_t behavior_push_up_parameters;	
+
+  int8_t mx_behavior_piloted_exit_transition;
+  int8_t mx_behavior_hold_station_exit_transition;
+  int8_t mx_behavior_thrust_heading_exit_transition;
+  int8_t mx_behavior_trackline_home_exit_transition;
+  int8_t mx_behavior_all_stop_exit_transition;
+  int8_t mx_behavior_push_up_exit_transition;	
+
+  // Where the code will run.  mx will run on vehicle.
+  string host; 
+
+}

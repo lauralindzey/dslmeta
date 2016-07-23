@@ -1,0 +1,10 @@
+package rov;
+
+struct rov_attitude_acceleration_t
+{
+  int64_t utime;
+
+  double   dpdt;
+  double   dqdt;
+  double   drdt;
+}

@@ -1,0 +1,23 @@
+package ps8ch;
+
+/*
+  An 8 channel power switch configuration message set to the switch driver
+  to set a channel PWM, reboot a channel, or read a channel.
+*/
+struct ps_config_t
+{
+  int64_t utime;
+
+  int8_t channel; // from 1 - 8
+  int8_t action;  // PWM, BOOT, or READ
+
+  // available actions
+  const int8_t PWM  = 0;  // set PWM from 0 to 100% in 10% increments
+  const int8_t BOOT = 1;  // reboot the channel
+  const int8_t READ = 2;  // read the status of the channel
+
+  // value depends on action
+  // 0 - 10 for PWM
+  // not used for READ or BOOT
+  int8_t value;
+}

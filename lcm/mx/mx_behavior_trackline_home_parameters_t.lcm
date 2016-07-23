@@ -1,0 +1,24 @@
+package mx;
+
+struct mx_behavior_trackline_home_parameters_t
+{
+  // Timestamp of when parameters were recieved by mx (acomms).
+  // Or timestamp of when parameters were sent to mx (Ethernet).
+  int64_t utime;	
+
+  // Flag to indicate whether to immediately make this behavior
+  // active as well.
+  boolean atomically_activate;
+  
+  // Behavior-specific ephemeral parameters.
+  boolean interpret_depth_as_altitude_and_engage_bf;
+  int16_t easting_start;  // (m) Easting start-point of leg in DR coordinates. (Ignored if above is true.)
+  int16_t northing_start; // (m) Northing start-point of leg in DR coordinates. (Ignored if above is true.) 
+  int16_t easting_goal;    // (m) Easting end-point of leg in DR coordinates.
+  int16_t northing_goal;   // (m) Northing end-point of leg in DR coordinates.
+  int16_t depth_goal;     // (m) Constant depth at which to fly during leg.
+  int8_t thrust_prcnt;  // (-100 to 100) the thrust to apply
+  float timeout;        // (s) timeout on trackline.  @@@ needs to be handled wrt speed settings.
+
+
+}

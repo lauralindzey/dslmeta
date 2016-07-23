@@ -1,0 +1,11 @@
+package dummy;
+
+/*
+  An example of a device-specific status message.
+*/
+struct dummy_status_t
+{
+  string my_status;
+
+  dslprocess.status_t status;
+}

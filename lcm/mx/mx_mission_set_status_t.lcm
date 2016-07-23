@@ -1,0 +1,19 @@
+package mx;
+
+struct mx_mission_set_status_t
+{
+
+  // 2016-05-03 SS - added utime field
+  int64_t utime;
+
+  // Status to put mission into. (mx_mission_status_enum_t);
+  int8_t mission_status_to_set;
+
+  // Behavior to engage upon change of mission status
+  // (mx_behavior_enum_t).  If setting mission to
+  // running, subsequent behaviors come from the
+  // directives list, but the behavior specified here 
+  // is still executed first.
+  int8_t behavior_to_engage;
+
+}

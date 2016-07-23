@@ -1,0 +1,15 @@
+package mx;
+
+struct mx_behavior_enum_t
+{
+
+  // For decoding active behavior enumeration.
+  const int8_t BEHAVIOR_SM_DISABLED=0;
+  const int8_t BEHAVIOR_PILOTED=1;
+  const int8_t BEHAVIOR_HOLD_STATION=2; 
+  const int8_t BEHAVIOR_THRUST_HEADING=3;
+  const int8_t BEHAVIOR_TRACKLINE_HOME=4;
+  const int8_t BEHAVIOR_ALL_STOP=5;
+  const int8_t BEHAVIOR_PUSH_UP=6;
+
+}

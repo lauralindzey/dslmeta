@@ -1,0 +1,9 @@
+package umodem;
+
+struct umodem_mfd_t
+{
+  int32_t   peak;   // matched-filter peak value
+  int32_t   power;  // compensated for shift and converted to dB
+  int32_t   ratio;  // ratio of peak and incoherent broad-band noise
+                    //       used for the detector test
+}

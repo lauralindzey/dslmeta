@@ -1,0 +1,13 @@
+package mx;
+
+struct mx_const_t
+{
+
+  // Constants to decode flag values.
+  const int64_t UTIME_INIT = 0, UTIME_INVALID = -1;
+  const int64_t COUNT_INIT = 0, COUNT_INVALID = -1;
+
+  // @@@ many of these are generic enough they should move to 
+  // @@@ a system-wide file, e.g. dslprocess_const_t.lcm
+
+}

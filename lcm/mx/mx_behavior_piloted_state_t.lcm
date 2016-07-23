@@ -1,0 +1,12 @@
+package mx;
+
+struct mx_behavior_piloted_state_t
+{
+  // Timestamp of last update to state.
+  int64_t utime;	
+  
+  // Behavior-specific state.
+  boolean ethernet_intact; // This is determined at a higher level.
+  float countdown;  // (s) time left before the behavior terminates.
+
+}

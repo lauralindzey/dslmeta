@@ -1,0 +1,15 @@
+package paro;
+
+/*
+  The response of the Paroscientific pressure sensor.
+*/
+struct paro_t
+{
+  int64_t utime;  // Time of last good data.
+
+  double pressure_psi;
+  double depth; // approximate, (pressure-atmospheric)/density/g
+
+  // Device specific status. (Generic status and raw data are nested within).
+  paro_status_t status;
+}

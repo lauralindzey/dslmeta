@@ -1,0 +1,13 @@
+package umodem;
+
+struct umodem_ping_reply_t
+{
+  int64_t    utime;    // When the reply was received
+
+  int16_t    src;
+  int16_t    dest;
+  int16_t    index;
+  double     owtt;
+
+  comms.umodem_address_t add;
+}

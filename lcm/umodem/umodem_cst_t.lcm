@@ -1,0 +1,27 @@
+package umodem;
+
+struct umodem_cst_t
+{
+  int64_t        utime;
+
+  int32_t        mode;
+  float          toa;
+  int32_t        toa_mode;
+  umodem_mfd_t   mfd;
+  int32_t        spl;
+  umodem_shf_t   shf;
+  int32_t        rate;
+  int32_t        src;
+  int32_t        dest;
+  int32_t        psk_error_code;
+  int32_t        packet_type;
+  int32_t        n_frames;
+  int32_t        n_bad_frames;
+  umodem_snr_t   snr;
+  int32_t        mse;
+  int32_t        dqf;
+  int32_t        dop;
+  int32_t        noise_stddev;
+  int32_t        carrier_hz;
+  int32_t        bandwidth_hz;
+}

@@ -1,0 +1,20 @@
+package gyro;
+
+struct gyro_t
+{
+  int64_t   utime;  // Time of last good data.
+
+  string    talker_id;
+
+  double    hpr[3];
+  double    hpr_deg[3];
+  double    hprDot[3];
+  double    hprDot_deg[3];
+  int8_t    hprDot_src;
+
+  const int8_t HPRDOT_FD = 1;     // If hprDot is computed with dinite difference
+  const int8_t HPRDOT_SENSOR = 2; // If the sensor provides hprdot
+
+  // Device specific status. (Generic status and raw data are nested within).
+  gyro_status_t status;
+}

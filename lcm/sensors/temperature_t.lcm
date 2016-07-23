@@ -1,0 +1,7 @@
+package sensors;
+
+struct temperature_t
+{
+    int64_t   utime;
+    double    temperature;
+}

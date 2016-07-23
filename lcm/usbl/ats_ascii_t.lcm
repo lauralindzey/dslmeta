@@ -1,0 +1,20 @@
+package usbl;
+
+struct ats_ascii_t
+{
+  int16_t year;
+  string month;
+  int16_t day;
+  int16_t hour;
+  int16_t minute;
+  int16_t second;
+  int16_t millisecond;
+  int16_t beacon_id;
+  double x;
+  double y;
+  double z;
+  double heading;
+  double pitch;
+  double roll;
+  int16_t error_code;
+}

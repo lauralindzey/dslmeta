@@ -1,0 +1,11 @@
+package umodem;
+
+struct umodem_lbl_t
+{
+  int64_t utime;
+
+  double  lbl_tt[2];
+  int64_t lbl_tt_rx_utime[2];
+
+  comms.umodem_address_t add;
+}

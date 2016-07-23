@@ -1,0 +1,14 @@
+package sbe49;
+
+struct sbe49_t
+{
+  int64_t utime;  // Time of last good data.
+
+  double temperature;
+  double conductivity;
+  double pressure;
+  double salinity;
+  double sound_velocity;
+
+  sbe49_status_t status;
+}

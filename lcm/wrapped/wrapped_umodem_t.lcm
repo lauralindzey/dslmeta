@@ -1,0 +1,26 @@
+package wrapped;
+
+struct wrapped_umodem_t
+{
+
+  int64_t utime;   // time this lcm wrapped message was initiated of received (time it was received 
+                   // is automatically appended by the logger and the receiving
+                   // process can of course check the delay if necessary)
+                   // this will not be propagated acoustically
+
+  // Constants to decode flag values.
+  const int64_t UTIME_UNKNOWN = 0, UTIME_INVALID = -1, UTIME_UNINITIALIZED = 2;
+
+  int16_t  source;
+  int16_t  dest;
+  boolean  ack_requested;    // only valid on acomms tx 
+  int16_t  frame_number;     // only valid on acomms rx 
+
+  int32_t  rx_packet_count;  // only valid on acomms rx 
+
+  boolean tx_async; // for commanding transmission of a jasontalk message 
+                    // set ot 1 to TX this jasontalk message asynchronously
+                    // set ot 0 to TX this jasontalk message on next TDMA transmission slot (if it exists)
+
+  wrapped.wrapped_tstamped_t wrapped_tstamped; // Actual LCM wrapped message
+}

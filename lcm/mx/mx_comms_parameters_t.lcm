@@ -1,0 +1,25 @@
+package mx;
+
+struct mx_comms_parameters_t
+{
+  // Timestamp associated with last parameter update.
+  int64_t utime;
+
+  // Durative parameters (to be changed only by operator command).
+
+  // @@@ unclear whether need to specify something else about how a timeout is
+  // @@@ is handled, depending, e.g., on whether this is a channel capable of transmitting
+  // @@@ data.
+  // @@@ also some complication if we choose to use acks, whether
+  // @@@ independent of acks we got an indication that a comms channel
+  // @@@ failed to Tx at the hdwr level.  successful Rx seems like the
+  // @@@ dialtone.  Otherwise we need some bitmask that determines which
+  // @@@ rx, tx, tx_ack result in calling a channel down to handle the 
+  // @@@ generic case.
+  //
+  // Timeouts associated with declaring a channel down.
+  // @@@ see MX.cpp - implementing check only for driver bad and
+  // @@@ Rx timeout.
+  float timeout; // (s) 
+
+}

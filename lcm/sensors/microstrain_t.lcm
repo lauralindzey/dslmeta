@@ -1,0 +1,35 @@
+package sensors;
+
+struct microstrain_t
+{
+    int64_t   utime;
+
+    int32_t   sensorSource;
+    int32_t   vehicleNumber;
+    int32_t   sensorNumber;  //number of the sensor on the vehicle
+    string    vehicleName;
+
+    // Parsed data.
+    int16_t   hpr_frame; 
+    double    hpr[3];          // heading, pitch, roll
+    double    quaternion[4];   // QUAT_0, QUAT_1, QUAT_2, QUAT_3
+    double    matrix[3][3];    // Rotation matrix
+
+    int16_t   omega_frame;
+    double    omega[3];        // heading, pitch, roll	
+
+    int16_t   vdot_frame;     
+    double    vdot[3];         // x, y, z	
+
+    int16_t   mag_frame;
+    double    mag_field[3];    // x, y, z
+    
+
+    // Raw data.
+    int32_t   data_size;       // Length of the message
+    byte      data[data_size]; // Raw binary data
+
+    // Convenient for standalone lookup of constants.
+    dslcommon.frame_t   frameDefs;
+
+}

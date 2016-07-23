@@ -1,0 +1,52 @@
+package hotel;
+
+// HT_Release Ver. 1.0  JWB  2/25/2014
+// Non-verbose data format:
+// HT_RELEASE,0,85675,0,0,0,23.99,0.00
+// HT_RELEASE,TMR1,TMR2,BURN1,BURN2,board_current,bus_volts,battery_volts
+
+struct release_board_t
+{
+	int64_t		utime; // Time of last data from board.
+
+	string		board_id;
+	
+	// Top-level interpreted state.
+	int16_t		timed_out; // = (deadman_countdown == 0) || (mission_countdown == 0)
+	int16_t		descent_burning;
+	int16_t		ascent_burning;
+	int16_t		battery_backup;
+
+	int32_t		deadman_countdown; // Seconds remaining on deadman timer.
+	int32_t		mission_countdown; // Seconds remaining on mission timer.
+
+	double		bus_volts;
+	double		battery_volts;
+	double		board_current; 
+
+	// Underlying state.
+	int16_t		tmr1_function;  // Function of timer 1.
+	int32_t		tmr1_countdown; // Seconds remaining on timer 1.
+	int16_t		tmr2_function;  // Function of timer 2.
+	int32_t		tmr2_countdown; // Seconds remaining on timer 2.
+
+	int16_t		burn1_function;  // What burn1 is connected to.
+	int16_t		burn1_state; // State of burn-wire 1.
+	int16_t		burn2_function;  // What burn2 is connected to.
+	int16_t		burn2_state; // State of burn-wire 2.
+
+	// Raw data.	
+	string		raw;  // Raw string from device.
+
+	// Convenient constants.
+	const int16_t   UNKNOWN=-999;
+	const int16_t   BATTERY_OFF=0, BATTERY_OK=1, BATTERY_LOW=2;
+	const int16_t	TIMER_OK=0, TIMER_TIMED_OUT=1, TIMER_LOW=2, TIMER_DISABLED=-1;
+	const int16_t 	BURNING=1, NOT_BURNING=0, BURN_DISABLED=-1;
+	const int16_t	DEADMAN_TIMER=1, MISSION_TIMER=2, UNUSED_TIMER=-1;  // Timer function mnemonics.
+	const int16_t	DESCENT_WEIGHTS_BURNWIRE=1, ASCENT_WEIGHTS_BURNWIRE=2, UNUSED_BURNWIRE=-1; // Burn wire function mnemonics.
+
+	// HT_Release Ver. 1.0  JWB  2/25/2014
+	const double	RELEASE_BOARD_VERSION = 1.0;  
+
+}

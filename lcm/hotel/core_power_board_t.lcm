@@ -1,0 +1,8 @@
+package hotel;
+
+struct core_power_board_t
+{
+	int64_t		utime;
+	byte		pwm[8];
+	byte		analogRaw[5];
+}

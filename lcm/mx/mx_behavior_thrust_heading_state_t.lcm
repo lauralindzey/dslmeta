@@ -1,0 +1,15 @@
+package mx;
+
+struct mx_behavior_thrust_heading_state_t
+{
+  // Timestamp of last update to state.
+  int64_t utime;	
+  
+  // Behavior-specific state.
+  float heading; // (rad) actual heading.  
+  float thrust_N;   // (N) actual (desired) thrust, body frame.  
+  float depth;      // (m) actual depth
+
+  float countdown;  // (s) time left before the behavior terminates.
+
+}

@@ -1,0 +1,18 @@
+package usbl;
+
+struct usbl_t
+{
+  int64_t utime;  // Time of last good data.
+
+  double lon;
+  double lat;
+  double alt;
+
+  // ATS ASCII parsed data
+  ats_ascii_t  ats;
+  // Most recent Ship Gps
+  gps.gps_t    ship_gps;
+
+
+  usbl_status_t status;
+}

@@ -1,0 +1,22 @@
+package mx;
+
+struct mx_durative_parameters_t
+{
+  // Timestamp associated with these parameters being in effect, i.e., 
+  // the last time one was changed.
+  int64_t utime;	
+  
+  // Mission constants - can only be altered by operators.
+  float mission_timeout_hrs; // (h)
+  int8_t low_battery_threshold_percent; // (%)
+  int8_t low_battery_threshold_volts; // (V)
+  int8_t max_temperature; // (C)
+  int8_t max_humidity; // (%) maximum relative humidity
+  int16_t crush_depth;  // (m) Crush depth not to exceed.
+
+  // Timeouts associated with comms.  All integer seconds.
+  int16_t timeout_acomms3p5kHz;
+  int16_t timeout_acomms10kHz;
+  int16_t timeout_ethernet;
+
+}

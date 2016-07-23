@@ -1,0 +1,12 @@
+package mx;
+
+struct mx_comms_bitmask_t
+{
+
+  // For decoding active comms bitmask.
+  const int8_t COMMS_NONE=0x0;
+  const int8_t COMMS_ETHERNET=0x1;  // Any of fiber, deck-cable, RF-modem.
+  const int8_t COMMS_ACOMMS3P5KHZ=0x2;
+  const int8_t COMMS_ACOMMS10KHZ=0x4;
+
+}

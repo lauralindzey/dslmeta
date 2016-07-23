@@ -1,0 +1,14 @@
+package apsmag;
+
+struct apsmag_t
+{
+  int64_t utime;  // Time of last good data.
+
+  double magX;
+  double magY;
+  double magZ;
+  double magMagnitude;
+  double temperature;
+
+  apsmag_status_t status;
+}

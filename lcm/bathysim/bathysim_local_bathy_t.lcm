@@ -1,0 +1,22 @@
+package bathysim;
+
+struct bathysim_local_bathy_t
+{
+  int64_t utime;
+
+  // Grid parameters.
+  int16_t nrows; // dimension, northing (rows), always odd.
+  int16_t ncols; // dimension, easting (cols), always odd.
+  double dn; // (m) northing increment.
+  double de; // (m) easting increment.
+
+  // Local bathymetry.
+  double center_northing; // grid center, northing
+  double center_easting; // grid center, easting
+  double bathymetry[nrows][ncols];  
+
+  // Depth in the center.  Provide as a convenience to avoid 
+  // ray-tracing for simpler client processes.
+  double center_depth;  
+
+}

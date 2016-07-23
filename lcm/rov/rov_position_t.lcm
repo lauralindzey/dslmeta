@@ -1,0 +1,10 @@
+package rov;
+
+struct rov_position_t
+{
+  int64_t utime;
+
+  double   northing;
+  double   easting;
+  double   down;
+}

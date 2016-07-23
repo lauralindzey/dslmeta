@@ -1,0 +1,22 @@
+package sitAware;
+
+// 2014-07-20  CJM - Created and written
+
+struct bestState_t
+{
+  int64_t      utime;                     /* utime of the state */
+  double       lat;                      
+  double       lat_deg_hour;
+  double       lat_deg_min;
+  double       lon;
+  double       lon_deg_hour;            
+  double       lon_deg_min;
+  double       altitude;              /*altitude-distance from sea-level, positive up*/	
+  int32_t      solSource;             /*Solution Source integer definition constants below*/
+
+  // Constants defining the Solution Sources
+  const int32_t      DEAD_REC = 0;
+  const int32_t      DEAD_REC_WITH_MANUAL_OFFSET = 1;
+  const int32_t      LBL = 2;
+
+}

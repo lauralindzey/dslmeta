@@ -1,0 +1,11 @@
+package sensors;
+
+struct compass_t
+{
+    int64_t   utime;
+    double    heading;
+    double    pitch;
+    double    roll;
+    double    hpr[3]; //2013-09-14 JCK - keeping the scalars above for backward copatability
+    boolean   status;
+}

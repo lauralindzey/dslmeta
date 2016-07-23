@@ -1,0 +1,29 @@
+package dslprocess;
+
+/*
+  The general status type for all device drivers.
+*/
+struct process_status_t
+{
+  int64_t utime;  // Timestamp of status message.
+
+  // Set by the driver itself
+  int64_t pid;    // process ID
+  string hostname;
+  int64_t upid;  // unique combination of pid and hostname (aka hash)
+  string type;   // Device type - needed by ini server.
+
+  // Set by bootstrap response.
+  string id;           // Device id to discriminate between devices of same type.
+  string channel_init;   // dedicated channel for initialization.
+  string channel_status; // dedicated channel for status.
+
+  boolean bootstrapped; // Is driver listening for bootstrap data?
+  boolean initialized;  // Is driver fully initialized?
+  boolean simulating;   // Is driver simulating device?
+
+  // Top level indication of a problem.  Derived classes should
+  // populate the associated reason with a string.
+  boolean bad;          
+  string reason;
+}

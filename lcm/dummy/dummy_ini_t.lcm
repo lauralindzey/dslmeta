@@ -1,0 +1,14 @@
+package dummy;
+
+/*
+  An example of a device-specific initialization message.
+*/
+struct dummy_ini_t
+{
+  string channel_data;
+  string channel_status;
+
+  string ip_addr;
+  int32_t port_rx;
+  int32_t port_tx;
+}

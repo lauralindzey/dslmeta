@@ -1,0 +1,23 @@
+package sparkfunimu;
+
+struct sparkfunimu_t
+{
+  int64_t utime;  // Time of last good data.
+
+  float inclination; // Computed inclination from raw data
+
+  float roll;
+  float pitch;
+  float yaw;
+  float temp;
+  float mgh;
+  float GxRaw;
+  float GyRaw;
+  float GzRaw;
+  float AxRaw;
+  float AyRaw;
+  float AzRaw;
+
+  // Device specific status. (Generic status and raw data are nested within).
+  sparkfunimu_status_t status;
+}

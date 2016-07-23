@@ -1,0 +1,31 @@
+package ustrain;
+
+struct ustrain_ini_t
+{
+  int64_t utime;  // Time sent in microseconds
+
+  // Device-instance-specific data channel.
+  string channel_data;
+  string channel_config;
+
+  // Microstrain type (GX1, GX3)
+  string model;
+
+  double position[6];
+  
+  // Serial port parameters.
+  //dsldevice.sio_config_t sio_config;
+  dsldevice.device_conn_t connection;
+
+  dsldevice.enumer_t enumer;	
+
+  // @@@ Required GUI options
+  // @@@ string gui_widget;
+  // @@@ string gui_page;
+
+  // @@@ Required navest information?  
+  // @@@ See microstrain_t.lcm in dsldrivers repo.
+
+  string host;
+
+}

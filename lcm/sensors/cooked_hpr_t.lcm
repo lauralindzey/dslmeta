@@ -1,0 +1,12 @@
+// lcm type for cooked heading, pitch, and roll data.  
+package sensors;
+
+struct cooked_hpr_t
+{
+    int64_t   utime[3];
+    double    hpr[3];
+    double    vel[3];
+    int32_t   source[3]; 
+    double    hpr_DEGREES[3];
+    int32_t   status; //2013-10-04 JCK - 1=Good; 0=bad
+}

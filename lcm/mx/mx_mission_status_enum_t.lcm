@@ -1,0 +1,11 @@
+package mx;
+
+struct mx_mission_status_enum_t
+{
+
+  // For decoding mission status enumeration.
+  const int8_t MISSION_STOPPED=0;
+  const int8_t MISSION_RUNNING=1;
+  const int8_t MISSION_ABORTED=2; 
+
+}

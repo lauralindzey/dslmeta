@@ -1,0 +1,13 @@
+package sensors;
+
+struct tritechaltimeter_data_t
+{
+    int64_t   utime;
+    double    altitude; 
+    int32_t   sensorSource;
+    int32_t   vehicleNumber;
+    string    vehicleName;
+    int32_t   sensorNumber;  //number of the sensor on the vehicle
+    string    rawDataString; 
+    int16_t   rawDataStringLen; 
+}

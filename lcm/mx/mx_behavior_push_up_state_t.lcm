@@ -1,0 +1,14 @@
+package mx;
+
+struct mx_behavior_push_up_state_t
+{
+  // Timestamp of last update to state.
+  int64_t utime;	
+  
+  // Behavior-specific state.
+  float heave_thrust_N;        // (N) Signed heave thrust (body frame) as 
+                               // reported by rov-core. 
+  float depth;                 // (m) Current depth
+  float depth_rate;            // (m/s) positive is inccreasing depth.
+  
+}

@@ -1,0 +1,11 @@
+package hotel;
+
+struct hydraulic_pressure_sensor_t
+{
+	int64_t		utime;
+	int32_t	        pressure_counts;
+	int32_t         temp_counts;
+	double	        gauge_pressure;
+	string    rawDataString; 
+        int16_t   rawDataStringLen; 
+}

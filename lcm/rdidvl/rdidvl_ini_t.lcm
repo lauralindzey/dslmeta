@@ -1,0 +1,28 @@
+package rdidvl;
+
+struct rdidvl_ini_t
+{
+  string channel_data;
+  string channel_config;
+  string channel_simstate;
+  string channel_environment;
+  string channel_simbathy;
+
+  int8_t rdidvl_sensor_number;
+  int8_t pd_mode;
+
+  boolean tx_udp; // True if the dvl driver also broadcasts hex ascii on UDP
+  string  tx_udp_address;
+  int32_t tx_udp_port;
+
+  double sim_max_range; // (m)
+  double sim_min_range; // (m)
+  boolean uplooking; // In simulation determines how bathymetry is interpreted and whether open water matters.
+  double position[6];
+  
+  dsldevice.device_conn_t connection;
+
+  dsldevice.enumer_t enumer;
+
+  string host;
+}

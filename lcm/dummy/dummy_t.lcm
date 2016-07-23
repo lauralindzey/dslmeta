@@ -1,0 +1,16 @@
+package dummy;
+
+/*
+  An example of a device-specific data structure. All device-specific data
+  must include raw_data_t and device specific status.
+*/
+struct dummy_t
+{
+  int64_t utime; // required
+
+  double data;
+
+  dsldevice.raw_data_t raw_data; // required
+
+  dummy_status_t status; // required
+}

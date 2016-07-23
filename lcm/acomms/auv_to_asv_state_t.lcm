@@ -1,0 +1,17 @@
+package acomms;
+
+struct auv_to_asv_state_t
+{
+    int64_t   utime;
+    double    lat;
+    double    lon;
+    int16_t   nextwp;
+    double    depth;
+    double    cog;
+    double    alt;
+    double    bat_percent;
+    double    leak_flag;
+    double    hdg;
+    double    seafloorDepth; 
+    double    temperature;
+}

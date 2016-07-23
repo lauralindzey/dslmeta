@@ -1,0 +1,13 @@
+package sensors;
+
+struct sensorHeartbeat_t
+{
+    int64_t   utime;
+    //time since the last data packet was received (good or bad)
+    int64_t   timeSinceLastDataPacket;  
+    //time since the last GOOD data packet was received 
+    int64_t   timeSinceLastGoodDataPacket;
+
+    int32_t numberOfGoodPackets;
+    int32_t numberOfParsingErrors; 
+}

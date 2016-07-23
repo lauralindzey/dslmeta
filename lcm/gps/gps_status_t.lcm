@@ -1,0 +1,18 @@
+package gps;
+
+struct gps_status_t
+{
+  int64_t utime; // the time of the last command
+
+  string last_command; // command sent to the device
+  string output; // not raw data, should be the result of the command
+
+  // Process-specific status
+  dslprocess.process_status_t process_status;
+
+  // Device-specific status and data
+  dsldevice.raw_data_t raw;
+  dsldevice.device_status_t device_status;
+
+  gps.gps_ini_t ini;
+}

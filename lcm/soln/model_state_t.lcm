@@ -1,0 +1,36 @@
+package soln;
+
+struct model_state_t
+{
+  int64_t    utime;
+
+  double     northing;
+  double     easting;
+  double     down;
+  double     roll;
+  double     roll_deg;
+  double     pitch;
+  double     pitch_deg;
+  double     heading;
+  double     heading_deg;
+  
+  double     surge_u;
+  double     sway_v;
+  double     heave_w;
+  double     p;
+  double     p_deg;
+  double     q;
+  double     q_deg;
+  double     r;
+  double     r_deg;
+  
+  double     du_dt;
+  double     dv_dt;
+  double     dw_dt;
+  double     dp_dt;
+  double     dp_dt_deg;
+  double     dq_dt;
+  double     dq_dt_deg;
+  double     dr_dt;
+  double     dr_dt_deg;
+}

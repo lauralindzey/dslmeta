@@ -1,0 +1,12 @@
+package soln;
+
+struct nav_shift_t
+{
+  int64_t    utime;
+
+  float      northing_shift;
+  float      easting_shift;
+
+  // Boolean, if true the shift is absolute, if false it is relative to current shifted estimate
+  boolean    absolute;
+}

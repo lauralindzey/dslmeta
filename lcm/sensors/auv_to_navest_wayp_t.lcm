@@ -1,0 +1,8 @@
+package sensors;
+
+struct auv_to_navest_wayp_t
+{
+    int64_t   utime;
+    int16_t   nextwp;
+    double    dist;
+}

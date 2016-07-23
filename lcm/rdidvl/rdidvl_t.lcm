@@ -1,0 +1,201 @@
+package rdidvl;
+
+// 2014-07-16 SS - cleaned the structure from redundant information to decrease its size
+
+struct rdidvl_t
+{
+  int64_t      utime;
+
+
+  // 30 NOV 2003  LLW    Added support for PD3 Mode
+  int16_t      pd_mode;
+  byte         START_OF_DATA_CHAR;
+  int16_t      MAX_VALID_DATA_LEN;
+  double       t;                  /* seconds since start of day, good to .01 */
+
+  /* these fields reflect the RAW values received from the DVL in PD5 mode */
+  /* these are parsed directly out of the PD5 data block */
+  double       heading;            /* radians */
+  double       pitch;              /* radians */
+  double       roll;               /* radians */
+  double       sv;                 /* in meter/sec */
+  double       salinity;           /* in parts per thousand */
+  double       temp;               /* in deg C */
+  double       depth;              /* in meters */
+  double       range[4];           /* ranges from the 4 beams, not corrected for angles */
+                                   /* Note that in PD0 mode the range is reported in
+                                   /* distinct fields for MSB and LSB */
+  double       altitude;           /* altitude, set to 0.0 when bad */
+  //double     sensorPosition[6];   /* position of the DVL on the vehicle relative to the vehicle origin.  Not used by dvld */
+  double       bt[4];                 /* displacement, bottom referenced */
+  double       btv[4];                /* velocity, bottom referenced */
+  byte         bt_status ;    /* status of bottom track */
+  double       wt[4];                 /* displacement, referenced to water mass*/
+  double       wtv[4];                /* velocity, referenced to water mass */
+  byte         wt_status;      /* status of water mass track */
+
+  /* bottom track fields added 11 April 1998 LLW */
+  /* these fields reflect the RAW values received from the DVL in PD5 mode */
+  double       bt_last_good_vel_time;
+  int16_t      bt_count_012_beam;
+  int16_t      bt_count_3_beam;        
+  int16_t      bt_count_4_beam;
+  int16_t      bt_beams_this_solution;            /* is solution 3-beam or 4-beam? */
+  //double     bt_time_since_good_solution;
+  double       btv_err_mean;
+  double       btv_err_std;
+  double       btv_err_sum;
+  double       btv_err_sum_sq;
+  double       bt_cog;                            /* course over ground in radians */
+  double       bt_sog;                            /* speed over ground in m/s */
+  int16_t      new_good_bt;                       /* this is set to 1 when a new valid DVL BT ping is received */
+                                                    /* then set to zero when the WT data has been processed */
+                                                    /* by higher level dvlnav code, to preclude multiple processing  */
+													/* of the same ping */ 
+  /* water track fields added 11 April 1998 LLW */
+  double       wt_last_good_vel_time;
+  int16_t      wt_count_012_beam;
+  int16_t      wt_count_3_beam;
+  int16_t      wt_count_4_beam;
+  int16_t      wt_beams_this_solution;            /* is solution 3-beam or 4-beam? */
+  //double     wt_time_since_good_solution;
+  double       wtv_err_mean;
+  double       wtv_err_std;
+  double       wtv_err_sum;
+  double       wtv_err_sum_sq;
+  double       wt_cow;                            /* course over water layer in radians */ 
+  double       wt_sow;                            /* speed over water layer in m/s */ 
+  int16_t      new_good_wt;                       /* this is set to 1 when a new valid DVL WT ping is received */
+                                                    /* then set to zero when the WT data has been processed */
+                                                    /* by higher level dvlnav code, to preclude multiple processing  */
+													/* of the same ping */ 
+  /* status fields */
+  byte         config;                            /* dvl config bitmap */
+  byte         BIT;                               /* dvl self-test bitmap  */
+  double       wlm;
+  double       wln;                                       /* ref water layer near in meters */
+  double       wlf;                                       /* ref water layer far in meters */
+
+  /* fields appearing only in PD3 */
+  byte         DTF;
+  byte         SOD;
+  byte         DVLALT;  //08-31-2007 JCK - this variable is named ALT in DVLNAV code; remaned to eliminate conflcit with #define ALT in navest_talk.h
+
+  /* serial I/O and logging fields added 11 April 1998 LLW */
+  int16_t      new_dvl_string;                 /* this is set to 1 when a new dvl string is received, even if ping data is bad */
+  int16_t      nrecords;                       /* number of records successfully parsed */
+  int16_t      nbadrecords;                    /* number of records unsuccessfully parsed */
+  byte         most_recent_checksum_computed;  /* checksum computed from last string */
+  byte         most_recent_checksum_received;  /* checksum recieved varbatim in last string */
+  double       most_recent_string_time;        /* time of most rercent dvl string  - PC Unix Time*/
+  double       most_recent_string_delta_time;  /* time since most rercent dvl string  - from PC Unix Time Stamps */
+  double       wh_sec_since_midnight;          /* dvl clock time last ensemble - From Doppler DSP Clock*/
+  double       wh_delta_t;                     /* dvl delta clock time last ensemble - Computed From Doppler DSP Clock*/
+  //byte       most_recent_pd_string[10240];   /* most recent binary string */
+  //int16_t    most_recent_dvl_fix_method;  /* 0=none (bad fix), 1=bottom track, 2=water track */
+
+  //pd0 add-ons
+  //variable header info
+  double       zvect_trans[4];
+  // April XX 2004 SCM  Added PD0 entries to dvl_t data structure
+  // 04-28-2009 JCK - below added from dvlnav v211
+  byte         header_id;
+  byte         source_id;
+  int16_t      num_of_bytes;          //contains the number of bytes in this ensemble
+  // 04-28-2009 JCK - above added from dvlnav v211
+  int16_t      num_types;             //contains number of datatypes
+  //fixed header
+  int16_t      fw_ver;                //Version number of firmware
+  int16_t      fw_rev;                //Revision number of firmware
+  int16_t      sys_config_msb;            //defines work horse hardware config
+  int16_t      sys_config_lsb;            //defines work horse hardware config
+  int16_t      number_of_cells;       //number of depth cells for water column profiling
+  int16_t      pings_per_ensemble;    //number of pings averaged together during a data ensemble
+  double       depth_cell_len;        //contains phsyical length of one depth cell for water column profiling
+  int16_t      profile_mode;          //Signal Processing Mode = 1
+  int16_t      low_corr;              //Minimum Threshold of Correlation
+  int16_t      code_reps;             //Number of repititions in Transmit pulse
+  int16_t      good_per_min;          // Minimum Percentage good
+  double       vel_err_thre;          //Threshold Error in Velocity
+  int16_t      tp_min;                //set by tp command
+  int16_t      tp_sec;
+  int16_t      tp_hun;
+  int16_t      coor_trans;           //Coordinate transformation
+  double       head_align;            //Contains Correctin factor for Physical Misalignment
+  double       head_bias ;            //Contains Correction factor for Magnetic/Electrical misalignment
+  int16_t      sensor_source;         //Selected source of enviornment sensor data
+  int16_t      sensor_avail;          //Reflects whether speed of sound is available
+  double       bin1_distance;         //Distance to middle of first bin
+  double       xmit_pulse_len;        //Set by WT its the length of xmit pulse
+  int16_t      wl_wp;                 //Contains starting depth cell and ending depth celll
+  int16_t      wa_false_tgt;          //Contains the threshold value used to reject data recieved from falxe target
+  double       xmit_lag_dist;         //wm set value
+  int16_t      cpu_num;               //serial number of cpu board
+  int16_t      sys_band;              //wb command setting
+  int16_t      sys_pow;               //cq command setting
+  int16_t      vel_id;
+  int16_t      corr_id;
+  int16_t      ech_id;
+  int16_t      per_id;
+  int16_t      flag;
+
+  //variable header
+  int16_t      ensemble_number;                   //This field contains the sequential number of the field
+  int16_t      ensemble_number_msb;               //after first increment this keeps track of sequential number roll over
+  int16_t      mpt_min;                          //contains Miniumum Pre-Ping Wait time
+  int16_t      mpt_sec;
+  int16_t      mpt_hun;
+  double       std_hdg;                          //std deviation of heading and tilt sensors
+                                           //11-24-2007 16:59:29 JCK - changed this from an int to a double
+  double       std_pit;
+  double       std_rol;
+  int16_t      adchannel[8];                        //output of ADC
+  int16_t      err_stat[4];                         //Contains long word containing the bit flags for the CY? command
+  double       pressure;                         //pressure of water outside ducer relative to 1 atm
+  double       pressure_var;                     //variance of pressure
+
+  /*
+  2013-11-06 JCK - lcm structures can't handle rov_time_struct_t so 
+  we hard define it here.  these fields are rarely used in navest 
+  do there are minimal problems downstream
+  */ 
+  int16_t      pd0_time_year;
+  int16_t      pd0_time_month;
+  int16_t      pd0_time_day;
+  int16_t      pd0_time_hour;
+  int16_t      pd0_time_min;
+  int16_t      pd0_time_sec_int;
+  int16_t      pd0_time_msec_int;
+  int16_t      number_of_beams;
+
+  //bt data format
+  int16_t      bt_bp;                                //stores number of pings to bt pings averaged
+  int16_t      bt_bd;                                //stores number of ADCP ensembles to wait after losing the botom
+  int16_t      bt_corr_min;                             //correlation min amplitude
+  int16_t      bt_amp_min;                              //minimum evaluation amplitude value
+  int16_t      bt_per_good_min;                         //minimum percent good value
+  int16_t      bt_bm_mode;                              // bottom track mode
+  double       bt_er_vel_max;                        //threshold max velocity error
+  int16_t      bt_corr[4];                              // bt correlation magnitude
+  int16_t      bt_amp[4];                               // bt evaluation amp value
+  int16_t      bt_per_good[4];                          // bt percent good value
+  int16_t      wl_corr[4];                             // water layer correlation magnitude
+  int16_t      wl_echo_int[4];                         // water layer echo intensity
+  int16_t      wl_per_good[4];                         // water layer percent good valuev
+  double       bt_rssi_amp[4];                       //Reciever Signal Strength Indicator
+  int16_t      bt_range_lsbs[4];              //two most  signicant bytes of vertical range from ADCP, SS+JCK changed from byte to int16_t
+  byte         bt_range_msb[4];              //two least signicant bytes of vertical range from ADCP
+  double       bx_max_depth;                         //Store max tracking depth
+  int16_t      wj_gain ;                             //Contains Gain level for shallow water
+  int16_t      dvl_number;
+
+  int16_t      pd0_variable_data_type[128];   //data type codes for variable data
+  int16_t      pd0_variable_data_offset[128]; // address of each variable data type
+  double       pd0_velocity[128][16];                //data from pdo
+  double       pd0_velocity_out[128][16];                //data from pdo
+  int16_t      pd0_wcv_used_flag[128];     //04-28-2009 JCK - added
+
+  // Device-specific status
+  rdidvl_status_t status;
+
+}

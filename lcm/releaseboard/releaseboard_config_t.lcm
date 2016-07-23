@@ -1,0 +1,17 @@
+package releaseboard;
+
+struct releaseboard_config_t
+{
+  int64_t		utime; // Time command was issued.
+
+  string		board_id;
+
+  int16_t		command_id;
+  int32_t		command_arg;
+
+  releaseboard.releaseboard_enum_t enums;
+
+  // HT_Release Ver. 1.0  JWB  2/25/2014
+  //const double	RELEASE_BOARD_VERSION = 1.0;  
+
+}

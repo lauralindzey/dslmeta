@@ -1,0 +1,19 @@
+package device;
+
+/*
+  Parameters required to initialize an instance of the mock device driver.
+  This structure is populated by the initialization and startup process.
+  This structure is unique to each class of device.
+*/
+struct device_ini_t
+{
+  // LCM channel names devoted to (this instance of?) the device driver.
+  string channel_data;
+  string channel_status;
+  string channel_cmd_reset;
+
+  // Parameters specific to the driver's interaction with the device.
+  string device_ip;
+  int32_t device_port_rx;  // port on which mock device listens for commands.
+  int32_t device_port_tx;  // port on which mock device transmits data.
+}

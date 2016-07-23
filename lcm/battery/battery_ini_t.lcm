@@ -1,0 +1,26 @@
+package battery;
+
+struct battery_ini_t
+{
+  string channel_data;
+  string channel_summary;
+  string channel_config;
+  string channel_control;
+
+  double position[6];
+  
+  //dsldevice.nio_config_t nio_config; // all serial config parts
+  dsldevice.device_conn_t connection;
+
+  battery_config_t config;
+
+  string host;
+
+  int16_t nmodules;
+  int16_t modulebox[nmodules];
+  int16_t modulestring[nmodules];
+  int16_t moduleseries[nmodules];
+  int16_t moduleid[nmodules];
+
+  dsldevice.enumer_t enumer;
+}

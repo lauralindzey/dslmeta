@@ -1,0 +1,9 @@
+package umodem;
+
+struct umodem_snr_t
+{
+  int32_t   rss;      // received signal strength in dB re. 1uPa
+  int32_t   input;    // input snr, dB, channel 1 only
+  int32_t   output;   // snr at the output of the equalizer, dB
+  int32_t   symbols;  // symbol snr for spread spectrum packets only, dB
+}

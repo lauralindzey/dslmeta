@@ -1,0 +1,10 @@
+package valeport;
+
+struct valeport_t
+{
+  int64_t utime;  // Time of last good data.
+
+  double altitude;  
+
+  valeport_status_t status;
+}

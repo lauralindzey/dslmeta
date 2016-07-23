@@ -1,0 +1,21 @@
+package ustrain;
+
+/*
+  Microstrain AHRS data.
+*/
+struct ustrain_t
+{
+  int64_t utime;  // Time sent in microseconds
+
+  // Parsed data.
+  double    hpr[3];          // heading, pitch, roll
+  double    omega[3];        // heading, pitch, roll
+  double    vdot[3];         // x, y, z
+  double    quaternion[4];   // QUAT_0, QUAT_1, QUAT_2, QUAT_3
+  double    mag_field[3];    // x, y, z
+  double    matrix[3][3];    // Rotation matrix
+
+  // Device-specific status (generic status and ini are embedded).
+  ustrain_status_t status;
+
+}

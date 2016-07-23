@@ -1,0 +1,101 @@
+// 2009-09-21  mvj  The manual claims a ax of 128 char.  According to Mike Skonowski 
+//                  (Alvin pilot) there seems to be no actual limit.  4k messages have 
+//                  been successfully received by the sub.
+// 2009/10/25 LLW   Added SDYNE_QUEUE_ENG_WEIGHT_RELEASE
+// 2009/10/25 LLW   Added SDYNE_QUEUE_ENG_LEAK_DETECT
+// 2011/05/28 LLW   Added SDYNE_QUEUE_SINKPACK
+// 2011/09/17 CLK   Added SDYNE_QUEUE_OCAM
+// 2014/03/04 JRH   Added SDYNE_QUEUE_RESON
+// 2014/03/31 JRH   Added SDYNE_QUEUE_OCOMM 
+// 2014/06/26 LLW   Ported to NUI from sdyne_thread.h to the grand new ecosystem
+
+package jt;
+
+struct jt_acomm_queue_enum_t
+{
+   int8_t num;
+
+   const int16_t 
+   ACOMM_QUEUE_STATUS                     = 0,
+   ACOMM_QUEUE_INFO                       = 1,
+   ACOMM_QUEUE_NAV                        = 2,
+   ACOMM_QUEUE_MODEL                      = 4,
+   ACOMM_QUEUE_SCI_01                     = 5,
+   ACOMM_QUEUE_SCI_02                     = 6,
+   ACOMM_QUEUE_SCI_03                     = 7,
+   ACOMM_QUEUE_LASTACOMMDOWNLINK          = 8,
+   ACOMM_QUEUE_ENG_CONTROL                = 9,
+
+   ACOMM_QUEUE_ENG_FLIGHT                 = 10,
+   ACOMM_QUEUE_ENG_BOTTOM_FOLLOW          = 11,
+   ACOMM_QUEUE_ENG_OBSTACLE_AVOIDANCE     = 12,
+   ACOMM_QUEUE_ENG_ACTUATOR_0             = 13,
+   ACOMM_QUEUE_ENG_ACTUATOR_1             = 14,  
+   ACOMM_QUEUE_ENG_ACTUATOR_2             = 15,  
+   ACOMM_QUEUE_ENG_ACTUATOR_3             = 16,  
+   ACOMM_QUEUE_ENG_ACTUATOR_4             = 17,  
+   ACOMM_QUEUE_ENG_ACTUATOR_5             = 18,  
+   ACOMM_QUEUE_ENG_ACTUATOR_6             = 19,  
+
+   ACOMM_QUEUE_ENG_ACTUATOR_7             = 20,  
+   ACOMM_QUEUE_ENG_ACTUATOR_ALL_VEL       = 21,  
+   ACOMM_QUEUE_ENG_ACTUATOR_ALL_POS       = 22,  
+   ACOMM_QUEUE_ENG_ACTUATOR_ALL_TORQUE    = 23,  
+   ACOMM_QUEUE_ENG_WEIGHT_RELEASE         = 24,
+   ACOMM_QUEUE_ENG_LEAK_DETECT            = 25,
+   ACOMM_QUEUE_ALTITUDE_SWITCHYARD        = 26,
+   ACOMM_QUEUE_OPTODE                     = 27,
+   ACOMM_QUEUE_DVZ                        = 28,  
+   ACOMM_QUEUE_GVX                        = 29,  
+
+   ACOMM_QUEUE_SINKPACK                   = 30,
+   ACOMM_QUEUE_OCAM                       = 31,
+   ACOMM_QUEUE_FLOR                       = 32,
+   ACOMM_QUEUE_SUPR                       = 33,
+   ACOMM_QUEUE_LOGGER                     = 34,
+   ACOMM_QUEUE_PWR                        = 35,
+   ACOMM_QUEUE_RESON                      = 36,
+   ACOMM_QUEUE_OCOMM                      = 37,
+   ACOMM_QUEUE_SPARE_01                   = 38,
+   ACOMM_QUEUE_SPARE_02                   = 39,
+
+   ACOMM_QUEUE_MX_PARAM                   = 40,  
+   ACOMM_QUEUE_MX_STATE                   = 41,  
+   ACOMM_QUEUE_MX_PARAM_BASIC             = 42,  
+   ACOMM_QUEUE_MX_STATE_BASIC             = 43,  
+   ACOMM_QUEUE_MX_PARAM_PILOTED           = 44,  
+   ACOMM_QUEUE_MX_STATE_PILOTED           = 45,  
+   ACOMM_QUEUE_MX_PARAM_THRUST_HDG        = 46,  
+   ACOMM_QUEUE_MX_STATE_THRUST_HDG        = 47,  
+   ACOMM_QUEUE_MX_PARAM_HOLD_STATION      = 48,  
+   ACOMM_QUEUE_MX_STATE_HOLD_STATION      = 49,  
+
+   ACOMM_QUEUE_MX_PARAM_ALL_STOP          = 50,  
+   ACOMM_QUEUE_MX_STATE_ALL_STOP          = 51,  
+   ACOMM_QUEUE_MX_PARAM_TRACKLINE         = 52,  
+   ACOMM_QUEUE_MX_STATE_TRACKLINE         = 53,  
+   ACOMM_QUEUE_MX_PARAM_PUSH_UP           = 54,  
+   ACOMM_QUEUE_MX_STATE_PUSH_UP           = 55,  
+   ACOMM_LBL_RANGES                       = 56,  
+   ACOMM_QUEUE_BATT_SUMMARY               = 57,  
+   ACOMM_QUEUE_BATT_01                    = 58,  
+   ACOMM_QUEUE_BATT_02                    = 59,  
+
+   ACOMM_QUEUE_BATT_03                    = 60,  
+   ACOMM_QUEUE_PAROS                      = 61,  
+   ACOMM_QUEUE_BWLS                       = 62,  
+   ACOMM_QUEUE_PHINS                      = 63,  
+   ACOMM_QUEUE_SBE49                      = 64,  
+   ACOMM_QUEUE_PS_1                       = 65,  
+   ACOMM_QUEUE_PS_2                       = 66,  
+   ACOMM_QUEUE_PS_A                       = 67,  
+   ACOMM_QUEUE_PS_B                       = 68,  
+   ACOMM_QUEUE_PS_C                       = 69,  
+
+   ACOMM_QUEUE_DVL_UP                     = 70,  
+   ACOMM_QUEUE_DVL_DN                     = 71,  
+   ACOMM_QUEUE_SINKPACK_IMU               = 72, 
+   ACOMM_QUEUE_NONE                       = 73,
+   ACOMM_NUM_UPLINK_QUEUES                = 74;
+}
+

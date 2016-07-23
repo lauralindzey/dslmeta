@@ -1,0 +1,16 @@
+package xjoy;
+
+struct microsoft_x_box_360_pad_ini_t
+{
+  // The standard name of the joystick;
+  string xbox_device_name;
+
+  // the joystick os dev path
+  string os_device;
+
+  // Where to publish the data
+  string channel_data;
+
+  // Hostname where it will run
+  string host; 
+}

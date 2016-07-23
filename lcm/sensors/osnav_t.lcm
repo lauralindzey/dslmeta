@@ -1,0 +1,15 @@
+//lcm structure for nativ depth and compass sensors on the Iver
+package sensors;
+
+struct osnav_t
+{
+    int64_t   utime;
+    double    hpr[3];
+    double    depth; 
+    double    depthSource; 
+    double    compassSource;	
+    double    hprSource;	
+    double    temperature; 
+    int32_t   vehicleNumber; 
+    int32_t   sensorNumber; 
+}

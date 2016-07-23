@@ -1,0 +1,11 @@
+dsldevice: data/status generic to all devices
+dslhotel: additional data/status generic to all hotel devices
+dslsensor: additional data/status generic to all sensors
+#device: a specific (mock) device. - not working because of java/cmake/namespace issues.  Moved into dsldevice.
+
+common: typedefs that should be moved into dslcommon but are being used for
+prototypeing right now.
+
+Note: CMakeLists.txt file does not work properly with fully-qualified lcm types using the namespace idea.  This is, I think, because the classpath has to be augmented before making jar files of lcm type defs that involve type declarations of the, e.g.
+<package>.<lcm_type> thing;
+variety.

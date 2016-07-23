@@ -1,0 +1,6 @@
+package acomms;
+
+struct ping_rcv_t
+{
+    int64_t   utime;
+}

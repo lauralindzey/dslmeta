@@ -1,0 +1,31 @@
+package mx;
+
+struct mx_status_t
+{
+  // Timestamp associated with the data in this message.
+  int64_t utime;
+
+  // Process-instance-specific status.
+  // @@@ none? Maybe up-time - that should probably be added 
+  // @@@ to the generic status?  Or last communication - most of that
+  // @@@ we're putting into the state.
+  // @@@ maybe this is where durative parameters go?  They could go into
+  // @@@ the ini, but that's confusing if there is a way to change them, but
+  // @@@ it's ok because the active ini is always nested withing the status and state
+  // @@@ types.  No... don't like that because the ini-server sends things like channel
+  // @@@ names which we shouldn't have to worry about populating or updating.
+  // @@@ these will have defaults that get set by the ini-server but can be altered - so 
+  // @@@ this encodes the active durative parameters?
+  //  int64_t comms_utimeout_acomms3p5kHz;
+  // int64_t comms_utimeout_acomms10kHz;
+  // int64_t comms_utimeout_fiber;
+  // int64_t comms_utimeout_RF900MHz;
+  // @@@ think this belongs in the data structure and in a substructure at that.
+
+  // Process-instance-generic status.  Indicates whether process has
+  // been bootstrapped, initialized, etc.
+  dslprocess.process_status_t process_status;
+
+  // Initialization data as received from iniserver.
+  mx.mx_ini_t ini;
+}

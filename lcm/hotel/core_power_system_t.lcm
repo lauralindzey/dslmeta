@@ -1,0 +1,7 @@
+package hotel;
+
+struct core_power_system_t
+{
+	int8_t			nOfSwitchBoards;
+	core_power_board_t	switchBoards[nOfSwitchBoards];
+}

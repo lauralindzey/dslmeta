@@ -1,0 +1,28 @@
+package dsldevice;
+
+/*
+  A general serial device configuration. For nesting inside device-specific
+  initialization commands for sio devices.
+*/
+struct sio_config_t
+{
+  string device;       // the serial device. ex: ttyXR8
+  int32_t baud;        // baud rate of the serial device
+  int8_t parity;       // parity options below
+  int8_t data_bits;    // number of data bits
+  int8_t stop_bits;    // number of stop bits
+  int8_t flow_control; // flow control options below
+  string term_char;    // the termination character to use
+
+  // can be used for parity or flow control
+  const int8_t NONE = 0;
+
+  // valid parity options
+  const int8_t ODD = 1;
+  const int8_t EVEN = 2;
+
+  // valid flow control options
+  const int8_t XONXOFF = 1;
+  const int8_t RTSCTS = 2;
+  const int8_t XONXOFF_RTSCTS = 3;
+}

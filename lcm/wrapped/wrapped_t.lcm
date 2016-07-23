@@ -1,0 +1,10 @@
+package wrapped;
+
+struct wrapped_t
+{
+
+  string channel;	
+  int8_t length;
+  byte rbuf[length]; 
+
+}

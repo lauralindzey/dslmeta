@@ -26,4 +26,4 @@ IF(EXISTS "${CMAKE_INSTALL_PREFIX}/cmake/target_vehicle-config.cmake")
 ENDIF(EXISTS "${CMAKE_INSTALL_PREFIX}/cmake/target_vehicle-config.cmake")
 
 # Specify the locations of child CMakeLists.txt files.
-SUBDIRS( cmake etc )
+SUBDIRS( cmake etc lcm )

@@ -1,0 +1,11 @@
+package dslprocess;
+
+struct heartbeat_t
+{
+    int64_t utime;
+    int16_t freq; // frequency of the heartbeat, used by repeaters and maybe other processes
+    int64_t pid; // temporary
+    string hostname; // temporary
+    //int64_t upid; // unique process ID, used to identify self heartbeat
+    int64_t utime_start; // time this process started, to establish broadcast priority
+}

@@ -1,0 +1,20 @@
+package ustrain;
+
+struct ustrain_status_t
+{
+  int64_t utime;  // Time sent in microseconds
+
+  string last_command; // command sent to the device
+  string output; // not raw data, should be the result of the command
+
+  // Generic device status.
+  dslprocess.process_status_t process_status;
+
+  // Last raw data.
+  dsldevice.raw_data_t raw;  
+  dsldevice.device_status_t device_status;
+
+  // Device-specific initialization data.
+  ustrain.ustrain_ini_t ini;
+
+}

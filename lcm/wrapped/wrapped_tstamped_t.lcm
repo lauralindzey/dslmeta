@@ -1,0 +1,13 @@
+package wrapped;
+
+struct wrapped_tstamped_t
+{
+	
+  // These can be stripped for slow channels like acomms
+  int64_t utime_tx;
+  int64_t utime_rx;
+
+  wrapped.wrapped_t lcmw;
+
+  wrapped.wrapped_const_t consts;
+}

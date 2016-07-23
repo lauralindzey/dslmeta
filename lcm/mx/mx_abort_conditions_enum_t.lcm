@@ -1,0 +1,16 @@
+package mx;
+
+struct mx_abort_conditions_enum_t
+{
+  // These define a 10-mask to support multiple abort conditions.
+  // 0 indicates no abort condition;
+  const int16_t ABORT_CONDITION_LEAK = 0; 
+  const int16_t ABORT_CONDITION_HUMIDITY = 1;
+  const int16_t ABORT_CONDITION_BATTERY_PERCENT = 2;
+  const int16_t ABORT_CONDITION_BATTERY_VOLTS = 3;
+  const int16_t ABORT_CONDITION_CRUSH_DEPTH = 4;
+  const int16_t ABORT_CONDITION_TEMPERATURE = 5;
+  const int16_t ABORT_CONDITION_MISSION_TIMEOUT = 6;
+
+  const int16_t ABORT_CONDITION_UNKOWN = 15; // In case of incomplete implementation.
+}

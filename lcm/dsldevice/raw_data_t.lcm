@@ -1,0 +1,21 @@
+package dsldevice;
+
+/*
+  The general raw data type for all devices. Raw data can be published as an
+  ascii string or array of bytes.
+*/
+struct raw_data_t
+{
+  int64_t utime;  // Timestamp of data arrival in microseconds.
+
+  int8_t raw_type;  // Indicates how raw data are encoded
+
+  // For ASCII data.
+  string raw_string;  // Raw data if raw_type = ASCII, empty otherwise.
+
+  // For BINARY data.
+  int32_t raw_length; // Length of raw data if raw_type=BINARY, 0 otherwise.
+  byte raw_data[raw_length];  // Raw data if raw_type=BINARY, empty otherwise.
+
+  const int8_t ASCII=0, BINARY=1;   // How data are encoded.
+}

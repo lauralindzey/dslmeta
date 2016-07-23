@@ -1,0 +1,23 @@
+package releaseboard;
+
+struct releaseboard_ini_t
+{
+  string channel_data;
+  string channel_config;
+
+  dsldevice.device_conn_t connection;
+
+  string board_id;
+  double deadman_countdown_low_threshold;
+  double mission_countdown_low_threshold;
+  double backup_battery_low_threshold;
+
+  int16_t tmr1_function;
+  int16_t tmr2_function;
+  int16_t burn1_function;
+  int16_t burn2_function;
+
+  releaseboard.releaseboard_enum_t enums;
+
+  string host;
+}

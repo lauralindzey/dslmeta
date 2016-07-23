@@ -1,0 +1,40 @@
+package dsldevice;
+
+/*
+  The general status type for all device drivers.
+*/
+struct device_status_t
+{
+  int64_t utime;  // Timestamp of status message.
+
+  // SS - added
+  // @@@ 2014-06-19  MVJ  There is a copy of this struct already in
+  // @@@                  e.g., umodem_status_t.  Are both maintained?
+  // @@@                  Can one be eliminated in any case?
+  dslprocess.process_status_t process_status;
+
+  // Timestamps related to communication with device.
+  int64_t utime_last_from_device;  // Time of last communication from device.
+  int64_t utime_last_to_device;    // Time of last attempted com to device.
+
+  // Message counts.
+  int64_t num_from_device;  // Total number of messages received from device.
+  int64_t num_to_device;    // Total number of messages sent to device.
+
+  // Success counts, device to driver.
+  int64_t num_parsed_from_device;  // Parseable messages from device.
+  int64_t num_good_from_device;    // Parseable messages that driver deems good.
+
+  // Error counts, device to driver.
+  int64_t num_corrupt_from_device; // Messages corrupted that prevented parsing.
+  int64_t num_bad_from_device;     // Correctly parsed messages flagged as bad.
+
+  // Message counts, driver to device. Some devices will announce their
+  // displeasure at incorrectly formatted commands.
+  int64_t num_accept_to_device;  // Messages accepted by device from driver.
+  int64_t num_rjct_to_device;    // Messages rejected by device from driver.
+
+  // Message counts, user interface to/from driver.
+  int64_t num_accept_from_user;  // Good messages received from other processes.
+  int64_t num_rjct_from_user;    // Bad messages received from other processes.
+}

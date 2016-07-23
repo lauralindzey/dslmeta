@@ -1,0 +1,14 @@
+package ps8ch;
+
+struct ps_a2d_enum_t
+{
+  // Defines functions of each a2d and digital input.
+  const int16_t   NONE=0,
+  		  CURRENT=1,
+  		  TEMPERATURE=2,
+                  HUMIDITY=3,
+                  PRESSURE=4,
+                  LEAK0=5,
+		  LEAK1=6,
+		  SLURP_INDEX=7;
+}

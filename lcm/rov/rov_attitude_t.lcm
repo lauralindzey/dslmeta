@@ -1,0 +1,10 @@
+package rov;
+
+struct rov_attitude_t
+{
+  int64_t utime;
+
+  double   roll;
+  double   pitch;
+  double   heading;
+}

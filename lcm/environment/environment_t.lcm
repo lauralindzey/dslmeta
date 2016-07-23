@@ -1,0 +1,25 @@
+package environment;
+
+struct environment_t
+{
+  int64_t utime;
+
+  double  lbl_tt[2];
+  double  owtt[3];
+
+  // x,y,z position of the three topside modems
+  // Should add the frame
+  double modem_pos[3][3];
+  // x,y,z position of the transponders
+  double transponder_pos[2][3];
+
+  comms.umodem_address_t add;
+
+  // True if there is no ice on the surface
+  boolean    open_water;
+
+  double ship_start_pos[3];     // lat, lon, height
+  double ship_pos_rate[3];
+  double ship_start_hpr[3];     // in deg
+  double ship_hpr_rate[3];      // in deg/s
+}

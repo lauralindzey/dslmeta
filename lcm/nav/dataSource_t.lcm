@@ -1,0 +1,120 @@
+package nav;
+
+/*
+lcm listing of the data_source_t defined in talk.h 
+numbers are hard coded and correspond to those in talk.h
+
+2016-07-08 JCK - created
+
+*/
+
+
+struct dataSource_t
+{
+   const int16_t   SRC_NONE = 0,			
+   	 	   SRC_NAV = 1,			
+  		   SRC_PRESSURE_DEPTH_SENSOR_0 = 2,	
+  		   SRC_PRESSURE_DEPTH_CG = 3,	
+  		   SRC_PRESSURE_DEPTH_MEDEA = 4,	
+  		   SRC_ALTIM = 5,			
+  		   SRC_COMPASS = 6,			
+		   SRC_HEADING_GYRO		 =  7,//
+		   SRC_CROSSBOW			 =  8,// */
+		   SRC_INCLINOMETER		 =  9,// */
+		   SRC_VEHICLE_WATER_TEMP1	 =  10,// */
+		   SRC_VEHICLE_WATER_TEMP2	 =  11,// */
+		   SRC_PILOT_JOY_BOX		 =  12,// */
+		   SRC_ENGINEER_CONSOLE		 =  13,// */
+		   SRC_REMOTE_JOY_BOX		 =  14,// */
+		   SRC_SWITCH_BOX		 =  15,// */
+		   SRC_NEURAL_NET		 =  16,// */
+		   SRC_FUZZY_LOGIC		 =  17,// */
+		   SRC_FUZZY_NEURAL_NET		 =  18,// */
+		   SRC_WAVELET_TRANSFORM	 =  19,// */
+		   SRC_UNINITIALIZED		 =  20,// */
+		   SRC_DOPPLER_BT		 =  21,// */
+		   SRC_DOPPLER_WT		 =  22,// */
+		   SRC_DOPPLER_BT_WT		 =  23,// */
+		   SRC_STATE			 =  24,// */
+		   SRC_OCTANS			 =  25,// */
+		   SRC_OCTANS_RAW		 =  26,// */
+		   SRC_DVLNAV			 =  27,// */
+		   SRC_DECK_JOY_BOX             =  28,// */
+		   SRC_PRESSURE_DEPTH_SENSOR_1  =  29,// */
+		   SRC_PRESSURE_DEPTH_SENSOR_2	 =  30,// */
+		   SRC_PRESSURE_DEPTH_SENSOR_3  =  31,// */
+		   SRC_EXTERNAL_FIX             =  32,// */
+		   SRC_TCM2                     =  33,// */
+		   SRC_SHARPS                   =  34,// */
+		   SRC_XVISION                  =  35,// */
+		   SRC_CTD			 =  36,// */
+		   SRC_XBW_TCM2_HERM		 =  37,// */
+		   SRC_XBW_TCM_COMP_FILTER	 =  38,// */
+		   SRC_TCM2_RATE_SENSOR		 =  39,// */
+		   SRC_ARGUS_TCM2		 =  40,// */
+		   SRC_ARGUS_PARO		 =  41,// */
+		   SRC_ARGUS_ALTIMETER		 =  42,// */
+		   SRC_DVLNAV_ALTITUDE           =  43,// */
+		   SRC_REFERENCE                 =  44,// */
+		   SRC_MODEL_BASED_SIM           =  45,// */
+		   SRC_MODEL_BASED_ALT            = 46,//*/  //added 2/16/06 SCM 
+		   SRC_AUV_THRUSTER          = 47,//*/ //DY added 2006/03/09
+		   SRC_AUV_SERVO          = 48,//*/ //DY added 2006/03/09
+		   SRC_ARGUS_XBW           =  49,// */
+		   SRC_MEDEA_KVH				 =  50,
+		   SRC_EXTERNAL_MATLAB_SIM      =  51,// */ // MVJ added 2007-sep-04
+		   SRC_DEPTH_STATE              =  52,// */ // MVJ added 2007-Oct-16
+		   SRC_ALTITUDE_STATE           =  53,// */ // MVJ added 2007-Oct-16
+		   SRC_MICROSTRAIN              =  54,// */ // LLW added 10-26-2007
+		   SRC_EXTERNAL_MATLAB_SIM_DZDT  =  55,// */ // MVJ added 2007-11-15 
+		   SRC_IMG852                   =  56,// */ // 03-09-2009 JCK - added 
+		   SRC_IMA881                 =  57,// */ // 03-09-2009 JCK - added 
+		   SRC_BEST_MEAS                =  58,// */ //03-21-2009 JCK - use the best measurement; see sensor_thread.cpp header
+		   //03-23-2009 JCK - NAVEST specific SRCS start here
+		   SRC_CROSSBOW_RAW          =59,  
+		   SRC_DOPPLER_BT_RAW         =  60,// *///07-13-2007 JCK - ported from dvlnav
+		   SRC_DOPPLER_WT_RAW          =  61, //*/ //   07-13-2007 JCK - ported from dvlnav
+		   SRC_DOPPLER_BT_WT_RAW      =  62,// *///   07-13-2007 JCK - ported from dvlnav
+		   SRC_SV_SENSOR              =  63, 
+		   SRC_SV_SALINITY_TEMP_DEPTH =  64, 
+		   SRC_CONFIG_FILE            =  65,   
+		   SRC_MANUAL                 =  66, 
+		   SRC_GPS                    =  67, 
+		   SRC_INTERNAL_SIM           =  68, 
+		   SRC_ROV_SIM_MODEL           = 69, //*/// 03-07-2009 JCK - added
+		   SRC_NAV_DVLNAV_THREAD      = 70, // 03-26-2009 JCK - the nev code dvlnav_thread soln
+		   SRC_DEAD_RECK_THREAD       = 71, // 03-26-2009 JCK - dead reckog thread soln
+		   SRC_UNKNOWN_DEPTH_SENSOR    = 72, // -6-03-2011 jch added
+		   SRC_SENSOR_THREAD             = 73, // -06-03-2011 jch added
+		   SRC_USBL                    = 74, // -06-07-2011 jch added
+		   SRC_LBL                    = 75, // -06-07-2011 jch added
+		   SRC_UNKNOWN                = 76, // -06-07-2011 jch added
+		   SRC_USBL_SMS                = 77, // 07-27-2011 jch added
+		   SRC_SDYNE_USBL             = 78, // 2010-06-29 JCK - topside computed sonardyne usbl fixes
+		   SRC_IVER_CPU                = 79, // 09-12-2001 SS added
+		   SRC_LODESTAR                 =80, // 2011-11-11 JCK - added
+		   SRC_SDYNE_ACOMMS                   =81, // 2011-11-19 JCK - added
+		   SRC_GPS_1                           =82, // 2012-01-15 jch added
+		   SRC_GPS_2                           =83, // 2012-01-15 jch added
+		   SRC_GPS_3                            = 84, // 2012-01-15 jch added
+		   SRC_MICROSTRAIN_GX3                 = 85, // 2012-11-19 SS - added
+		   SRC_DEPTH_BASED_ALT          =  86, //2010-06-22 JCK&MVJ - uses an altitude based on a depth
+		   SRC_DVL_COMPASS_0            = 87, // 2013-09-14 JCK - compass from DVL0
+		   SRC_DVL_COMPASS_1            = 88, // 2013-09-14 JCK - compass from DVL1
+		   SRC_PAROS_0                  = 89, // 2013-09-14 JCK - explicitly declare the paros as a src
+		   SRC_PHINS_0                  = 90, //  09-14-2013 JCK - added                  
+		   SRC_DVL_DOWN_0                 = 91, // downward looking dvl;  09-14-2013 JCK - added 
+		   SRC_DVL_UP_0                 = 92, // upward looking dvl;  09-14-2013 JCK - added
+		   SRC_MICROSTRAIN_0            = 93, // first microstrain on the vehicle; 09-14-2013 JCK - added
+		   SRC_BATTERY                  = 94, //   2013-09-19 SS - battery
+		   SRC_MAGGIE_0                 =95, // 2013-10-15 JCK - added
+		   SRC_TRITECH_ALTIMETER        =96, // 2014-02-27  MVJ  Added for nHT altimeter.
+		   SRC_HYDRAULIC_PRESSURE_SENSOR        =97, // 2014-03-06  MVJ  Added for nHT.
+		   SRC_RELEASE_BOARD        =98, // 2014-03-06  MVJ  Added for nHT.
+		   SRC_NORTEK_0                  = 99, // 2014-06-18 SS - added
+		   SRC_SBE3_0                  = 100, // 2014-06-25 JCK - added
+		   SRC_MAPR_0                   = 101, // 2015-06-10 SS - added
+		   SRC_OSCOMPASS                =102, // JCK --- native compass on the ivers
+		   SRC_SONTEK_DVL_COMPASS       =103, //JCK --- compass in the sontek dvls on ecopmappers
+		   SRC_MAX                        = 104 ;  //2012-11-19 SS - this tells how many SRCs are implemented, keep it last
+}

@@ -1,0 +1,20 @@
+package gps;
+
+struct gps_t
+{
+  int64_t utime;  // Time of last good data.
+
+  double lat;
+  double lat_deg;
+  double lon;
+  double lon_deg;
+  double height;
+  double hdop;
+  double vdop;
+  int16_t fix_quality;
+  int16_t num_sats;
+  string talker_id;
+
+  // Device specific status. (Generic status and raw data are nested within).
+  gps_status_t status;
+}

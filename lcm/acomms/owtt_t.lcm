@@ -1,0 +1,7 @@
+package acomms;
+
+struct owtt_t
+{
+    int64_t   utime;
+    double    owtt;
+}

@@ -1,0 +1,13 @@
+package ini;
+
+/*
+  dive specific stuff
+*/
+struct dive_t
+{
+  double max_depth;
+  int32_t origin_utm_zone;
+  double origin_northing;
+  double origin_easting;
+  double atmospheric_pressure;
+}
