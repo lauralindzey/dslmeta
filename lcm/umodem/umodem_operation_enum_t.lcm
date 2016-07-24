@@ -1,0 +1,8 @@
+package umodem;
+
+struct umodem_operation_enum_t
+{
+  const int8_t SHORT_RANGE_MODE = 1;
+  const int8_t LONG_RANGE_MODE = 2;
+  const int8_t EXPERT_MODE = 3;
+}

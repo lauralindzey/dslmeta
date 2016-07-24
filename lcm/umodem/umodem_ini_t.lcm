@@ -40,6 +40,8 @@ struct umodem_ini_t
   // Should be true only for subsea modems
   boolean sync_publish;
 
+  umodem_enum_t hw_version;
+
   int8_t src;
   float frequency;
   string host; // Where the code will run

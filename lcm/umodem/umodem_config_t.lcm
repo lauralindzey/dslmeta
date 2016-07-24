@@ -1,0 +1,6 @@
+package umodem;
+
+struct umodem_config_t
+{
+  int8_t operation_mode;
+}
