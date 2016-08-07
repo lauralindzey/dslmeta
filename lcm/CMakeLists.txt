@@ -45,6 +45,7 @@ set (LCM_PACKAGES
   "sensors"
   "soln"
   "timing"
+  "rostilt"
 )
 
 # Set destination for all generated code.

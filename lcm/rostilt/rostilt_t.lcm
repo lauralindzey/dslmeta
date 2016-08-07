@@ -1,0 +1,8 @@
+package rostilt;
+
+struct rostilt_t
+{
+  int64_t utime;  // Time of last good data.
+
+  rostilt_status_t status;
+}
