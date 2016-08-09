@@ -19,6 +19,8 @@ struct rostilt_ini_t
   double factory_limit_cw;
   double factory_limit_ccw;
   double deg_s_per_tick; // 0.5 degrees per second per tick
+  int32_t r_deadband;
+  int32_t l_deadband;
   
   dsldevice.device_conn_t connection;
 
