@@ -8,7 +8,8 @@ struct usbl_ini_t
   string channel_gps;
   string channel_gyro;
 
-  int16_t my_beacon_id;
+  int8_t  n_beacons;
+  int16_t my_beacon_id[n_beacons];
 
   // GPS to TCVR in fwd, stbd, down frame
   double position[6];
