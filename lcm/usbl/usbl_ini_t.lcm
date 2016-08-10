@@ -11,6 +11,11 @@ struct usbl_ini_t
   int8_t  n_beacons;
   int16_t my_beacon_id[n_beacons];
 
+  boolean usbl_ranging;
+  int8_t  n_ranges;
+  int16_t range_beacon_id_1[n_ranges];
+  int16_t range_beacon_id_2[n_ranges];
+
   // GPS to TCVR in fwd, stbd, down frame
   double position[6];
   

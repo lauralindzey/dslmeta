@@ -8,6 +8,8 @@ struct usbl_t
   double lat;
   double alt;
 
+  usbl_range_t range;
+
   // ATS ASCII parsed data
   ats_ascii_t  ats;
   // Most recent Ship Gps
