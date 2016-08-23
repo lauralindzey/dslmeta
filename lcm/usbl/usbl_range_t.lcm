@@ -1,0 +1,13 @@
+package usbl;
+
+struct usbl_range_t
+{
+  int64_t utime;
+
+  int16_t src_beacon;
+  int16_t dest_beacon;
+
+  double  horz_range;
+  double  vert_range;
+  double  slant_range;
+}

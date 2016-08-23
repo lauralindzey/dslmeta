@@ -1,0 +1,30 @@
+package rostilt;
+
+struct rostilt_ini_t
+{
+  string channel_data;
+
+  string channel_joystick;
+
+  double frequency;
+  double max_speed;
+  double gain;
+  double max_accel;
+  double max_decel;
+  string unit_dof_char;
+  int16_t brake_min;
+  int16_t brake_max;
+  double user_limit_cw;
+  double user_limit_ccw;
+  double factory_limit_cw;
+  double factory_limit_ccw;
+  double deg_s_per_tick; // 0.5 degrees per second per tick
+  int32_t r_deadband;
+  int32_t l_deadband;
+  
+  dsldevice.device_conn_t connection;
+
+  string host;
+
+  dsldevice.enumer_t enumer;
+}
