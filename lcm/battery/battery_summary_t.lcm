@@ -2,6 +2,7 @@ package battery;
 
 struct battery_summary_t
 {
+	int64_t      utime; 
 	float        capacity; // Ah
 	float        charge;
 	float        out_voltage; // volts on bus bars
