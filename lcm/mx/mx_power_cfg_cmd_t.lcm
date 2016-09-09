@@ -1,0 +1,14 @@
+package mx;
+
+struct mx_power_cfg_cmd_t
+{
+  // Command, per enums below.
+  int8_t cmd;
+
+  // For decoding active power switch configuration.
+  const int8_t POWER_CFG_NONE=0;
+  const int8_t POWER_CFG_MISSION=1; 
+  const int8_t POWER_CFG_RECOVERY=2;
+  const int8_t POWER_CFG_SLEEP=3;
+
+}

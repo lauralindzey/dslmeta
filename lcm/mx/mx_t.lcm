@@ -63,6 +63,11 @@ struct mx_t
   mx.mx_behavior_all_stop_t behavior_all_stop;
   mx.mx_behavior_push_up_t behavior_push_up;
 
+  // Power configuration
+  mx.mx_power_cfg_cmd_t power_cfg;
+  int8_t num_power_switches;
+  int32_t power_switch_state[num_power_switches];
+
   // End of mx state.
   //-----------------
   
