@@ -146,7 +146,7 @@ foreach (LCM_PKG ${LCM_PACKAGES})
     )
 
   # Install python bindings.
-  execute_process( COMMAND ${PYTHON} -c "from distutils.sysconfig import get_python_lib; print get_python_lib(prefix='${CMAKE_INSTALL_PREFIX}')" OUTPUT_VARIABLE PYTHON_SITE_PACKAGES OUTPUT_STRIP_TRAILING_WHITESPACE )
+  execute_process( COMMAND python -c "from distutils.sysconfig import get_python_lib; print get_python_lib(prefix='${CMAKE_INSTALL_PREFIX}')" OUTPUT_VARIABLE PYTHON_SITE_PACKAGES OUTPUT_STRIP_TRAILING_WHITESPACE )
   INSTALL(FILES ${LCM_TYPES_PY} ${LCM_DEST}/${LCM_PKG}/__init__.py
     DESTINATION ${PYTHON_SITE_PACKAGES}/${LCM_PKG}
     )
