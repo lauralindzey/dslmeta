@@ -34,6 +34,8 @@ struct statexy_t
   int32_t      lbl_tt_time[2];              /* seconds since the lbl travel times were received by the originating modem */
   double       owtt[3];                     /* owtt pings array; */
   int32_t      owtt_time[3];                /* owtt pings array seconds since; */
+  double       owtt_snv[3];                 /* owtt from synchronous clocks nav */
+  int32_t      owtt_snv_time[3];            /* owtt from synchronous clocks nav seconds since */
  
   int64_t      rx_utime;                    /* utime the acomm packet was rxd/decoded */
   double       data_owtt;                   /* owtt in seconds computed from difference in utime between sender and receiver timestamps */ 
@@ -49,6 +51,7 @@ struct statexy_t
   // Helper variables to store utime rx of pings
   int64_t      lbl_tt_rx_utime[3];
   int64_t      owtt_rx_utime[3];
+  int64_t      owtt_snv_rx_utime[3];
 
   comms.umodem_address_t add;
   mx.mx_comms_bitmask_t mx_comms;
