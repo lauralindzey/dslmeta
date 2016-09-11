@@ -10,5 +10,5 @@ struct mx_power_cfg_cmd_t
   const int8_t POWER_CFG_MISSION=1; 
   const int8_t POWER_CFG_RECOVERY=2;
   const int8_t POWER_CFG_SLEEP=3;
-
+  const int8_t POWER_CFG_UNKNOWN = 7;
 }

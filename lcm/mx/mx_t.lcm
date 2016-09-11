@@ -66,6 +66,7 @@ struct mx_t
   // Power configuration
   mx.mx_power_cfg_cmd_t power_cfg;
   int8_t num_power_switches;
+  int8_t power_switch_cfg[num_power_switches];
   int8_t power_switch_state[num_power_switches][8];
 
   // End of mx state.
