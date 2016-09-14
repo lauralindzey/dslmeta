@@ -1,11 +1,13 @@
 package umodem;
 
+// 2016-09-14 SS - changed from 2 to 4 transponders
+
 struct umodem_lbl_t
 {
   int64_t utime;
 
-  double  lbl_tt[2];
-  int64_t lbl_tt_rx_utime[2];
+  double  lbl_tt[4];
+  int64_t lbl_tt_rx_utime[4];
 
   comms.umodem_address_t add;
 }

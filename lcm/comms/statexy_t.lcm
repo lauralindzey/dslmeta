@@ -1,6 +1,7 @@
 package comms;
 
 // 2014-07-13 SS - reviewed by adding more travel times and tt staleness
+// 2016-09-14 SS - changed lbl travel times from 2 to 4
 
 struct statexy_t
 {
@@ -30,8 +31,8 @@ struct statexy_t
   // nUI specific
   int32_t      mx_active_behavior;
   int32_t      mx_active_comms;
-  double       lbl_tt[2];                   /* lbl travel times to the two transponders */
-  int32_t      lbl_tt_time[2];              /* seconds since the lbl travel times were received by the originating modem */
+  double       lbl_tt[4];                   /* lbl travel times to the two transponders */
+  int32_t      lbl_tt_time[4];              /* seconds since the lbl travel times were received by the originating modem */
   double       owtt[3];                     /* owtt pings array; */
   int32_t      owtt_time[3];                /* owtt pings array seconds since; */
   double       owtt_snv[3];                 /* owtt from synchronous clocks nav */
@@ -49,7 +50,7 @@ struct statexy_t
   int16_t      dest;
 
   // Helper variables to store utime rx of pings
-  int64_t      lbl_tt_rx_utime[3];
+  int64_t      lbl_tt_rx_utime[4];
   int64_t      owtt_rx_utime[3];
   int64_t      owtt_snv_rx_utime[3];
 
