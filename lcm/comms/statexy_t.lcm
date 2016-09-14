@@ -27,6 +27,7 @@ struct statexy_t
   int64_t      tx_count;                  /* number of data packets TX'd by sender (including this one) */
   int64_t      rx_count;                  /* number of data packets RX'd by sender  */
   int64_t      dvl_status;                /* encoded as 6 bits */
+  int64_t      dvl_up_status;             /* encoded as 6 bits */
 
   // nUI specific
   int32_t      mx_active_behavior;
