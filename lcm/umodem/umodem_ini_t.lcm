@@ -32,6 +32,7 @@ struct umodem_ini_t
   string channel_dvl_up;
   string channel_rov_goal_position;
   string channel_rov_ref_leg;
+  string channel_initiate_ping;
 
   // CHANNELS FOR EXCHANGE OF TT DATA BETWEEN UMODEM INSTANCES
   string channel_ping_reply;

@@ -1,0 +1,10 @@
+package umodem;
+
+struct umodem_initiate_ping_t
+{
+  int64_t    utime;
+
+  int16_t    src;
+  int16_t    dest;
+
+}
