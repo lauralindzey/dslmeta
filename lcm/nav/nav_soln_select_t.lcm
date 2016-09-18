@@ -1,0 +1,8 @@
+package nav;
+
+struct nav_soln_select_t
+{
+  int16_t new_solution;
+
+  nav.nav_soln_t solutions;
+}
