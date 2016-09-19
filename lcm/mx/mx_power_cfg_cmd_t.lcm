@@ -2,6 +2,8 @@ package mx;
 
 struct mx_power_cfg_cmd_t
 {
+  int64_t utime;
+
   // Command, per enums below.
   int8_t cmd;
 
