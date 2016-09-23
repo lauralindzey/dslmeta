@@ -4,22 +4,46 @@ struct environment_t
 {
   int64_t utime;
 
-  double  lbl_tt[2];
-  double  owtt[3];
+  // acomm does not have a sim mode, so fullsim_state.py
+  // generates simulated travel times and sends out on
+  // SIM_ENVIRONMENT.  umodem consumes this in sim mode and
+  // populates state_xy.
+  double  ship_lbl_tt[2];
+  double  seafloor_lbl[4];
+  double  owtt[3]; // how do we know which is which?
 
-  // x,y,z position of the three topside modems
+  // x,y,z position of the three topside modems 
+  // in ship frame.
   // Should add the frame
-  double modem_pos[3][3];
-  // x,y,z position of the transponders
-  double transponder_pos[2][3];
+  //MV to dive.m double modem_pos[3][3];
+
+  // x,y,z position of ship-mounted transponders
+  // in ship frame.
+  //mv to dive.m double ship_transponder_pos[2][3];
 
   comms.umodem_address_t add;
 
   // True if there is no ice on the surface
   boolean    open_water;
-
+  
+  // This still produces a linear trajectory - totally adequate for 
+  // now but made be better to use a "center of rotation" model for 
+  // the ice motion.
   double ship_start_pos[3];     // lat, lon, height
   double ship_pos_rate[3];
   double ship_start_hpr[3];     // in deg
   double ship_hpr_rate[3];      // in deg/s
+
+  // Ice drift modeled as constant rotation about a fixed center, usually
+  // far away.
+  double ice_drift_center; // lat, lon
+  double ice_drift_radius;
+  double ice_drift_speed;
+  double ice_drift_rot_rate;
+  double ice_angle;
+
+  // Power consumption by vehicle. 
+  double hotel_power; // [W]
+  double propulsion_power; // [W]
+  
 }
