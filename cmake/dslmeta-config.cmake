@@ -27,7 +27,10 @@ ENDIF(NOT CMAKE_BUILD_TYPE)
 set(CMAKE_CXX_FLAGS_DEBUG 
   "-Wall -Wwrite-strings -ggdb -Og" CACHE STRING "Debug compiler flags." FORCE)
 
-set(CMAKE_VERBOSE_MAKEFILE ON)
+# 2016-09-24 SS - commenting this to make cmake less verbose: such verbosity
+#                 actually obfuscates into too much text output compiler
+#                 warnings that we care about
+#set(CMAKE_VERBOSE_MAKEFILE ON)
 
 # Force installation location prefix, used on 'make install'.  
 # Forcing is deliberate to prevent multiple vehicle installations on the
