@@ -48,4 +48,9 @@ struct navState_t
     double depth_keel; // 2011-11-25 SS - depth under keel
     int64_t depth_keel_time;
 
+    int16_t soln_xy;
+    int16_t soln_z;
+    int16_t soln_alt;
+    int16_t soln_hpr;
+
 }
