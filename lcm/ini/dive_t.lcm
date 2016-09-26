@@ -5,6 +5,8 @@ package ini;
 */
 struct dive_t
 {
+  int32_t dive_number;
+
   double max_depth;
   int32_t origin_utm_zone;
   double origin_northing;
