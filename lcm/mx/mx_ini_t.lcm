@@ -48,6 +48,7 @@ struct mx_ini_t
   string channel_set_behavior_trackline_home_parameters;  
   string channel_set_behavior_all_stop_parameters;  
   string channel_set_behavior_push_up_parameters;    
+  string channel_set_behavior_grid_parameters;    
 
   // Initial values for durative parameters.
   int64_t active_aborts;    // 10-mask.  Determines which aborts can be triggered.
@@ -59,7 +60,8 @@ struct mx_ini_t
   mx_behavior_thrust_heading_parameters_t behavior_thrust_heading_parameters;  
   mx_behavior_trackline_home_parameters_t behavior_trackline_home_parameters;
   mx_behavior_all_stop_parameters_t behavior_all_stop_parameters;
-  mx_behavior_push_up_parameters_t behavior_push_up_parameters;	
+  mx_behavior_push_up_parameters_t behavior_push_up_parameters;	 
+  mx_behavior_grid_parameters_t behavior_grid_parameters;	
 
   int8_t mx_behavior_piloted_exit_transition;
   int8_t mx_behavior_hold_station_exit_transition;
@@ -67,6 +69,7 @@ struct mx_ini_t
   int8_t mx_behavior_trackline_home_exit_transition;
   int8_t mx_behavior_all_stop_exit_transition;
   int8_t mx_behavior_push_up_exit_transition;	
+  int8_t mx_behavior_grid_exit_transition;	
 
   // Power management
   string power_cfg_cmd_channel;
@@ -77,6 +80,9 @@ struct mx_ini_t
   string power_cfg_mission[num_power_switches];
   string power_cfg_recovery[num_power_switches];
   string power_cfg_sleep[num_power_switches]; 
+
+  // Dive-time mission modification.
+  string channel_shift_mission;
 
   // Where the code will run.  mx will run on vehicle.
   string host; 
