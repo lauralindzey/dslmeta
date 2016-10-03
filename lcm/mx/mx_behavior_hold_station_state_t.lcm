@@ -6,6 +6,8 @@ struct mx_behavior_hold_station_state_t
   int64_t utime;	
   
   // Behavior-specific state.
+  float northing;          // (m) current vehicle position
+  float easting;           // (m) current vehicle position
   float distance_to_goal;  // horizontal distance (northing/easting)
   float heading_to_goal;   // true heading to goal.
   float depth;             // Current depth

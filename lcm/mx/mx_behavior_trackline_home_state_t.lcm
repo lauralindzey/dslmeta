@@ -6,6 +6,8 @@ struct mx_behavior_trackline_home_state_t
   int64_t utime;	
   
   // Behavior-specific state.
+  float northing;  // (m) current vehicle northing
+  float easting;  // (m) current vehicle northing
   float distance_to_finish_line;  // (m) signed: <0 indicates trackline completed.
   float off_track_distance; // (m) signed.
   float depth;              // (m)

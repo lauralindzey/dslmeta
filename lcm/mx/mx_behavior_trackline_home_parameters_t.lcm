@@ -11,6 +11,7 @@ struct mx_behavior_trackline_home_parameters_t
   boolean atomically_activate;
   
   // Behavior-specific ephemeral parameters.
+  boolean interpret_trackline_as_relative; // i.e. a start and goal relative to current state.  Usually a relative trackline uses a start of 0,0.
   boolean interpret_depth_as_altitude_and_engage_bf;
   int16_t easting_start;  // (m) Easting start-point of leg in DR coordinates. (Ignored if above is true.)
   int16_t northing_start; // (m) Northing start-point of leg in DR coordinates. (Ignored if above is true.) 
