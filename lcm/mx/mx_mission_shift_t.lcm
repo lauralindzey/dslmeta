@@ -1,0 +1,14 @@
+package mx;
+
+struct mx_mission_shift_t
+{
+  int64_t utime;
+
+  // Shift is absolute (relative to 0,0) or relative to next goal.
+  boolean shift_is_absolute;  
+
+  // Shift specified as northing and easting, s.t., e.g.,
+  // easting_goal += easting_shift
+  int16_t easting_shift;
+  int16_t northing_shift;
+}

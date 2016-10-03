@@ -62,6 +62,7 @@ struct mx_t
   mx.mx_behavior_trackline_home_t behavior_trackline_home;
   mx.mx_behavior_all_stop_t behavior_all_stop;
   mx.mx_behavior_push_up_t behavior_push_up;
+  mx.mx_behavior_grid_t behavior_grid;
 
   // Power configuration
   mx.mx_power_cfg_cmd_t power_cfg;
