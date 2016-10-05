@@ -35,7 +35,7 @@ struct mx_behavior_grid_parameters_t
   int16_t northing_start_trk0;
   int16_t easting_goal_trk0;
   int16_t northing_goal_trk0;
-  int16_t num_trk;         
+  int16_t num_trk;        // Number of tracklines not including connectors. 
 
 
 }
