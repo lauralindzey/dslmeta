@@ -21,6 +21,8 @@ struct mx_behavior_grid_state_t
   float thrust_N;          // surge thrust in body frame (N).
 
   float countdown;         // (s) time remaining on total grid.
+
+  float timeout_trk;           // (s) determined on a per-trackline basis.
   float countdown_trk;         // (s) time remaining on current trackline timeout.
 
 }

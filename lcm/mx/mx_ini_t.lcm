@@ -80,6 +80,7 @@ struct mx_ini_t
   string power_cfg_mission[num_power_switches];
   string power_cfg_recovery[num_power_switches];
   string power_cfg_sleep[num_power_switches]; 
+  string power_cfg_lab[num_power_switches]; 
 
   // Dive-time mission modification.
   string channel_shift_mission;
