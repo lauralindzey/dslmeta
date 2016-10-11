@@ -46,6 +46,7 @@ set (LCM_PACKAGES
   "soln"
   "timing"
   "rostilt"
+  "wetlabsfln"
 )
 
 # Set destination for all generated code.

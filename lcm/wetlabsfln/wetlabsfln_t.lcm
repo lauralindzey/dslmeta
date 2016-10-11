@@ -1,0 +1,10 @@
+package wetlabsfln;
+
+struct wetlabsfln_t
+{
+  int64_t utime;
+
+  double pressure_psi;
+
+  wetlabsfln_status_t status;
+}
