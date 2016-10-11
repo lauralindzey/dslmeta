@@ -4,7 +4,11 @@ struct wetlabsfln_t
 {
   int64_t utime;
 
-  double pressure_psi;
+  int32_t chlorophyll_wavelength;
+  int32_t chlorophyll_counts;
+  int32_t ntu_wavelength;
+  int32_t ntu_counts;
+  int32_t thermistor;
 
   wetlabsfln_status_t status;
 }
