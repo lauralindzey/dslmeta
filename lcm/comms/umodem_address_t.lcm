@@ -8,9 +8,11 @@ struct umodem_address_t
   const int32_t      CAGE_3KHZ_SRC = 2;
   const int32_t      CAGE_10KHZ_SRC = 3;
   const int32_t      DECKBOX_10KHZ_SRC = 4;
+  const int32_t      ICE_10KHZ_SRC = 5;
 
   // Array indexes
   const int32_t      VEH_TO_CAGE_3KHZ_INDEX = 0;
   const int32_t      VEH_TO_CAGE_10KHZ_INDEX = 1;
   const int32_t      VEH_TO_DECKBOX_10KHZ_INDEX = 2;
+  const int32_t      VEH_TO_ICE_10KHZ_INDEX = 3;
 }
