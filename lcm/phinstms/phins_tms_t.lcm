@@ -1,0 +1,12 @@
+package phins;
+
+struct phins_tms_t
+{
+    int64_t   utime;
+
+    double acc[3]; // x,y,z acc
+    double vel[3]; // h,p,r vel
+
+    phins_std_status_t status;
+}
+

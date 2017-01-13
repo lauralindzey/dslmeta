@@ -7,6 +7,10 @@ struct gps_ini_t
   string channel_environment;
 
   double position[6];
+
+  boolean tx_udp; // True if the GPS driver also broadcasts on UDP
+  string  tx_udp_address;
+  int32_t tx_udp_port;
   
   dsldevice.device_conn_t connection;
 

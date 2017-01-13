@@ -10,6 +10,8 @@ struct nav_ini_t
   string channel_model_state;
   string channel_nav_shift;
   string channel_umodem10_rx;
+  string channel_nav_soln_select;
+  string channel_nav_set;
 
   string host;
 }

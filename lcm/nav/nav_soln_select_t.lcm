@@ -1,0 +1,13 @@
+package nav;
+
+struct nav_soln_select_t
+{
+  int64_t utime;
+
+  int16_t new_solution_xy;
+  int16_t new_solution_alt;
+  int16_t new_solution_hpr;
+  int16_t new_solution_z;
+
+  nav.nav_soln_t solutions;
+}

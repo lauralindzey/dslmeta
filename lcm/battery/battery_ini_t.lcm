@@ -6,6 +6,7 @@ struct battery_ini_t
   string channel_summary;
   string channel_config;
   string channel_control;
+  string channel_environment_sim;
 
   double position[6];
   
@@ -21,6 +22,10 @@ struct battery_ini_t
   int16_t modulestring[nmodules];
   int16_t moduleseries[nmodules];
   int16_t moduleid[nmodules];
+
+  // Parameters used only in simulation.
+  double sim_bus_voltage; // [V]
+  double sim_initial_capacity;  // [Wh] 
 
   dsldevice.enumer_t enumer;
 }

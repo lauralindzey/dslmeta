@@ -5,9 +5,25 @@ package ini;
 */
 struct dive_t
 {
+  int32_t dive_number;
+
   double max_depth;
   int32_t origin_utm_zone;
   double origin_northing;
   double origin_easting;
   double atmospheric_pressure;
+
+  // ship transponders specified in ship frame: fwd, stbd, down.
+  // @@@ Need a set of consts to identify frames.  "pos" is totally ambiguous.  Really need a lib like ROS's tf to create a "pose_t" that has frame relations embedded (plus a lib to manipulate them.) 
+  string ship_transponder_id[2]; // ['Z','Y',...]
+  double ship_transponder_uvw[2][3];
+
+  // xpndrs in alvinxy for now: easting, northing, down.	
+  string seafloor_transponder_id[4]; // ['A','B','E',...]
+  double seafloor_transponder_ned[4][3];
+
+  // ship-mounted umodem positions in ship-frame.
+  double depressor_uvw[3];
+  double dangle_uvw[3];
+  
 }

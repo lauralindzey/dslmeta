@@ -1,0 +1,9 @@
+package soln;
+
+struct nav_set_t
+{
+  int64_t    utime;
+
+  float      northing_set;
+  float      easting_set;
+}

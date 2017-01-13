@@ -1,0 +1,12 @@
+package wetlabsfln;
+
+struct wetlabsfln_ini_t
+{
+  string channel_data;
+
+  dsldevice.device_conn_t connection;
+
+  string host;
+
+  dsldevice.enumer_t enumer;
+}

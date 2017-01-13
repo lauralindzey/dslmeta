@@ -1,0 +1,18 @@
+package phins;
+
+struct phins_tms_ini_t
+{
+  string channel_data;
+  string channel_config;
+  string channel_simstate;
+
+  int8_t phins_sensor_number;
+
+  double position[6];
+  
+  dsldevice.device_conn_t connection;
+
+  string host;
+
+  dsldevice.enumer_t enumer;
+}

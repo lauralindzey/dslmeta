@@ -18,7 +18,7 @@ struct umodem_cst_t
   int32_t        n_frames;
   int32_t        n_bad_frames;
   umodem_snr_t   snr;
-  int32_t        mse;
+  double         mse;
   int32_t        dqf;
   int32_t        dop;
   int32_t        noise_stddev;
