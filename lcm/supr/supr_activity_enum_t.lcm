@@ -1,0 +1,13 @@
+package supr;
+
+struct supr_activity_enum_t
+{
+	const int8_t 	SECURED=0, // powered down and awaiting instructions
+	      		START=1,
+			ROTATING_VALVE_INITIAL=2,
+			PUMPING_FWD=3,  
+			PUMPING_REV=4,
+			ROTATING_VALVE_FINAL=5,
+			FAULT=15;
+		     
+}

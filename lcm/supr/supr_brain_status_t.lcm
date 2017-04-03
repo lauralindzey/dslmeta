@@ -1,0 +1,39 @@
+package supr;
+
+struct supr_brain_status_t
+{
+	int64_t		utime;
+   	  
+	int32_t		  time_since_power_up;
+	boolean		  stepper_softstart_on;
+	boolean		  stepper_hardstart_on;
+	boolean		  pump_softstart_on;
+	boolean		  pump_hardstart_on;
+	boolean		  leak_sensor_on;
+	boolean		  flow_sensor_on;
+	boolean		  direction_output_on;
+	boolean		  stepper_clock_output_on;
+	int32_t		  flow_sensor_counts;
+	int32_t		  thermistor;
+	int32_t		  voltage_reference;
+	float		  temperature;
+	float		  logic_supply_voltage;
+	int32_t		  external_adc[4];
+	float		  pump_current;
+	float		  total_current;
+	float		  stepper_current;
+	float		  bus_voltage;
+	float		  rotary_pwm_duty_cycle;
+	float		  rotary_position_rev;
+	float		  port_index;
+	float		  target_position_rev;
+	float		  target_port_index;
+	int32_t		  stepper_position;
+	float		  stepper_speed;
+	int32_t		  main_loop_last_period_us;
+	int32_t		  main_loop_min_period_us;
+	int32_t		  main_loop_max_perion_us;
+	int16_t		  uart_overflow_count;
+	int16_t		  uart_framing_error_count;
+
+}

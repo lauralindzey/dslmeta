@@ -1,0 +1,9 @@
+package supr;
+
+struct supr_termination_criterion_enum_t
+{
+	const int8_t	STOP_NOW=0,	  // terminate sampling on receipt.
+			PUMP_TIME=1,  	  // terminate sample after a specified time
+			PUMP_VOLUME=2,    // terminate sample on total volume pumped
+			PUMP_FLOWRATE=3;  // terminate on minimum flow rate
+}

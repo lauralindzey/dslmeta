@@ -1,0 +1,21 @@
+package supr;
+
+struct supr_driver_status_t
+{
+	int64_t		utime;
+
+	// Required by DslDriver. 
+    string last_command;
+    string output;
+	
+	// Process status common to all DslProcess
+	dslprocess.process_status_t process_status;
+	
+	// Device driver raw data and status common to all DslDriver
+	dsldevice.raw_data_t raw;
+	dsldevice.device_status_t device_status;
+	
+	// Ini data required by DslDriver (e.g. for gui setup)
+	supr_ini_t ini;
+
+}

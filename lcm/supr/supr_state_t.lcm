@@ -1,0 +1,25 @@
+package supr;
+
+struct supr_state_t
+{
+	int64_t utime;			// Unixtime in usec of status.
+
+	int8_t activity;          	// Specifies activity as a supr_activity_enum_t
+	float valve_position; 		// Valve position/filter number
+	int16_t fwd_pump_time_sec;  	// Time spent pumping in forward since the start of 
+					// latest sample
+	int16_t rev_pump_time_sec;	// Time spent pumping in reverse since start of latest
+					// sample
+	float pump_rate_mldmin;		// Pumping rate (ml per min).  Negative in reverse.
+	float volume_pumped_fwd;      	// Volume pumped for current sample (ml)
+	float volume_pumped_rev;      	// Preservative pumped for current sample (ml)
+
+	int16_t num_samples;		// Total number of samples taken since power-up.
+
+	supr_sample_t supr_cmd;       	// Last command
+
+	supr_brain_status_t brain_status;	// Comprehensive low-level status produced by
+					     	// SUPR brain.
+
+	supr_driver_status_t status;   	// Generic status common to all DslDriver.
+}

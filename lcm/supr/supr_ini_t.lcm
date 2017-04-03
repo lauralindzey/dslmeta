@@ -1,0 +1,13 @@
+package supr;
+
+struct supr_ini_t
+{   
+    int16_t	pump_deadman_sec;
+
+    string	channel_command;
+    string	channel_data;
+
+  // Common items for the driver
+  dsldevice.device_conn_t connection;
+  string host;
+}
