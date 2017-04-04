@@ -3,6 +3,7 @@ package supr;
 struct supr_ini_t
 {   
     int16_t	pump_deadman_sec;
+    float	valve_position_tol;  // SUPR Brain's tolerance is 0.002 rev
 
     string	channel_command;
     string	channel_data;

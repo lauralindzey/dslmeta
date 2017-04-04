@@ -4,8 +4,8 @@ struct supr_sample_t
 {
 	int64_t utime;		// Unix timestamp in usec of command
 	
-	int8_t target_valve_position;	// filter number/valve position for sample
-	int8_t closed_position; // valve will move to this position after the sample
+	float target_valve_position;	// filter number/valve position for sample
+	float closed_position; // valve will move to this position after the sample
                                 // (may be the next planned filter)
 
 	int16_t timeout;  	// Maximum total sample time.  Driver will
@@ -15,11 +15,11 @@ struct supr_sample_t
 
 	// Termination criteria (only one of three is used)
 	int8_t termination_criterion;  	     // supr_termination_criterion_enum_t
-	int16_t fwd_pump_time_sec; 		     // forward pump duration in seconds
+	float fwd_pump_time_sec;	     // forward pump duration in seconds
 	float fwd_pump_volume; 		     // total pumped volume (ml)
 	float fwd_pump_flowrate_min; 	     // minimum flow rate (ml/min)  
 
 	// Reverse pump.  Only time implemented.
-	int16_t rev_pump_time_sec; // reverse pump duration in seconds
+	float rev_pump_time_sec; // reverse pump duration in seconds
 
 }        	
