@@ -12,5 +12,8 @@ struct mx_behavior_enum_t
   const int8_t BEHAVIOR_ALL_STOP=5;
   const int8_t BEHAVIOR_PUSH_UP=6;
   const int8_t BEHAVIOR_GRID=7;
+  const int8_t BEHAVIOR_SUPRSAMPLE=8;
+  const int8_t BEHAVIOR_ASCENT=9;
+  const int8_t BEHAVIOR_DESCENT=10;
 
 }

@@ -22,5 +22,7 @@ struct supr_state_t
 	supr_brain_status_t brain_status;	// Comprehensive low-level status produced by
 					     	// SUPR brain.
 
+        supr_ini_t ini;                 // Needed to differentiate between SUPRs.
+
 	supr_driver_status_t status;   	// Generic status common to all DslDriver.
 }

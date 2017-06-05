@@ -1,0 +1,12 @@
+package mx;
+
+struct mx_behavior_suprsample_state_t
+{
+	int64_t utime;		// Unix timestamp of last update to state of behavior execution
+	
+	float countdown;	// seconds remaining until timeout.
+
+	int8_t num_samples_completed;  // Number of SUPRs that have completed sampling.
+	int8_t num_samples_remaining;  // Number of SUPRs still sampling.	
+
+}

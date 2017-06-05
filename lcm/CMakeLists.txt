@@ -27,6 +27,7 @@ set (LCM_PACKAGES
   "gyro"
   "environment"
   "rov"
+  "supr"
   "mx"
   "comms"
   "sitAware"
@@ -47,7 +48,6 @@ set (LCM_PACKAGES
   "timing"
   "rostilt"
   "wetlabsfln"
-  "supr"
 )
 
 # Set destination for all generated code.

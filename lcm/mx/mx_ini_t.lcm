@@ -49,6 +49,9 @@ struct mx_ini_t
   string channel_set_behavior_all_stop_parameters;  
   string channel_set_behavior_push_up_parameters;    
   string channel_set_behavior_grid_parameters;    
+  string channel_set_behavior_suprsample_parameters;    
+  string channel_set_behavior_ascent_parameters;    
+  string channel_set_behavior_descent_parameters;    
 
   // Initial values for durative parameters.
   int64_t active_aborts;    // 10-mask.  Determines which aborts can be triggered.
@@ -62,6 +65,9 @@ struct mx_ini_t
   mx_behavior_all_stop_parameters_t behavior_all_stop_parameters;
   mx_behavior_push_up_parameters_t behavior_push_up_parameters;	 
   mx_behavior_grid_parameters_t behavior_grid_parameters;	
+  mx_behavior_suprsample_parameters_t behavior_suprsample_parameters;
+  mx_behavior_ascent_parameters_t behavior_ascent_parameters;
+  mx_behavior_descent_parameters_t behavior_descent_parameters;
 
   int8_t mx_behavior_piloted_exit_transition;
   int8_t mx_behavior_hold_station_exit_transition;
@@ -70,6 +76,9 @@ struct mx_ini_t
   int8_t mx_behavior_all_stop_exit_transition;
   int8_t mx_behavior_push_up_exit_transition;	
   int8_t mx_behavior_grid_exit_transition;	
+  int8_t mx_behavior_suprsample_exit_transition;
+  int8_t mx_behavior_ascent_exit_transition;
+  int8_t mx_behavior_descent_exit_transition;
 
   // Power management
   string power_cfg_cmd_channel;
@@ -81,6 +90,11 @@ struct mx_ini_t
   string power_cfg_recovery[num_power_switches];
   string power_cfg_sleep[num_power_switches]; 
   string power_cfg_lab[num_power_switches]; 
+
+  // SUPR samplers
+  int8_t num_suprs;
+  string supr_cmd_channel[num_suprs];
+  string supr_data_channel[num_suprs];
 
   // Dive-time mission modification.
   string channel_shift_mission;

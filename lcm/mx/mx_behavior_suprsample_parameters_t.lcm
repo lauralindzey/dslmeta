@@ -1,0 +1,15 @@
+package mx;
+
+struct mx_behavior_suprsample_parameters_t
+{
+	int64_t utime;         // Unix timestamp of last update to parameters.
+	boolean atomically_activate;  // Set parameters or set parameters and activate.
+
+	int16_t timeout;   // Give up on sampling after timeout seconds.
+
+	int8_t num_suprs;	 // Number of SUPRs to engage
+	supr.supr_sample_t sample_parameters[num_suprs];  // Sampling parameters for each SUPR
+	
+	string supr_cmd_channels[num_suprs];  // LCM channel names for commanding drivers
+
+}

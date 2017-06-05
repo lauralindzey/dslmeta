@@ -63,6 +63,9 @@ struct mx_t
   mx.mx_behavior_all_stop_t behavior_all_stop;
   mx.mx_behavior_push_up_t behavior_push_up;
   mx.mx_behavior_grid_t behavior_grid;
+  mx.mx_behavior_suprsample_t behavior_suprsample;
+  mx.mx_behavior_ascent_t behavior_ascent;
+  mx.mx_behavior_descent_t behavior_descent;
 
   // Power configuration
   mx.mx_power_cfg_cmd_t power_cfg;
@@ -70,6 +73,10 @@ struct mx_t
   int8_t power_switch_cfg[num_power_switches];
   int8_t power_switch_cfg_achieved[num_power_switches];
   int8_t power_switch_state[num_power_switches][8];
+
+  // SUPR data from sampler drivers.
+  int8_t num_suprs;
+  supr.supr_state_t supr_state[num_suprs];
 
   // End of mx state.
   //-----------------

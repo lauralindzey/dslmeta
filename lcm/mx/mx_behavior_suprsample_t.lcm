@@ -1,0 +1,11 @@
+package mx;
+
+struct mx_behavior_suprsample_t
+{
+  // Behavior-specific ephemeral parameters.
+  mx_behavior_suprsample_parameters_t parameters;
+
+  // Behavior-specific state.
+  mx_behavior_suprsample_state_t state;
+}
+

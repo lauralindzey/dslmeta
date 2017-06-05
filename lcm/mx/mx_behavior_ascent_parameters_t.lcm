@@ -1,0 +1,11 @@
+package mx;
+
+struct mx_behavior_ascent_parameters_t
+{
+
+	int64_t utime;	
+	boolean atomically_activate; 
+
+	int16_t timeout;
+
+}

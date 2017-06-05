@@ -1,0 +1,10 @@
+package mx;
+
+struct mx_behavior_ascent_t
+{
+  // Behavior-specific ephemeral parameters.
+  mx_behavior_ascent_parameters_t parameters;
+
+  // Behavior-specific state.
+  mx_behavior_ascent_state_t state;
+}
