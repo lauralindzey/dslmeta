@@ -93,7 +93,6 @@ struct mx_ini_t
 
   // SUPR samplers
   int8_t num_suprs;
-  string supr_cmd_channel[num_suprs];
   string supr_data_channel[num_suprs];
 
   // Dive-time mission modification.
