@@ -6,4 +6,9 @@ struct mx_behavior_descent_state_t
 	
 	float countdown;	// seconds remaining until timeout.
 
+	float depth; 		// current depth
+	float depth_rate;	// current depth rate
+	boolean depth_stabilizing; 	// indicates depth rate is below tolerance
+	float depth_rate_countdown;	// time remaining before timeout on depth rate below tolerance
+
 }

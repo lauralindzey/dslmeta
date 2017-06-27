@@ -8,8 +8,13 @@ struct mx_behavior_descent_parameters_t
 
 	int16_t timeout;
 
-	float depth;			// target depth
-	float depth_tolerance;		// depth tolerance
+	// Exits when depth rate is below the tolerance for a sufficiently long time.
+	// Intended to work with CL depth control, not CL depth rate control.  Descent
+	// speed is then OL with actuators saturated.
+	float depth_goal;			// target depth
+	float depth_rate_tol;			// depth rate tolerance
+	float depth_rate_timeout;               // time absolute depth rate must be below tol before exit
 
 	// @@@ target altitude and whether to use altitude for target or just as safety.
+	// @@@ not implemented.
 }

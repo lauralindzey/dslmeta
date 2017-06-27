@@ -21,6 +21,7 @@ struct mx_ini_t
   // Channels over which control data is received.
   string channel_control_ref_thrust;
   string channel_control_ref_leg;
+  string channel_control_velocity;
 
   // Channel(s) for altering durative parameters?
   // @@@ Not implemented.

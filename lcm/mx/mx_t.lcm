@@ -53,6 +53,7 @@ struct mx_t
   // @@ channel identifies it as thrust data.
   rov.rov_velocity_t control_ref_thrust;
   rov.rov_leg_t control_ref_leg;
+  rov.rov_velocity_t control_velocity;
 
   // Parameters and states associated with each potentially 
   // active behavior.
