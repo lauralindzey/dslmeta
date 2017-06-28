@@ -13,6 +13,7 @@ struct mx_durative_parameters_t
   int8_t max_temperature; // (C)
   int8_t max_humidity; // (%) maximum relative humidity
   int16_t crush_depth;  // (m) Crush depth not to exceed.
+  int8_t min_depth_cm; // (cm) Mission suspended (if running) above this depth.
 
   // Timeouts associated with comms.  All integer seconds.
   int16_t timeout_acomms3p5kHz;

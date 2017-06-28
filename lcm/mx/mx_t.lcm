@@ -37,13 +37,7 @@ struct mx_t
   mx.mx_comms_t acomms3p5kHz;
   mx.mx_comms_t acomms10kHz;
 
-  // Navigation state as used by mx to compute distance to goals, etc.
-  // @@@ there really needs to be a generic version of this that is accessible - not sure
-  // @@@ that what flies over NAVSTATE is.  It's also a bit big, but that is probably ok.
-  // @@ Using statexy for expediency.  It is, comically, published
-  // @@ by umodem on FIBER_STATEXY, but this is to allow
-  // @@ the situational awareness software to only have to listen
-  // @@ to one thing.
+  // vehicle state including navigation and battery as used by mx to compute distance to goals, etc.
   comms.statexy_t nav;
 
   // Control data.
@@ -53,7 +47,6 @@ struct mx_t
   // @@ channel identifies it as thrust data.
   rov.rov_velocity_t control_ref_thrust;
   rov.rov_leg_t control_ref_leg;
-  rov.rov_velocity_t control_velocity;
 
   // Parameters and states associated with each potentially 
   // active behavior.

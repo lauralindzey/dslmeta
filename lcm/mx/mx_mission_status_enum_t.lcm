@@ -7,5 +7,6 @@ struct mx_mission_status_enum_t
   const int8_t MISSION_STOPPED=0;
   const int8_t MISSION_RUNNING=1;
   const int8_t MISSION_ABORTED=2; 
+  const int8_t MISSION_HELD=3; // held/paused by some autonomous condition
 
 }
