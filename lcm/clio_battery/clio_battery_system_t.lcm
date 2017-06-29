@@ -1,0 +1,29 @@
+package clio_battery;
+
+struct clio_battery_system_t  // this is the top-level battery state for the CLIO vehicle
+
+{
+	float BusV;         // average all the strings, V (sum and divide by 16)
+	float BusCurrentA;            // sum of all the strings, A (divide by 4)
+	float RemainingChargeAh;    // sum of all the strings, Ah (assume 4S)
+	float FullChargeAh;         // How much can fit when full (estimate)
+	float LowestCellV;  // measured in volts, used for end of discharge
+	float HighestCellV;  // measured in volts, used for end of charge
+	float LowestPackTempC;  // converted from Kelvin
+	float HighestPackTempC;
+	boolean ChargeEnabled;    // all modules are enabled
+	boolean DischargeEnabled; // at least one module is enabled
+	
+	//after that we get down in the weeds
+	
+	int16_t NumModules; // number of CLIO battery modules installed, normally 8
+	// Inside each module string is bus address, module state, and an array of pack structs.
+	string RawModuleString[NumModules];
+	
+	// For completeness, decode the pack data into an array of LCM-accessible structs.
+	// int16_t PacksPerModule; // this should be a constant =8 but LCM doesn't support const array length
+	// a future version of LCM or ZCM may support this instead:
+	// const int16_t PacksPerModule = 8; // LCM does not allow this
+
+	//clio_battery_nh2054_t Packs[NumModules][PacksPerModule];
+}
