@@ -6,4 +6,9 @@ struct mx_behavior_ascent_state_t
 	
 	float countdown;	// seconds remaining until timeout.
 
+	float heave_thrust_N;        // (N) Signed heave thrust (body frame) as 
+                                     // reported by rov-core. 
+        float depth;                 // (m) Current depth
+        float depth_rate;            // (m/s) positive is increasing depth.
+
 }

@@ -48,6 +48,7 @@ set (LCM_PACKAGES
   "timing"
   "rostilt"
   "wetlabsfln"
+  "clio_battery"
 )
 
 # Set destination for all generated code.

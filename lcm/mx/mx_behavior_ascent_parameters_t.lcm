@@ -8,4 +8,7 @@ struct mx_behavior_ascent_parameters_t
 
 	int16_t timeout;
 
+	boolean allow_push_down; // interlock
+	int8_t heave_thrust_prcnt; // [-100 100] signed heave thrust to demand in body frame.
+
 }
