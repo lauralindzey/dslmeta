@@ -59,7 +59,7 @@ find_package(Java REQUIRED)
 execute_process(COMMAND pkg-config --variable=classpath lcm-java OUTPUT_VARIABLE LCM_JAR_FILE)
 message(STATUS "LCM_JAR_FILE: ${LCM_JAR_FILE}")
 if(LCM_JAR_FILE STREQUAL "")
-  message(FATAL_ERROR "Please install lcm 1.0.0")
+  message(FATAL_ERROR "Please install lcm >= 1.0.0")
 endif(LCM_JAR_FILE STREQUAL "")
 string(STRIP ${LCM_JAR_FILE} LCM_JAR_FILE)
 
@@ -74,6 +74,7 @@ foreach (LCM_PKG ${LCM_PACKAGES})
   set (LCM_TYPES_PY "")
   set (LCM_TYPES_JAVA  "")
   set (LCM_TYPES_JAVACLASS "")
+  set (LCM_TYPES_CSHARP "")
   foreach (LCM_DEF ${LCM_DEFS})
 
     GET_FILENAME_COMPONENT( LCM_TYPE ${LCM_DEF} NAME_WE )
@@ -98,6 +99,13 @@ foreach (LCM_PKG ${LCM_PACKAGES})
       DEPENDS ${LCM_DEF}
       WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
       )
+    add_custom_command(
+      OUTPUT ${LCM_DEST}/${LCM_PKG}/${LCM_TYPE}.cs
+      COMMAND lcm-gen --csharp --lazy --csharp-path ${LCM_DEST} ${LCM_DEF}
+      DEPENDS ${LCM_DEF}
+      WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+      )
+
 
     # Packages must be listed in dependency order.  To enforce build
     # order assume that each package depends on all packages above it.
@@ -115,6 +123,7 @@ foreach (LCM_PKG ${LCM_PACKAGES})
     SET (LCM_TYPES_PY ${LCM_TYPES_PY} ${LCM_DEST}/${LCM_PKG}/${LCM_TYPE}.py)
     SET (LCM_TYPES_JAVA ${LCM_TYPES_JAVA} ${LCM_DEST}/${LCM_PKG}/${LCM_TYPE}.java)
     SET (LCM_TYPES_JAVACLASS ${LCM_TYPES_JAVACLASS} ${LCM_DEST}/${LCM_PKG}/${LCM_TYPE}.class)
+    SET (LCM_TYPES_CSHARP ${LCM_TYPES_CSHARP} ${LCM_DEST}/${LCM_PKG}/${LCM_TYPE}.cs)
 
   endforeach()
 
@@ -136,7 +145,7 @@ foreach (LCM_PKG ${LCM_PACKAGES})
   # in the absence of other dependencies.
   add_custom_target (
     ${LCM_PKG} ALL
-    DEPENDS ${LCM_TYPES_CXX} ${LCM_TYPES_PY} ${LCM_TYPES_JAVA}
+    DEPENDS ${LCM_TYPES_CXX} ${LCM_TYPES_PY} ${LCM_TYPES_JAVA} ${LCM_TYPES_CSHARP}
     COMMENT "Generating LCM bindings for package ${LCM_PKG}."
     )
 
@@ -158,4 +167,11 @@ foreach (LCM_PKG ${LCM_PACKAGES})
   INSTALL(FILES ${LCM_DEST}/${LCM_PKG}.jar
     DESTINATION share/java/
     )
+
+  # Install csharp headers.
+  INSTALL(FILES ${LCM_TYPES_CSHARP}
+    DESTINATION include/lib${CMAKE_PROJECT_NAME}/${LCM_PKG}/
+    )
+
+  
 endforeach ()

@@ -24,8 +24,14 @@ ENDIF(NOT CMAKE_BUILD_TYPE)
 # user (FORCE).  
 # Work-around for advanced users is to use a different build type and 
 # specify custom flags there.
+#set(CMAKE_CXX_FLAGS_DEBUG 
+#  "-Wall -Wwrite-strings -ggdb -Og" CACHE STRING "Debug compiler flags." FORCE)
+# 2018-02-12  MVJ  Had trouble with optimizations in 16.04 with LCM v1.3-lts.
+#                  Most processes segfaulted and others couldn't decode
+#                  heartbeat_t.  Optimizations obscured the problem.
+#                  Removing them solved it.
 set(CMAKE_CXX_FLAGS_DEBUG 
-  "-Wall -Wwrite-strings -ggdb -Og" CACHE STRING "Debug compiler flags." FORCE)
+  "-Wall -Wwrite-strings -ggdb" CACHE STRING "Debug compiler flags." FORCE)
 
 # 2016-09-24 SS - commenting this to make cmake less verbose: such verbosity
 #                 actually obfuscates into too much text output compiler
