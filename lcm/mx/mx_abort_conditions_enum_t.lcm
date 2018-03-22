@@ -11,6 +11,7 @@ struct mx_abort_conditions_enum_t
   const int16_t ABORT_CONDITION_CRUSH_DEPTH = 4;
   const int16_t ABORT_CONDITION_TEMPERATURE = 5;
   const int16_t ABORT_CONDITION_MISSION_TIMEOUT = 6;
+  const int16_t ABORT_CONDITION_VACUUM = 7;  // loss of vacuum
 
   const int16_t ABORT_CONDITION_UNKOWN = 15; // In case of incomplete implementation.
 }

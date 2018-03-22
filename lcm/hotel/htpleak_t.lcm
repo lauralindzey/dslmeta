@@ -1,0 +1,39 @@
+package hotel;
+
+struct htp_leak_t
+{
+	// A generic housing weather type.  For use on a shared channel consumed by mx
+	// or a fault manager.  The sensor driver is responsible for setting fault conditions.
+
+
+	int64_t		utime;
+
+	string 		location;  // human-readable sensor location.  Used to disambiguate sources.
+
+	// Leak Detect
+	boolean		leak; // combine multiple leak detects into a single value in the driver for a sensor.
+	boolean		leak_valid;  // Indicates whether this sensor includes one or more leak-detects.
+
+	// Humidity (%)
+	boolean		humidity_fault;
+	float		humidity; 
+	boolean		humidity_valid;  // indicates whether sensor is installed.
+	float		humidity_min;
+	float		humidity_max;
+
+	// Temperature (C)
+	boolean		temperature_fault;
+	float		temperature; 
+	boolean		temperature_valid;  // indicates whether sensor is installed.
+	float		temperature_min;
+	float		temperature_max;
+
+	// Pressure (Pa)
+	boolean		vacuum_fault;
+	float		vacuum; 
+	boolean		vacuum_valid;  // indicates whether sensor is installed.
+	float		vacuum_min;
+	float		vacuum_max;
+
+
+}

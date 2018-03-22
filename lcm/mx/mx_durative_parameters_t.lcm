@@ -10,8 +10,6 @@ struct mx_durative_parameters_t
   float mission_timeout_hrs; // (h)
   int8_t low_battery_threshold_percent; // (%)
   int8_t low_battery_threshold_volts; // (V)
-  int8_t max_temperature; // (C)
-  int8_t max_humidity; // (%) maximum relative humidity
   int16_t crush_depth;  // (m) Crush depth not to exceed.
   int8_t min_depth_cm; // (cm) Mission suspended (if running) above this depth.
 
