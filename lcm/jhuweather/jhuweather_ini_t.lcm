@@ -1,0 +1,23 @@
+package jhuweather;
+
+struct jhuweather_ini_t
+{
+  string channel_data;
+  string channel_htpleak;  // where to report faults.
+
+  string location; // location of device on vehicle.
+
+  // Fault limits.
+  double humidity_min;
+  double humidity_max;
+
+  double temperature_min;
+  double temperature_max;
+
+  double vacuum_min;
+  double vacuum_max;
+
+  dsldevice.device_conn_t connection;
+  string host;
+
+}

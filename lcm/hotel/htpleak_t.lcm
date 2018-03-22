@@ -1,6 +1,6 @@
 package hotel;
 
-struct htp_leak_t
+struct htpleak_t
 {
 	// A generic housing weather type.  For use on a shared channel consumed by mx
 	// or a fault manager.  The sensor driver is responsible for setting fault conditions.

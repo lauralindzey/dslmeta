@@ -49,6 +49,7 @@ set (LCM_PACKAGES
   "rostilt"
   "wetlabsfln"
   "clio_battery"
+  "jhuweather"
 )
 
 # Set destination for all generated code.
