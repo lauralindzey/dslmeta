@@ -23,8 +23,10 @@ struct mx_t
   int64_t abort_condition;  // 10-mask, defined in mx_abort_condtions_enum_t.  Lists all presently violated conditions, except those that are inactive.
   int64_t abort_reason;     // 10-mask.  If aborted, this is the first condition that caused it.
   int64_t active_aborts;    // 10-mask.  Determines which aborts can be triggered.  Copy of ini settings, can be manipulated.
-  boolean leak_fault, temperature_fault, humidity_fault, vacuum_fault;
-  byte leak_fault_location[32], temperature_fault_location[32], humidity_fault_location[32], vacuum_fault_location[32];  // fixed length string@@@@@
+  boolean leak_fault;
+  boolean temperature_fault;
+  boolean humidity_fault;
+  boolean vacuum_fault;
   mx_durative_parameters_t durative_parameters;  // Copy of ini settings, can be manipulated.
 
   // Active behavior (enumeration)

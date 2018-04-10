@@ -18,13 +18,13 @@ struct mx_ini_t
   // Channel over which navigation is received.
   string channel_nav;
 
+  // Channel over which generic housing weather data is received.
+  string channel_htpleak_faults;
+
   // Channels over which control data is received.
   string channel_control_ref_thrust;
   string channel_control_ref_leg;
   string channel_control_velocity;
-
-  // Channel(s) for altering durative parameters?
-  // @@@ Not implemented.
 
   // Channels for determining comms states.
   string channel_ethernet; // dialtone proxy for any of fiber, deck-cable, RF (any pilotable Ethernet channel).
@@ -34,11 +34,8 @@ struct mx_ini_t
   // Channels for acomms interface.
   string channel_umodem10_acomm_message_queue;
   string channel_umodem10_lcm_wrapped_tx; // for Tx'ing messages acoustically.
-  string channel_umodem10_lcm_wrapped_rx; // for Rx'ing msgs acoustically.
   string channel_umodem35_acomm_message_queue;
   string channel_umodem35_lcm_wrapped_tx; // for Tx'ing messages acoustically.
-  string channel_umodem35_lcm_wrapped_rx; // for Rx'ing msgs acoustically.
-
 
   // Channels for manipulating behavior parameters.
   // Internal flag indicates whether to atomically activate 

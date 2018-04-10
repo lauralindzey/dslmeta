@@ -11,7 +11,7 @@ struct htpleak_t
 	string 		location;  // human-readable sensor location.  Used to disambiguate sources.
 
 	// Leak Detect
-	boolean		leak; // combine multiple leak detects into a single value in the driver for a sensor.
+	boolean		leak_fault; // combine multiple leak detects into a single value in the driver for a sensor.
 	boolean		leak_valid;  // Indicates whether this sensor includes one or more leak-detects.
 
 	// Humidity (%)
