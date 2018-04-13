@@ -14,6 +14,7 @@ struct mx_behavior_descent_parameters_t
 	float depth_goal;			// target depth
 	float depth_rate_tol;			// depth rate tolerance
 	float depth_rate_timeout;               // time absolute depth rate must be below tol before exit
+	float thrust_limit_prcnt;  	// To limit response to P term.
 
 	// @@@ target altitude and whether to use altitude for target or just as safety.
 	// @@@ not implemented.
