@@ -20,7 +20,7 @@ struct umodem_cst_t
   umodem_snr_t   snr;
   double         mse;
   int32_t        dqf;
-  int32_t        dop;
+  double        dop;
   int32_t        noise_stddev;
   int32_t        carrier_hz;
   int32_t        bandwidth_hz;
