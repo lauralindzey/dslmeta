@@ -16,7 +16,7 @@ struct ps_t
   int8_t leak[2]; // these are 8-bit a2d, >0 indicates leak.
   float humidity;
   float current;
-  float pressure;  // no sensor installed.
+  float pressure;  // in place of humidity on some boards as of 2019-04.
 
   // Slurp indexing.
   int16_t slurp_magnet; // indicates whether slurp reed switch is on or off.
