@@ -21,7 +21,7 @@ struct statexy_t
   double       u_vel;                     /* u vel  (meters/sec) */
   double       v_vel;                     /* v vel  (meters/sec) */
   double       w_vel;                     /* w vel  (meters/sec) */
-  int64_t      abort_status; 	          /* aborted or not?
+  int64_t      abort_status; 	          /* aborted or not? */
   int64_t      abort_reason; 	          /* if aborted, what triggered it first? */
   int32_t      cfg;          	          /* HROV flight mode */
   double       batt_percent;     	  /* battery percent */
