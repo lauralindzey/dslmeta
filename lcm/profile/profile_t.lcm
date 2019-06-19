@@ -11,7 +11,7 @@ struct profile_t
   double median[num_bins];
   double std[num_bins];
   double mad[num_bins];
-  double samples[num_bins]; // number of samples in each depth bin
+  int64_t samples[num_bins]; // number of samples in each depth bin
 
   profile_ini_t ini;
   profile_status_t status;

@@ -11,7 +11,7 @@ struct wetlabsfln_t
   int32_t thermistor;
 
   // computed values
-  double chl_ugdl;
+  double chl_ugdL;
   double turb_NTU;
 
   wetlabsfln_status_t status;
