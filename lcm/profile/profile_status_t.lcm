@@ -1,0 +1,11 @@
+package profile;
+
+struct profile_status_t
+{
+  int64_t utime;
+
+  // Process-specific status
+  dslprocess.process_status_t process_status;
+
+  profile_ini_t ini;
+}
