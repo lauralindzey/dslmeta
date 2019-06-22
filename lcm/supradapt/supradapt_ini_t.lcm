@@ -1,0 +1,12 @@
+package supradapt;
+
+struct supradapt_ini_t
+{
+  string channel_update_directive;
+
+  int16_t num_depths;
+  double depths[num_depths];
+
+  string host;
+
+}

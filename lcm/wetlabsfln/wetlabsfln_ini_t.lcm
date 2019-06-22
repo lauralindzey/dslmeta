@@ -3,6 +3,7 @@ package wetlabsfln;
 struct wetlabsfln_ini_t
 {
   string channel_data;
+  string channel_simstate;
 
   dsldevice.device_conn_t connection;
 

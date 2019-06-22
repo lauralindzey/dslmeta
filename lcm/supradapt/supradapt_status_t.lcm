@@ -1,0 +1,11 @@
+package supradapt;
+
+struct supradapt_status_t
+{
+  int64_t utime;
+
+  // Process-specific status
+  dslprocess.process_status_t process_status;
+
+  supradapt_ini_t ini;
+}

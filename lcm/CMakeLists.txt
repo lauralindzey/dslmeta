@@ -51,6 +51,7 @@ set (LCM_PACKAGES
   "clio_battery"
   "jhuweather"
   "profile"
+  "supradapt"
 )
 
 # Set destination for all generated code.

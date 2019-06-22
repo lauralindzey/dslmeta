@@ -1,0 +1,13 @@
+package mx;
+
+struct mx_directive_update_t
+{
+
+   int8_t behavior_enum;  // The type of behavior the parameters are for.
+
+   int32_t directive_uid; // uid of directive to update.
+
+   int32_t length;
+   byte rbuf[length];
+
+}

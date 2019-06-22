@@ -1,0 +1,9 @@
+package supradapt;
+
+struct supradapt_t
+{
+  int64_t utime;  // Time of last good data.
+
+  supradapt_ini_t ini;
+  supradapt_status_t status;
+}
