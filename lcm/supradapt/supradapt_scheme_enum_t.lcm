@@ -1,0 +1,9 @@
+package supradapt;
+
+struct supradapt_scheme_enum_t
+{
+  const int8_t SCHEME_CENTER_MAX=0;
+  const int8_t SCHEME_MIN_DEPTH_INTERVAL=1;
+
+  const int8_t SCHEME_UNKNOWN=15;
+}
