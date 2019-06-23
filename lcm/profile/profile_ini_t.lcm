@@ -1,0 +1,17 @@
+package profile;
+
+struct profile_ini_t
+{
+  
+  string channel_profile; // channel on which to publish profile
+  string channel_data; // channel on which to rx data.  must be a supported profile type.
+  string channel_sxy; // channel from which to get depth.
+  int16_t profile_type; // see profile_enum_t
+
+  int32_t num_bins;  // depth interval will be evenly divided.
+  double max_depth;
+  double min_depth;
+
+  string host;
+
+}
