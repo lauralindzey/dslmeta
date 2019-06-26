@@ -1,0 +1,11 @@
+package supradapt;
+
+struct supradapt_scheme_min_depth_interval_parameters_t
+{
+
+  double min_depth;
+  double max_depth;
+
+  double min_depth_interval;
+
+}
