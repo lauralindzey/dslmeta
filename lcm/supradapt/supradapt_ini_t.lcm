@@ -10,11 +10,11 @@ struct supradapt_ini_t
 
   int16_t num_depths;
   double depths[num_depths];
-
-  double min_depth;
-  double max_depth;
-
+  
   double profile_stop_depth;
+
+  supradapt_scheme_min_depth_interval_parameters_t scheme_center_max_parameters;	
+  supradapt_scheme_min_depth_interval_parameters_t scheme_min_depth_interval_parameters;
 
   string host;
 
