@@ -11,88 +11,88 @@ struct rdidvl_t
   int16_t      pd_mode;
   byte         START_OF_DATA_CHAR;
   int16_t      MAX_VALID_DATA_LEN;
-  double       t;                  /* seconds since start of day, good to .01 */
+  double       t;                  // seconds since start of day, good to .01 
 
-  /* these fields reflect the RAW values received from the DVL in PD5 mode */
-  /* these are parsed directly out of the PD5 data block */
-  double       heading;            /* radians */
-  double       pitch;              /* radians */
-  double       roll;               /* radians */
-  double       sv;                 /* in meter/sec */
-  double       salinity;           /* in parts per thousand */
-  double       temp;               /* in deg C */
-  double       depth;              /* in meters */
-  double       range[4];           /* ranges from the 4 beams, not corrected for angles */
-                                   /* Note that in PD0 mode the range is reported in
-                                   /* distinct fields for MSB and LSB */
-  double       altitude;           /* altitude, set to 0.0 when bad */
-  //double     sensorPosition[6];   /* position of the DVL on the vehicle relative to the vehicle origin.  Not used by dvld */
-  double       bt[4];                 /* displacement, bottom referenced */
-  double       btv[4];                /* velocity, bottom referenced */
-  byte         bt_status ;    /* status of bottom track */
-  double       wt[4];                 /* displacement, referenced to water mass*/
-  double       wtv[4];                /* velocity, referenced to water mass */
-  byte         wt_status;      /* status of water mass track */
+  // these fields reflect the RAW values received from the DVL in PD5 mode 
+  // these are parsed directly out of the PD5 data block 
+  double       heading;            // radians 
+  double       pitch;              // radians 
+  double       roll;               // radians 
+  double       sv;                 // in meter/sec 
+  double       salinity;           // in parts per thousand 
+  double       temp;               // in deg C 
+  double       depth;              // in meters 
+  double       range[4];           // ranges from the 4 beams, not corrected for angles 
+                                   // Note that in PD0 mode the range is reported in
+                                   // distinct fields for MSB and LSB 
+  double       altitude;           // altitude, set to 0.0 when bad 
+  //double     sensorPosition[6];   // position of the DVL on the vehicle relative to the vehicle origin.  Not used by dvld 
+  double       bt[4];                 // displacement, bottom referenced 
+  double       btv[4];                // velocity, bottom referenced 
+  byte         bt_status ;    // status of bottom track 
+  double       wt[4];                 // displacement, referenced to water mass
+  double       wtv[4];                // velocity, referenced to water mass 
+  byte         wt_status;      // status of water mass track 
 
-  /* bottom track fields added 11 April 1998 LLW */
-  /* these fields reflect the RAW values received from the DVL in PD5 mode */
+  // bottom track fields added 11 April 1998 LLW 
+  // these fields reflect the RAW values received from the DVL in PD5 mode 
   double       bt_last_good_vel_time;
   int16_t      bt_count_012_beam;
   int16_t      bt_count_3_beam;        
   int16_t      bt_count_4_beam;
-  int16_t      bt_beams_this_solution;            /* is solution 3-beam or 4-beam? */
+  int16_t      bt_beams_this_solution;            // is solution 3-beam or 4-beam? 
   //double     bt_time_since_good_solution;
   double       btv_err_mean;
   double       btv_err_std;
   double       btv_err_sum;
   double       btv_err_sum_sq;
-  double       bt_cog;                            /* course over ground in radians */
-  double       bt_sog;                            /* speed over ground in m/s */
-  int16_t      new_good_bt;                       /* this is set to 1 when a new valid DVL BT ping is received */
-                                                    /* then set to zero when the WT data has been processed */
-                                                    /* by higher level dvlnav code, to preclude multiple processing  */
-													/* of the same ping */ 
-  /* water track fields added 11 April 1998 LLW */
+  double       bt_cog;                            // course over ground in radians 
+  double       bt_sog;                            // speed over ground in m/s 
+  int16_t      new_good_bt;                       // this is set to 1 when a new valid DVL BT ping is received 
+                                                    // then set to zero when the WT data has been processed 
+                                                    // by higher level dvlnav code, to preclude multiple processing  
+													// of the same ping  
+  // water track fields added 11 April 1998 LLW 
   double       wt_last_good_vel_time;
   int16_t      wt_count_012_beam;
   int16_t      wt_count_3_beam;
   int16_t      wt_count_4_beam;
-  int16_t      wt_beams_this_solution;            /* is solution 3-beam or 4-beam? */
+  int16_t      wt_beams_this_solution;            // is solution 3-beam or 4-beam? 
   //double     wt_time_since_good_solution;
   double       wtv_err_mean;
   double       wtv_err_std;
   double       wtv_err_sum;
   double       wtv_err_sum_sq;
-  double       wt_cow;                            /* course over water layer in radians */ 
-  double       wt_sow;                            /* speed over water layer in m/s */ 
-  int16_t      new_good_wt;                       /* this is set to 1 when a new valid DVL WT ping is received */
-                                                    /* then set to zero when the WT data has been processed */
-                                                    /* by higher level dvlnav code, to preclude multiple processing  */
-													/* of the same ping */ 
-  /* status fields */
-  byte         config;                            /* dvl config bitmap */
-  byte         BIT;                               /* dvl self-test bitmap  */
+  double       wt_cow;                            // course over water layer in radians  
+  double       wt_sow;                            // speed over water layer in m/s  
+  int16_t      new_good_wt;                       // this is set to 1 when a new valid DVL WT ping is received 
+                                                    // then set to zero when the WT data has been processed 
+                                                    // by higher level dvlnav code, to preclude multiple processing  
+													// of the same ping  
+  // status fields 
+  byte         config;                            // dvl config bitmap 
+  byte         BIT;                               // dvl self-test bitmap  
   double       wlm;
-  double       wln;                                       /* ref water layer near in meters */
-  double       wlf;                                       /* ref water layer far in meters */
+  double       wln;                                       // ref water layer near in meters 
+  double       wlf;                                       // ref water layer far in meters 
 
-  /* fields appearing only in PD3 */
+  // fields appearing only in PD3 
   byte         DTF;
   byte         SOD;
   byte         DVLALT;  //08-31-2007 JCK - this variable is named ALT in DVLNAV code; remaned to eliminate conflcit with #define ALT in navest_talk.h
 
-  /* serial I/O and logging fields added 11 April 1998 LLW */
-  int16_t      new_dvl_string;                 /* this is set to 1 when a new dvl string is received, even if ping data is bad */
-  int16_t      nrecords;                       /* number of records successfully parsed */
-  int16_t      nbadrecords;                    /* number of records unsuccessfully parsed */
-  byte         most_recent_checksum_computed;  /* checksum computed from last string */
-  byte         most_recent_checksum_received;  /* checksum recieved varbatim in last string */
-  double       most_recent_string_time;        /* time of most rercent dvl string  - PC Unix Time*/
-  double       most_recent_string_delta_time;  /* time since most rercent dvl string  - from PC Unix Time Stamps */
-  double       wh_sec_since_midnight;          /* dvl clock time last ensemble - From Doppler DSP Clock*/
-  double       wh_delta_t;                     /* dvl delta clock time last ensemble - Computed From Doppler DSP Clock*/
-  //byte       most_recent_pd_string[10240];   /* most recent binary string */
-  //int16_t    most_recent_dvl_fix_method;  /* 0=none (bad fix), 1=bottom track, 2=water track */
+  // serial I/O and logging fields added 11 April 1998 LLW 
+  int16_t      new_dvl_string;                 // this is set to 1 when a new dvl string is received, even if ping data is bad 
+  int16_t      nrecords;                       // number of records successfully parsed 
+  int16_t      nbadrecords;                    // number of records unsuccessfully parsed 
+  byte         most_recent_checksum_computed;  // checksum computed from last string 
+  byte         most_recent_checksum_received;  // checksum recieved varbatim in last string 
+  double       most_recent_string_time;        // time of most rercent dvl string  - PC Unix Time
+  double       most_recent_string_delta_time;  // time since most rercent dvl string  - from PC Unix Time Stamps 
+  double       wh_sec_since_midnight;          // dvl clock time last ensemble - From Doppler DSP Clock
+  double       wh_delta_t;                     // dvl delta clock time last ensemble - Computed From Doppler DSP Clock
+  //byte       most_recent_pd_string[10240];   // most recent binary string 
+  //int16_t    most_recent_dvl_fix_method;  // 0=none (bad fix), 1=bottom track, 2=water track 
 
   //pd0 add-ons
   //variable header info
@@ -154,11 +154,11 @@ struct rdidvl_t
   double       pressure;                         //pressure of water outside ducer relative to 1 atm
   double       pressure_var;                     //variance of pressure
 
-  /*
-  2013-11-06 JCK - lcm structures can't handle rov_time_struct_t so 
-  we hard define it here.  these fields are rarely used in navest 
-  do there are minimal problems downstream
-  */ 
+  
+  //2013-11-06 JCK - lcm structures can't handle rov_time_struct_t so 
+  //we hard define it here.  these fields are rarely used in navest 
+  //do there are minimal problems downstream
+   
   int16_t      pd0_time_year;
   int16_t      pd0_time_month;
   int16_t      pd0_time_day;
