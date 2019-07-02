@@ -2,6 +2,7 @@ package comms;
 
 // 2014-07-13 SS - reviewed by adding more travel times and tt staleness
 // 2016-09-14 SS - changed lbl travel times from 2 to 4
+// 2019-06-19 MVJ- add additional abort fields (using previous field as bit masks in acomms).
 
 struct statexy_t
 {
@@ -20,7 +21,8 @@ struct statexy_t
   double       u_vel;                     /* u vel  (meters/sec) */
   double       v_vel;                     /* v vel  (meters/sec) */
   double       w_vel;                     /* w vel  (meters/sec) */
-  int64_t      abort_status;   	          /* abort status */
+  int64_t      abort_status; 	          /* aborted or not? */
+  int64_t      abort_reason; 	          /* if aborted, what triggered it first? */
   int32_t      cfg;          	          /* HROV flight mode */
   double       batt_percent;     	  /* battery percent */
   double       batt_time_remaining;       /* seconds until batteries are drained to zero */

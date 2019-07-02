@@ -50,6 +50,8 @@ set (LCM_PACKAGES
   "wetlabsfln"
   "clio_battery"
   "jhuweather"
+  "profile"
+  "supradapt"
 )
 
 # Set destination for all generated code.

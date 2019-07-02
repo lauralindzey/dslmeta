@@ -1,0 +1,9 @@
+package profile;
+
+struct profile_enum_t
+{
+  const int16_t PROFILE_TYPE_FLNTURTD_CHL = 0;
+  const int16_t PROFILE_TYPE_FLNTURTD_TURB = 1;	
+  
+  const int16_t PROFILE_TYPE_UNKNOWN = 15;
+}

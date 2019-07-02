@@ -49,7 +49,10 @@ struct mx_ini_t
   string channel_set_behavior_grid_parameters;    
   string channel_set_behavior_suprsample_parameters;    
   string channel_set_behavior_ascent_parameters;    
-  string channel_set_behavior_descent_parameters;    
+  string channel_set_behavior_descent_parameters;
+
+  // Used for updating parameters of directives in the mission.
+  string channel_update_directive;
 
   // Initial values for durative parameters.
   int64_t active_aborts;    // 10-mask.  Determines which aborts can be triggered.

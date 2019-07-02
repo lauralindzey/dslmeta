@@ -3,8 +3,14 @@ package wetlabsfln;
 struct wetlabsfln_ini_t
 {
   string channel_data;
+  string channel_simstate;
 
   dsldevice.device_conn_t connection;
+
+  double chl_scale_factor;
+  int16_t chl_dark_counts;
+  double turb_scale_factor;
+  int16_t turb_dark_counts;
 
   string host;
 

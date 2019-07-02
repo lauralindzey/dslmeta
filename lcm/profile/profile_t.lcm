@@ -1,0 +1,18 @@
+package profile;
+
+struct profile_t
+{
+  int64_t utime;  // Time of last good data.
+
+  int32_t num_bins;
+  double min_depth[num_bins];
+  double max_depth[num_bins];
+  double average[num_bins];
+  double median[num_bins];
+  double std[num_bins];
+  double mad[num_bins];
+  int64_t samples[num_bins]; // number of samples in each depth bin
+
+  profile_ini_t ini;
+  profile_status_t status;
+}
