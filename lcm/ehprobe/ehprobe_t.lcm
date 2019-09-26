@@ -1,0 +1,11 @@
+package ehprobe;
+
+struct ehprobe_t
+{
+  int64_t utime;  // Time of last good data.
+
+  double eh_volts;
+
+  // Device specific status. (Generic status and raw data are nested within).
+  ehprobe_status_t status;
+}

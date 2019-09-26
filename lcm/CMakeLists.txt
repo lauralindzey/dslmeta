@@ -52,6 +52,7 @@ set (LCM_PACKAGES
   "jhuweather"
   "profile"
   "supradapt"
+  "ehprobe"
 )
 
 # Set destination for all generated code.
