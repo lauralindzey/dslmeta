@@ -1,0 +1,10 @@
+package tempprobe;
+
+struct tempprobe_t
+{
+  int64_t utime;  // Time of last good data.
+
+  double temp_celsius;
+
+  tempprobe_status_t status;
+}

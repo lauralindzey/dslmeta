@@ -53,6 +53,7 @@ set (LCM_PACKAGES
   "profile"
   "supradapt"
   "ehprobe"
+  "tempprobe"
 )
 
 # Set destination for all generated code.
