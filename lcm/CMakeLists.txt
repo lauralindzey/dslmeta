@@ -54,6 +54,7 @@ set (LCM_PACKAGES
   "supradapt"
   "ehprobe"
   "tempprobe"
+  "kraftarm"
 )
 
 # Set destination for all generated code.

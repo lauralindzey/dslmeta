@@ -1,0 +1,13 @@
+package kraftarm;
+
+struct kraftarm_ini_t
+{
+  string channel_data;
+  string channel_joystick;
+
+  dsldevice.device_conn_t connection;
+
+  string host;
+
+  dsldevice.enumer_t enumer;
+}

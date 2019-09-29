@@ -1,0 +1,9 @@
+package kraftarm;
+
+struct kraftarm_t
+{
+  int64_t utime;  // Time of last good data.
+
+  // Device specific status. (Generic status and raw data are nested within).
+  kraftarm_status_t status;
+}
