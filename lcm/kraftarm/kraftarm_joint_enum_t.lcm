@@ -1,0 +1,14 @@
+package kraftarm;
+
+struct kraftarm_joint_enum_t
+{
+  const int8_t NUM_JOINTS = 7;
+
+  const int8_t SHOULDER_AZIMUTH = 0;
+  const int8_t SHOULDER_ELEVATION = 1;
+  const int8_t ELBOW = 2;
+  const int8_t WRIST_PITCH = 3;
+  const int8_t WRIST_YAW = 4;
+  const int8_t WRIST_ROTATE = 5;
+  const int8_t JAW = 6;
+}

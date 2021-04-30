@@ -2,8 +2,28 @@ package kraftarm;
 
 struct kraftarm_t
 {
-  int64_t utime;  // Time of last good data.
+  int64_t utime;
 
-  // Device specific status. (Generic status and raw data are nested within).
-  kraftarm_status_t status;
+  boolean hydraulics_enabled;
+
+  int32_t target_cnt[6];  // unsmoothed setpoint from operators
+  float speed_cntps[6]; // speed of smoothed trajectory
+  int32_t command_cnt[6]; // smoothed setpoint sent to the arm
+  int32_t joint_cnt[6];  // joint positions reported by the RSD
+
+  int64_t tx_ack;
+  int64_t tx_nack;
+  int64_t rx_ack;
+  int64_t rx_nack;
+
+  int16_t subsea_period_min;
+  int16_t subsea_period_max;
+  int16_t master_period_min;
+  int16_t master_period_max;
+
+  float acceleration_cntps2; // used in smoother
+
+  kraftarm.kraftarm_status_t status;
+
+  kraftarm.kraftarm_joint_enum_t joint_enum;
 }
