@@ -6,10 +6,10 @@ struct kraftarm_t
 
   boolean hydraulics_enabled;
 
-  int32_t target_cnt[6];  // unsmoothed setpoint from operators
-  float speed_cntps[6]; // speed of smoothed trajectory
-  int32_t command_cnt[6]; // smoothed setpoint sent to the arm
-  int32_t joint_cnt[6];  // joint positions reported by the RSD
+  int32_t target_cnt[7];  // unsmoothed setpoint from operators
+  float speed_cntps[7]; // speed of smoothed trajectory
+  int32_t command_cnt[7]; // smoothed setpoint sent to the arm
+  int32_t joint_cnt[7];  // joint positions reported by the RSD
 
   int64_t tx_ack;
   int64_t tx_nack;
