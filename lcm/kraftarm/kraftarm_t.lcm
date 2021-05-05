@@ -23,6 +23,8 @@ struct kraftarm_t
 
   float acceleration_cntps2; // used in smoother
 
+  int8_t sequence_counter;
+
   kraftarm.kraftarm_status_t status;
 
   kraftarm.kraftarm_joint_enum_t joint_enum;
