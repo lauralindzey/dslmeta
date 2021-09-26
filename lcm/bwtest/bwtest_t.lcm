@@ -4,11 +4,14 @@ struct bwtest_t
 {
   int64_t utime;  // Time of last good data.
 
-  double bw0_volts;
-  double bw0_amps;
-
   double bw1_volts;
   double bw1_amps;
+
+  double bw2_volts;
+  double bw2_amps;
+
+  boolean bw1_ok;
+  boolean bw2_ok;
 
   bwtest_status_t status;
 }
