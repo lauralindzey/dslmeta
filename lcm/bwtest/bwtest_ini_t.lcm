@@ -1,0 +1,27 @@
+package bwtest;
+
+struct bwtest_ini_t
+{
+  string channel_data;
+  string channel_config;
+
+  dsldevice.device_conn_t connection;
+
+  double ai0_scale;
+  double ai0_bias;
+  double ai1_scale;
+  double ai1_bias;
+  double ai2_scale;
+  double ai2_bias;
+  double ai3_scale;
+  double ai3_bias;
+
+  double min_bw1_volt;
+  double min_bw1_amps;
+  double min_bw2_volt;
+  double min_bw2_amps;
+
+  string host;
+
+  dsldevice.enumer_t enumer;
+}

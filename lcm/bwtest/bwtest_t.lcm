@@ -1,0 +1,14 @@
+package bwtest;
+
+struct bwtest_t
+{
+  int64_t utime;  // Time of last good data.
+
+  double bw0_volts;
+  double bw0_amps;
+
+  double bw1_volts;
+  double bw1_amps;
+
+  bwtest_status_t status;
+}
