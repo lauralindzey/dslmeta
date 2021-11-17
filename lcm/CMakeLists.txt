@@ -55,6 +55,7 @@ set (LCM_PACKAGES
   "ehprobe"
   "tempprobe"
   "kraftarm"
+  "bwtest"
 )
 
 # Set destination for all generated code.
