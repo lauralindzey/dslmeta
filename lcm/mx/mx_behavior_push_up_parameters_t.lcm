@@ -20,7 +20,6 @@ struct mx_behavior_push_up_parameters_t
   int8_t heave_thrust_prcnt;  // (-100 to 100) heave thrust (signed) to 
                              // demand (body frame).
 
-  float timeout;        // (s) additional timeout for behavior following 
-                        // loss of all comms.
+
   
 }

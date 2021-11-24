@@ -10,7 +10,5 @@ struct mx_behavior_push_up_state_t
                                // reported by rov-core. 
   float depth;                 // (m) Current depth
   float depth_rate;            // (m/s) positive is inccreasing depth.
-
-  float countdown;         // (s) time remaining on no comms deadman.
-
+  
 }
