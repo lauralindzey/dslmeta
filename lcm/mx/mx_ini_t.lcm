@@ -50,6 +50,7 @@ struct mx_ini_t
   string channel_set_behavior_suprsample_parameters;    
   string channel_set_behavior_ascent_parameters;    
   string channel_set_behavior_descent_parameters;
+  string channel_set_behavior_descent_to_altitude_parameters;
 
   // Used for updating parameters of directives in the mission.
   string channel_update_directive;
@@ -69,6 +70,7 @@ struct mx_ini_t
   mx_behavior_suprsample_parameters_t behavior_suprsample_parameters;
   mx_behavior_ascent_parameters_t behavior_ascent_parameters;
   mx_behavior_descent_parameters_t behavior_descent_parameters;
+  mx_behavior_descent_to_altitude_parameters_t behavior_descent_to_altitude_parameters;	
 
   int8_t mx_behavior_piloted_exit_transition;
   int8_t mx_behavior_hold_station_exit_transition;
@@ -80,6 +82,7 @@ struct mx_ini_t
   int8_t mx_behavior_suprsample_exit_transition;
   int8_t mx_behavior_ascent_exit_transition;
   int8_t mx_behavior_descent_exit_transition;
+  int8_t mx_behavior_descent_to_altitude_exit_transition;
 
   // Power management
   string power_cfg_cmd_channel;

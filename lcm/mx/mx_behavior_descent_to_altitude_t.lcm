@@ -1,0 +1,10 @@
+package mx;
+
+struct mx_behavior_descent_to_altitude_t
+{
+  // Behavior-specific ephemeral parameters.
+  mx_behavior_descent_to_altitude_parameters_t parameters;
+
+  // Behavior-specific state.
+  mx_behavior_descent_to_altitude_state_t state;
+}
