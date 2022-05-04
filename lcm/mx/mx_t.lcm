@@ -64,6 +64,7 @@ struct mx_t
   mx.mx_behavior_suprsample_t behavior_suprsample;
   mx.mx_behavior_ascent_t behavior_ascent;
   mx.mx_behavior_descent_t behavior_descent;
+  mx.mx_behavior_descent_to_altitude_t behavior_descent_to_altitude;	
 
   // Power configuration
   mx.mx_power_cfg_cmd_t power_cfg;
