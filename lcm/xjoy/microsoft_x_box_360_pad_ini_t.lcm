@@ -11,6 +11,9 @@ struct microsoft_x_box_360_pad_ini_t
   // Where to publish the data
   string channel_data;
 
+  // The take channel to determine whose joystick is active.
+  string channel_joytake;
+
   // Hostname where it will run
   string host; 
 }

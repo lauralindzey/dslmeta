@@ -1,0 +1,9 @@
+package xjoy;
+
+struct xjoy_take_t
+{
+
+  // the machine requesting or owning the joystick
+  string active_joy_host;
+
+}

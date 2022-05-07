@@ -41,6 +41,9 @@ struct microsoft_x_box_360_pad_t
     const int16_t STICK_MIN = -32767;
     const int16_t STICK_DEADBAND = 7000;
 
+    // Active joystick?
+    boolean active;    
+
     // Initialization parameters.
     xjoy.microsoft_x_box_360_pad_ini_t ini;
 
