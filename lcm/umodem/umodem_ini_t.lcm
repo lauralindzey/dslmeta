@@ -42,6 +42,10 @@ struct umodem_ini_t
   // Should be true only for subsea modems
   boolean sync_publish;
 
+  // Auto-set pwramp.txlevel based on depth.
+  boolean txlevel_auto_enabled;
+  float txlevel_quiet_depth;
+
   umodem_enum_t hw_version;
 
   int8_t src;
