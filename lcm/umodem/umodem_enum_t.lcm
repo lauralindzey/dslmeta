@@ -4,4 +4,5 @@ struct umodem_enum_t
 {
   const int8_t MICROMODEM_1=1;
   const int8_t MICROMODEM_2=2;
+  const int8_t SONARDYNE=3;
 }
