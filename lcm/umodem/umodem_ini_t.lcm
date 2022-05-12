@@ -46,6 +46,10 @@ struct umodem_ini_t
 
   int8_t hw_version;  // mm 1,2 or sonardyne.
 
+  // Auto-set pwramp.txlevel based on depth.
+  boolean txlevel_auto_enabled;
+  float txlevel_quiet_depth;
+
   int16_t src; // addr in sonardyne mode; src in mm mode
   int16_t dest; // ignored in mm mode (hard-coded to 15 bcast); single dest addr in sdyne mode.
   float frequency;
