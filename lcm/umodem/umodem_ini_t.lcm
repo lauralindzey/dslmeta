@@ -51,8 +51,10 @@ struct umodem_ini_t
   float txlevel_quiet_depth;
 
   int16_t src; // addr in sonardyne mode; src in mm mode
-  int16_t dest; // ignored in mm mode (hard-coded to 15 bcast); single dest addr in sdyne mode.
+
   int16_t num_dest; // ignored in mm mode
+  int16_t dest[num_dest]; // ignored in mm mode (hard-coded to 15 bcast); single dest addr in sdyne mode.
+  
   float frequency;
   string host; // Where the code will run
 
