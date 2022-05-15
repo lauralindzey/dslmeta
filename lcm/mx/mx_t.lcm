@@ -40,6 +40,7 @@ struct mx_t
   mx.mx_comms_t ethernet;
   mx.mx_comms_t acomms3p5kHz;
   mx.mx_comms_t acomms10kHz;
+  mx.mx_comms_t acommsAvtrak;
 
   // vehicle state including navigation and battery as used by mx to compute distance to goals, etc.
   comms.statexy_t nav;

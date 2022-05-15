@@ -29,13 +29,16 @@ struct mx_ini_t
   // Channels for determining comms states.
   string channel_ethernet; // dialtone proxy for any of fiber, deck-cable, RF (any pilotable Ethernet channel).
   string channel_umodem10_status; 
-  string channel_umodem35_status; 
+  string channel_umodem35_status;
+  string channel_umodem_avtrak_status; 
 
   // Channels for acomms interface.
   string channel_umodem10_acomm_message_queue;
   string channel_umodem10_lcm_wrapped_tx; // for Tx'ing messages acoustically.
   string channel_umodem35_acomm_message_queue;
   string channel_umodem35_lcm_wrapped_tx; // for Tx'ing messages acoustically.
+  string channel_umodem_avtrak_acomm_message_queue;
+  string channel_umodem_avtrak_lcm_wrapped_tx; // for Tx'ing messages acoustically.
 
   // Channels for manipulating behavior parameters.
   // Internal flag indicates whether to atomically activate 
