@@ -41,8 +41,10 @@ struct umodem_ini_t
   // Sync publish flag.  If true, the modem process will synchronously publish the statexy on the FIBER_STATEXY channel
   // Should be true only for subsea modems
   boolean sync_publish;  // publish statexy over LCM.
-  boolean sync_tx;  // transmit on a regular period.  Not sync'd to absolute time. 
-  float sync_tx_period;  // period (s) for regular transmission.
+  boolean sync_tx;  // transmit on a regular period.  Not sync'd to absolute time.
+  int8_t sync_tx_tdma_period;  // period (s) for regular transmission.
+  int16_t sync_tx_tdma_slots;  // number of slots in the cycle.
+  float sync_tx_tdma[sync_tx_tdma_slots];  // transmit at these times.
 
   int8_t hw_version;  // mm 1,2 or sonardyne.
 
