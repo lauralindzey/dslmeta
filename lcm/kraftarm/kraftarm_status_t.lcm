@@ -12,5 +12,5 @@ struct kraftarm_status_t
   dsldevice.raw_data_t raw;
   dsldevice.device_status_t device_status;
 
-  kraftarm.kraftarm_ini_t ini;
+  kraftarm_ini_t ini;
 }

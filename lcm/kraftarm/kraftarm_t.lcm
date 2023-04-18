@@ -25,7 +25,7 @@ struct kraftarm_t
 
   int8_t sequence_counter;
 
-  kraftarm.kraftarm_status_t status;
+  kraftarm_status_t status;
 
-  kraftarm.kraftarm_joint_enum_t joint_enum;
+  kraftarm_joint_enum_t joint_enum;
 }
