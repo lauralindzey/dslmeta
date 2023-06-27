@@ -8,9 +8,8 @@ struct dive_t
   int32_t dive_number;
 
   double max_depth;
-  int32_t origin_utm_zone;
-  double origin_northing;
-  double origin_easting;
+  double origin_latitude;
+  double origin_longitude;
   double atmospheric_pressure;
 
   // ship transponders specified in ship frame: fwd, stbd, down.
