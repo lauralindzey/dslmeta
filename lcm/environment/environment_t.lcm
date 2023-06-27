@@ -29,10 +29,8 @@ struct environment_t
   // This still produces a linear trajectory - totally adequate for 
   // now but made be better to use a "center of rotation" model for 
   // the ice motion.
-  double ship_start_pos[3];     // lat, lon, height
-  double ship_pos_rate[3];
-  double ship_start_hpr[3];     // in deg
-  double ship_hpr_rate[3];      // in deg/s
+  double ship_pos[3];     // lat, lon, height
+  double ship_hpr[3];     // in deg
 
   // Ice drift modeled as constant rotation about a fixed center, usually
   // far away.
