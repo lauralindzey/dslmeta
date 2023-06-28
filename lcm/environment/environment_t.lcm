@@ -12,7 +12,7 @@ struct environment_t
   double  seafloor_lbl[4];
   double  owtt[3]; // how do we know which is which?
 
-  // x,y,z position of the three topside modems 
+  // x,y,z position of the three topside modems
   // in ship frame.
   // Should add the frame
   //MV to dive.m double modem_pos[3][3];
@@ -25,23 +25,16 @@ struct environment_t
 
   // True if there is no ice on the surface
   boolean    open_water;
-  
-  // This still produces a linear trajectory - totally adequate for 
-  // now but made be better to use a "center of rotation" model for 
-  // the ice motion.
+
+  // 6-DOF ship position
   double ship_pos[3];     // lat, lon, height
   double ship_hpr[3];     // in deg
 
-  // Ice drift modeled as constant rotation about a fixed center, usually
-  // far away.
-  double ice_drift_center; // lat, lon
-  double ice_drift_radius;
-  double ice_drift_speed;
-  double ice_drift_rot_rate;
-  double ice_angle;
+  // NUI-local ice velocity, in NUI's AlvinXY earth-fixed coordinate frame
+  double ice_velocity[2];  // (m/s) [dEasting/dt,  dNorthing/dt]
 
-  // Power consumption by vehicle. 
+  // Power consumption by vehicle.
   double hotel_power; // [W]
   double propulsion_power; // [W]
-  
+
 }
