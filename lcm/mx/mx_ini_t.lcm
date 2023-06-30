@@ -93,7 +93,9 @@ struct mx_ini_t
   string power_cfg_switch_addr[num_power_switches];
   string power_switch_cmd_channels[num_power_switches];
   string power_switch_data_channels[num_power_switches];
+  string power_cfg_descent[num_power_switches];
   string power_cfg_mission[num_power_switches];
+  string power_cfg_rov[num_power_switches];
   string power_cfg_recovery[num_power_switches];
   string power_cfg_sleep[num_power_switches]; 
   string power_cfg_lab[num_power_switches]; 
