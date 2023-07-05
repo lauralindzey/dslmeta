@@ -6,10 +6,10 @@ struct gfm_t
 
   int16_t bender_num; // Bender number, 0-3
   int16_t fault_status; // 1 = good, 0 = fault
-  int16_t period; // period of last recorded PWM cycle, in decimal microseconds
-  int16_t duty_cycle_pulse; //  microseconds
-  int16_t dcppt; // ratio of duty cycle period to total period, parts per thousand
-  int16_t gfr; // ground fault resistance, k-Ohm
+  int32_t period; // period of last recorded PWM cycle, in decimal microseconds
+  int32_t duty_cycle_pulse; //  microseconds
+  int32_t dcppt; // ratio of duty cycle period to total period, parts per thousand
+  int32_t gfr; // ground fault resistance, k-Ohm
 
   gfm_status_t status;
 }
