@@ -1,0 +1,13 @@
+package gfm;
+
+struct gfm_ini_t
+{
+  string channel_data;
+  string channel_simstate;
+
+  dsldevice.device_conn_t connection;
+  string host;
+
+  dsldevice.enumer_t enumer;
+
+}

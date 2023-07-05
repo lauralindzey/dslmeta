@@ -1,0 +1,28 @@
+package jhuweather;
+
+struct jhuweather_t
+{
+  int64_t utime;  // Time of last good data.
+
+  // WB2 string sentence ID not logged.
+  int64_t seq_num;  // ulong, sequection sentence ID number
+  double ver;   // f/w version
+  double time;  // Time of measurement from program start (ms)
+  double accel_x; // m/s^2
+  double accel_y; // m/s^2
+  double accel_z; // m/s^2
+  double gyro_x;  // rad/s  (instrument native is deg/s)
+  double gyro_y;  // rad/s  (instrument native is deg/s)
+  double gyro_z;  // rad/s  (instrument native is deg/s)
+  double mag_x;   // Gauss
+  double mag_y;   // Gauss
+  double mag_z;   // Gauss
+  double heading; // rad (instrument native is deg)
+  double htu_hum;  // %    
+  double htu_temp; // C
+  double mpl_pres; // Pa, absolute
+  double mpl_temp; // C
+  boolean leak; // leak detect (1==Water Present)
+
+  jhuweather_status_t status;
+}

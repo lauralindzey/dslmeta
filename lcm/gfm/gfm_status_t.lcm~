@@ -1,0 +1,16 @@
+package jhuweather;
+
+struct jhuweather_status_t
+{
+  int64_t utime;
+
+  string last_command;
+  string output;
+
+  dslprocess.process_status_t process_status;
+
+  dsldevice.raw_data_t raw;
+  dsldevice.device_status_t device_status;
+
+  jhuweather.jhuweather_ini_t ini;
+}

@@ -56,6 +56,7 @@ set (LCM_PACKAGES
   "tempprobe"
   "kraftarm"
   "bwtest"
+  "gfm"
 )
 
 # Set destination for all generated code.
