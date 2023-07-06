@@ -7,6 +7,7 @@ struct ustrain_ini_t
   // Device-instance-specific data channel.
   string channel_data;
   string channel_config;
+  string channel_simstate;
 
   // Microstrain type (GX1, GX3)
   string model;
