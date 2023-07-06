@@ -13,5 +13,6 @@ struct nav_soln_t
                    SOLN_PHINS0         	         = 8,
                    SOLN_DEADRECK_UP              = 9,
                    SOLN_BEST_HPR                 = 10,
-                   SOLN_BEST_DEPTH               = 11;
+                   SOLN_BEST_DEPTH               = 11,
+                   SOLN_USTRAIN_HPR              = 12;
 }
