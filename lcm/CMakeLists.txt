@@ -57,6 +57,7 @@ set (LCM_PACKAGES
   "kraftarm"
   "bwtest"
   "gfm"
+  "generic"
 )
 
 # Set destination for all generated code.
